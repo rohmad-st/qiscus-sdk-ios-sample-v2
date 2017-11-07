@@ -1,0 +1,792 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2027CDA08A444739C297BDD4 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EAB425F960634838704550 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework */; };
+		69BD8B15D4381105408666BB /* Pods_qiscus_sdk_ios_sample_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF9936243519949EDC306E /* Pods_qiscus_sdk_ios_sample_v2.framework */; };
+		A242AEF4E3E47DB70EA17818 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3447BE6071916A765D72FD64 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework */; };
+		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
+		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
+		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
+		CCABBC871FB187D90039B34E /* qiscus_sdk_ios_sample_v2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC861FB187D90039B34E /* qiscus_sdk_ios_sample_v2Tests.swift */; };
+		CCABBC921FB187D90039B34E /* qiscus_sdk_ios_sample_v2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC911FB187D90039B34E /* qiscus_sdk_ios_sample_v2UITests.swift */; };
+		CCABBCA61FB188940039B34E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCA41FB188940039B34E /* MainVC.swift */; };
+		CCABBCA71FB188950039B34E /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCABBCA51FB188940039B34E /* MainVC.xib */; };
+		CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCA81FB188BE0039B34E /* Helpers.swift */; };
+		CCABBCAB1FB1890A0039B34E /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCAA1FB1890A0039B34E /* ChatManager.swift */; };
+		CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCAD1FB19FC70039B34E /* UIViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCABBC831FB187D90039B34E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCABBC661FB187D90039B34E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCABBC6D1FB187D90039B34E;
+			remoteInfo = "qiscus-sdk-ios-sample-v2";
+		};
+		CCABBC8E1FB187D90039B34E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCABBC661FB187D90039B34E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCABBC6D1FB187D90039B34E;
+			remoteInfo = "qiscus-sdk-ios-sample-v2";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E10802BB28CC7E2E725B8E3 /* Pods-qiscus-sdk-ios-sample-v2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		3447BE6071916A765D72FD64 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiscus_sdk_ios_sample_v2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37EAB425F960634838704550 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiscus_sdk_ios_sample_v2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ADF9936243519949EDC306E /* Pods_qiscus_sdk_ios_sample_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiscus_sdk_ios_sample_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9F4572E5904F60DA64843B /* Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig"; sourceTree = "<group>"; };
+		C49238FC68A650056EE04BDF /* Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CCABBC7B1FB187D90039B34E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CCABBC7D1FB187D90039B34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCABBC821FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCABBC861FB187D90039B34E /* qiscus_sdk_ios_sample_v2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qiscus_sdk_ios_sample_v2Tests.swift; sourceTree = "<group>"; };
+		CCABBC881FB187D90039B34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCABBC8D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCABBC911FB187D90039B34E /* qiscus_sdk_ios_sample_v2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qiscus_sdk_ios_sample_v2UITests.swift; sourceTree = "<group>"; };
+		CCABBC931FB187D90039B34E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCABBCA41FB188940039B34E /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		CCABBCA51FB188940039B34E /* MainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainVC.xib; sourceTree = "<group>"; };
+		CCABBCA81FB188BE0039B34E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		CCABBCAA1FB1890A0039B34E /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		CCABBCAD1FB19FC70039B34E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		EEAD325F62959857D2D3ED19 /* Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCABBC6B1FB187D90039B34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69BD8B15D4381105408666BB /* Pods_qiscus_sdk_ios_sample_v2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCABBC7F1FB187D90039B34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2027CDA08A444739C297BDD4 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCABBC8A1FB187D90039B34E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A242AEF4E3E47DB70EA17818 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C89678E58D93C12154F70AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */,
+				EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */,
+				EEAD325F62959857D2D3ED19 /* Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig */,
+				2E10802BB28CC7E2E725B8E3 /* Pods-qiscus-sdk-ios-sample-v2Tests.release.xcconfig */,
+				6A9F4572E5904F60DA64843B /* Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig */,
+				C49238FC68A650056EE04BDF /* Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFFA57D52B1C6FCBEE5BAC2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ADF9936243519949EDC306E /* Pods_qiscus_sdk_ios_sample_v2.framework */,
+				37EAB425F960634838704550 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework */,
+				3447BE6071916A765D72FD64 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCABBC651FB187D90039B34E = {
+			isa = PBXGroup;
+			children = (
+				CCABBC701FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */,
+				CCABBC851FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests */,
+				CCABBC901FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests */,
+				CCABBC6F1FB187D90039B34E /* Products */,
+				9C89678E58D93C12154F70AA /* Pods */,
+				AFFA57D52B1C6FCBEE5BAC2B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CCABBC6F1FB187D90039B34E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */,
+				CCABBC821FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests.xctest */,
+				CCABBC8D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCABBC701FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBCAC1FB19FB40039B34E /* Extensions */,
+				CCABBCA21FB1885C0039B34E /* Utilities */,
+				CCABBC9F1FB1881F0039B34E /* Controllers */,
+				CCABBC711FB187D90039B34E /* AppDelegate.swift */,
+				CCABBC781FB187D90039B34E /* Assets.xcassets */,
+				CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */,
+				CCABBC7D1FB187D90039B34E /* Info.plist */,
+			);
+			path = "qiscus-sdk-ios-sample-v2";
+			sourceTree = "<group>";
+		};
+		CCABBC851FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBC861FB187D90039B34E /* qiscus_sdk_ios_sample_v2Tests.swift */,
+				CCABBC881FB187D90039B34E /* Info.plist */,
+			);
+			path = "qiscus-sdk-ios-sample-v2Tests";
+			sourceTree = "<group>";
+		};
+		CCABBC901FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBC911FB187D90039B34E /* qiscus_sdk_ios_sample_v2UITests.swift */,
+				CCABBC931FB187D90039B34E /* Info.plist */,
+			);
+			path = "qiscus-sdk-ios-sample-v2UITests";
+			sourceTree = "<group>";
+		};
+		CCABBC9F1FB1881F0039B34E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBCA31FB1886E0039B34E /* Main */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CCABBCA21FB1885C0039B34E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBCA81FB188BE0039B34E /* Helpers.swift */,
+				CCABBCAA1FB1890A0039B34E /* ChatManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		CCABBCA31FB1886E0039B34E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBCA41FB188940039B34E /* MainVC.swift */,
+				CCABBCA51FB188940039B34E /* MainVC.xib */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CCABBCAC1FB19FB40039B34E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBCAD1FB19FC70039B34E /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CCABBC6D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCABBC961FB187D90039B34E /* Build configuration list for PBXNativeTarget "qiscus-sdk-ios-sample-v2" */;
+			buildPhases = (
+				4D25ED70A2A23C0D82F31D80 /* [CP] Check Pods Manifest.lock */,
+				CCABBC6A1FB187D90039B34E /* Sources */,
+				CCABBC6B1FB187D90039B34E /* Frameworks */,
+				CCABBC6C1FB187D90039B34E /* Resources */,
+				C6740B6674C50B215798C214 /* [CP] Embed Pods Frameworks */,
+				6398504DCC8C6FE3B7DAC1D5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "qiscus-sdk-ios-sample-v2";
+			productName = "qiscus-sdk-ios-sample-v2";
+			productReference = CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CCABBC811FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCABBC991FB187D90039B34E /* Build configuration list for PBXNativeTarget "qiscus-sdk-ios-sample-v2Tests" */;
+			buildPhases = (
+				F520145B6B9880376B4C93B6 /* [CP] Check Pods Manifest.lock */,
+				CCABBC7E1FB187D90039B34E /* Sources */,
+				CCABBC7F1FB187D90039B34E /* Frameworks */,
+				CCABBC801FB187D90039B34E /* Resources */,
+				E693A52D245987ECE9CBA529 /* [CP] Embed Pods Frameworks */,
+				BB57D356281C7A26F0C66C51 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCABBC841FB187D90039B34E /* PBXTargetDependency */,
+			);
+			name = "qiscus-sdk-ios-sample-v2Tests";
+			productName = "qiscus-sdk-ios-sample-v2Tests";
+			productReference = CCABBC821FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CCABBC8C1FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCABBC9C1FB187D90039B34E /* Build configuration list for PBXNativeTarget "qiscus-sdk-ios-sample-v2UITests" */;
+			buildPhases = (
+				F1AB0BCAA2E1A4F044CC2333 /* [CP] Check Pods Manifest.lock */,
+				CCABBC891FB187D90039B34E /* Sources */,
+				CCABBC8A1FB187D90039B34E /* Frameworks */,
+				CCABBC8B1FB187D90039B34E /* Resources */,
+				55CCDA52C7275F1345F38DF0 /* [CP] Embed Pods Frameworks */,
+				B13AA2BFB601885DCB3F52DD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCABBC8F1FB187D90039B34E /* PBXTargetDependency */,
+			);
+			name = "qiscus-sdk-ios-sample-v2UITests";
+			productName = "qiscus-sdk-ios-sample-v2UITests";
+			productReference = CCABBC8D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCABBC661FB187D90039B34E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Qiscus Technology";
+				TargetAttributes = {
+					CCABBC6D1FB187D90039B34E = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					CCABBC811FB187D90039B34E = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CCABBC6D1FB187D90039B34E;
+					};
+					CCABBC8C1FB187D90039B34E = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CCABBC6D1FB187D90039B34E;
+					};
+				};
+			};
+			buildConfigurationList = CCABBC691FB187D90039B34E /* Build configuration list for PBXProject "qiscus-sdk-ios-sample-v2" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CCABBC651FB187D90039B34E;
+			productRefGroup = CCABBC6F1FB187D90039B34E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCABBC6D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */,
+				CCABBC811FB187D90039B34E /* qiscus-sdk-ios-sample-v2Tests */,
+				CCABBC8C1FB187D90039B34E /* qiscus-sdk-ios-sample-v2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCABBC6C1FB187D90039B34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCABBCA71FB188950039B34E /* MainVC.xib in Resources */,
+				CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */,
+				CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCABBC801FB187D90039B34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCABBC8B1FB187D90039B34E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D25ED70A2A23C0D82F31D80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		55CCDA52C7275F1345F38DF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6398504DCC8C6FE3B7DAC1D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B13AA2BFB601885DCB3F52DD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB57D356281C7A26F0C66C51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6740B6674C50B215798C214 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E693A52D245987ECE9CBA529 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1AB0BCAA2E1A4F044CC2333 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F520145B6B9880376B4C93B6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCABBC6A1FB187D90039B34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
+				CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */,
+				CCABBCA61FB188940039B34E /* MainVC.swift in Sources */,
+				CCABBCAB1FB1890A0039B34E /* ChatManager.swift in Sources */,
+				CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCABBC7E1FB187D90039B34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCABBC871FB187D90039B34E /* qiscus_sdk_ios_sample_v2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCABBC891FB187D90039B34E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCABBC921FB187D90039B34E /* qiscus_sdk_ios_sample_v2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CCABBC841FB187D90039B34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCABBC6D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */;
+			targetProxy = CCABBC831FB187D90039B34E /* PBXContainerItemProxy */;
+		};
+		CCABBC8F1FB187D90039B34E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCABBC6D1FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */;
+			targetProxy = CCABBC8E1FB187D90039B34E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCABBC7B1FB187D90039B34E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CCABBC941FB187D90039B34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CCABBC951FB187D90039B34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CCABBC971FB187D90039B34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QG8KA4P8TE;
+				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiscusdev.qiscus-sdk-ios-sample-v2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCABBC981FB187D90039B34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QG8KA4P8TE;
+				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiscusdev.qiscus-sdk-ios-sample-v2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CCABBC9A1FB187D90039B34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEAD325F62959857D2D3ED19 /* Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QG8KA4P8TE;
+				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiscusdev.qiscus-sdk-ios-sample-v2Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/qiscus-sdk-ios-sample-v2.app/qiscus-sdk-ios-sample-v2";
+			};
+			name = Debug;
+		};
+		CCABBC9B1FB187D90039B34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E10802BB28CC7E2E725B8E3 /* Pods-qiscus-sdk-ios-sample-v2Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QG8KA4P8TE;
+				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiscusdev.qiscus-sdk-ios-sample-v2Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/qiscus-sdk-ios-sample-v2.app/qiscus-sdk-ios-sample-v2";
+			};
+			name = Release;
+		};
+		CCABBC9D1FB187D90039B34E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A9F4572E5904F60DA64843B /* Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QG8KA4P8TE;
+				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiscusdev.qiscus-sdk-ios-sample-v2UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "qiscus-sdk-ios-sample-v2";
+			};
+			name = Debug;
+		};
+		CCABBC9E1FB187D90039B34E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C49238FC68A650056EE04BDF /* Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QG8KA4P8TE;
+				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.qiscusdev.qiscus-sdk-ios-sample-v2UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "qiscus-sdk-ios-sample-v2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCABBC691FB187D90039B34E /* Build configuration list for PBXProject "qiscus-sdk-ios-sample-v2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCABBC941FB187D90039B34E /* Debug */,
+				CCABBC951FB187D90039B34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCABBC961FB187D90039B34E /* Build configuration list for PBXNativeTarget "qiscus-sdk-ios-sample-v2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCABBC971FB187D90039B34E /* Debug */,
+				CCABBC981FB187D90039B34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCABBC991FB187D90039B34E /* Build configuration list for PBXNativeTarget "qiscus-sdk-ios-sample-v2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCABBC9A1FB187D90039B34E /* Debug */,
+				CCABBC9B1FB187D90039B34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCABBC9C1FB187D90039B34E /* Build configuration list for PBXNativeTarget "qiscus-sdk-ios-sample-v2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCABBC9D1FB187D90039B34E /* Debug */,
+				CCABBC9E1FB187D90039B34E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCABBC661FB187D90039B34E /* Project object */;
+}
