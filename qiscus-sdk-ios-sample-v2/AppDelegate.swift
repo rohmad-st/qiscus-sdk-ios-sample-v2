@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.setNavigationColor(.baseNavigateColor, .baseNavigateTextColor)
+        
         let navController               = UINavigationController()
         navController.viewControllers   = [MainVC()]
         
@@ -49,6 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // MARK: - Other methods
+    func setNavigationColor(_ barTintColor: UIColor, _ tintColor: UIColor) {
+        let navigationBar = UINavigationBar.appearance()
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationBar.barStyle = .blackOpaque
+        navigationBar.barTintColor = barTintColor
+        navigationBar.tintColor = tintColor
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: tintColor]
+        navigationBar.isTranslucent = false
+    }
+    
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Qiscus
 
 class MainVC: UIViewController {
 
@@ -23,9 +24,10 @@ class MainVC: UIViewController {
         self.usernameField.text     = Helper.USER_USERNAME
         
         // add done button in navigation right
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done,
-                                                                 target: self,
-                                                                 action: #selector(login(_:)))
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                         target: self,
+                                         action: #selector(login(_:)))
+        self.navigationItem.rightBarButtonItem = doneButton
     }
     
     override func viewDidLoad() {
@@ -45,6 +47,45 @@ class MainVC: UIViewController {
 
 extension MainVC {
     @objc func login(_ sender: Any) {
-        print("MainVC login did tap...")
+        guard let appId = self.appIdField.text else { return }
+        guard let email = self.emailField.text else { return }
+        guard let password = self.passwordField.text else { return }
+        guard let username = self.usernameField.text else { return }
+
+        Qiscus.setup(withAppId: appId,
+                     userEmail: email,
+                     userKey: password,
+                     username: username,
+                     delegate: self,
+                     secureURl: true)
+    }
+    
+    func customTheme() -> Void {
+        let qiscusColor = Qiscus.style.color
+        Qiscus.style.color.welcomeIconColor = UIColor.chatWelcomeIconColor
+        qiscusColor.leftBaloonColor = UIColor.chatLeftBaloonColor
+        qiscusColor.leftBaloonTextColor = UIColor.chatLeftTextColor
+        qiscusColor.leftBaloonLinkColor = UIColor.chatLeftBaloonLinkColor
+        qiscusColor.rightBaloonColor = UIColor.chatRightBaloonColor
+        qiscusColor.rightBaloonTextColor = UIColor.chatRightTextColor
+        Qiscus.setNavigationColor(UIColor.baseNavigateColor, tintColor: UIColor.baseNavigateTextColor)
+        
+        // activate qiscus iCloud
+        // Qiscus.iCloudUploadActive(true)
+    }
+}
+
+extension MainVC: QiscusConfigDelegate {
+    func qiscusConnected() {
+        // custom theme sdk after success connected to qiscus sdk
+        self.customTheme()
+        
+        print("Success connected to Qiscus...")
+        let chatList = ChatListVC()
+        self.navigationController?.pushViewController(chatList, animated: true)
+    }
+    
+    func qiscusFailToConnect(_ withMessage: String) {
+        print("Failed connect to qiscus sdk. error: \(withMessage)")
     }
 }

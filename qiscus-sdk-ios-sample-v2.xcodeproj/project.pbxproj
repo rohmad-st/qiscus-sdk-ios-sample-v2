@@ -20,6 +20,12 @@
 		CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCA81FB188BE0039B34E /* Helpers.swift */; };
 		CCABBCAB1FB1890A0039B34E /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCAA1FB1890A0039B34E /* ChatManager.swift */; };
 		CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBCAD1FB19FC70039B34E /* UIViewController.swift */; };
+		CCDD6F421FB1AC7500D24921 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */; };
+		CCDD6F431FB1AC7500D24921 /* ChatListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */; };
+		CCDD6F461FB1B21600D24921 /* Chats.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F451FB1B21600D24921 /* Chats.swift */; };
+		CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F471FB1B57800D24921 /* ChatCell.swift */; };
+		CCDD6F4A1FB1B57800D24921 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F481FB1B57800D24921 /* ChatCell.xib */; };
+		CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +69,12 @@
 		CCABBCA81FB188BE0039B34E /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CCABBCAA1FB1890A0039B34E /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CCABBCAD1FB19FC70039B34E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatListVC.swift; path = "qiscus-sdk-ios-sample-v2/Controllers/ChatList/ChatListVC.swift"; sourceTree = SOURCE_ROOT; };
+		CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChatListVC.xib; path = "qiscus-sdk-ios-sample-v2/Controllers/ChatList/ChatListVC.xib"; sourceTree = SOURCE_ROOT; };
+		CCDD6F451FB1B21600D24921 /* Chats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chats.swift; sourceTree = "<group>"; };
+		CCDD6F471FB1B57800D24921 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		CCDD6F481FB1B57800D24921 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EEAD325F62959857D2D3ED19 /* Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +155,7 @@
 		CCABBC701FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				CCDD6F441FB1B1FF00D24921 /* Entities */,
 				CCABBCAC1FB19FB40039B34E /* Extensions */,
 				CCABBCA21FB1885C0039B34E /* Utilities */,
 				CCABBC9F1FB1881F0039B34E /* Controllers */,
@@ -175,6 +188,7 @@
 		CCABBC9F1FB1881F0039B34E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CCDD6F3F1FB1AC5A00D24921 /* ChatList */,
 				CCABBCA31FB1886E0039B34E /* Main */,
 			);
 			path = Controllers;
@@ -202,8 +216,28 @@
 			isa = PBXGroup;
 			children = (
 				CCABBCAD1FB19FC70039B34E /* UIViewController.swift */,
+				CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CCDD6F3F1FB1AC5A00D24921 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */,
+				CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */,
+				CCDD6F471FB1B57800D24921 /* ChatCell.swift */,
+				CCDD6F481FB1B57800D24921 /* ChatCell.xib */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		CCDD6F441FB1B1FF00D24921 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				CCDD6F451FB1B21600D24921 /* Chats.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +356,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCDD6F431FB1AC7500D24921 /* ChatListVC.xib in Resources */,
 				CCABBCA71FB188950039B34E /* MainVC.xib in Resources */,
+				CCDD6F4A1FB1B57800D24921 /* ChatCell.xib in Resources */,
 				CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */,
 				CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */,
 			);
@@ -488,9 +524,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
+				CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */,
 				CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */,
+				CCDD6F461FB1B21600D24921 /* Chats.swift in Sources */,
+				CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */,
 				CCABBCA61FB188940039B34E /* MainVC.swift in Sources */,
 				CCABBCAB1FB1890A0039B34E /* ChatManager.swift in Sources */,
+				CCDD6F421FB1AC7500D24921 /* ChatListVC.swift in Sources */,
 				CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
