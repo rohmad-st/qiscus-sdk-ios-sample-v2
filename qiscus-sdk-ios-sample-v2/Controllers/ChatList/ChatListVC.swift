@@ -8,13 +8,15 @@
 
 import UIKit
 import Qiscus
+import Alamofire
 
-class ChatListVC: UIViewController {
+class ChatListVC: UIViewController, UILoadingView {
     
     @IBOutlet weak var tableView: UITableView!
     var chats: Chats!
     
     override func viewWillAppear(_ animated: Bool) {
+        self.showWaiting(message: "Please wait...")
         self.setupUI()
         self.getChatList()
     }
@@ -34,19 +36,26 @@ class ChatListVC: UIViewController {
 
 extension ChatListVC {
     func setupUI() -> Void {
-        self.title = "Chat List"
+        self.title = "Chat"
         
         // MARK: - Register table & cell
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ChatCell", bundle: nil), forCellReuseIdentifier: "ChatCellIdentifier")
+        
+        // add button in navigation right
+        let rightButton = UIBarButtonItem(barButtonSystemItem: .add,
+                                         target: self,
+                                         action: #selector(add(_:)))
+        self.navigationItem.rightBarButtonItem = rightButton
     }
     
     func getChatList() -> Void {
         QChatService.roomList(withLimit: 100,
                               page: 1,
                               onSuccess: { (listRoom, totalRoom, currentPage, limit) in
-                                var rooms: [Room] = []
+                                var rooms = [Room]()
+                                // var contacts = [Contact]()
                                 listRoom.forEach({ (data) in
                                     let room = Room(name: data.name,
                                                     avatarURL: data.avatarURL,
@@ -55,28 +64,61 @@ extension ChatListVC {
                                                     isGroup: true,
                                                     unreadCount: data.unreadCount,
                                                     lastCommentText: (data.lastComment?.text)!)
+                                    
                                     rooms.append(room)
+//                                    for p in data.participants {
+//                                        guard let fullname = p.user?.fullname else { return }
+//                                        guard let avatarURL = p.user?.avatarURL else { return }
+//                                        guard let email = p.user?.email else { return }
+//
+//                                        let contact = Contact(name: fullname,
+//                                                              avatarURL: avatarURL,
+//                                                              phoneNumber: email,
+//                                                              email: email)
+//                                        print("Contact from roomList is \(contact!.name)")
+//                                        contacts.append(contact!)
+//                                    }
                                 })
                                 
+                                // print("We get contacts:", contacts)
+                                //_ = ContactListViewModel(withData: contacts)
                                 self.chats = Chats(withData: rooms)
                                 self.tableView.reloadData()
+                                self.dismissLoading()
                                 
         }, onFailed: { (err) in
+            self.showError(message: err)
             print("Failed load chats: \(err)")
         })
     }
     
-    func chatTarget(roomId: Int) -> Void {
-        let view = Qiscus.chatView(withRoomId: roomId)
-        self.navigationController?.pushViewController(view, animated: true)
+    func chatTarget(roomId: Int, _ isGroup: Bool = true) -> Void {
+        let chatView    = Qiscus.chatView(withRoomId: roomId)
+        let targetVC    = DetailChatVC() // (isGroup) ? DetailChatVC() : DetailContactVC()
+        
+        chatView.titleAction = {
+            targetVC.hidesBottomBarWhenPushed = true
+            chatView.navigationController?.pushViewController(targetVC, animated: true)
+        }
+        
+        chatView.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(chatView, animated: true)
     }
     
+    @objc func add(_ sender: Any) {
+        print("login clicked...")
+        let view = NewChatVC()
+        
+        view.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(view, animated: true)
+    }
 }
 
 extension ChatListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let roomId = self.chats.list[indexPath.row].roomId
-        self.chatTarget(roomId: roomId)
+        let chat = self.chats.list[indexPath.row]
+        
+        self.chatTarget(roomId: chat.roomId, chat.isGroup)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -99,8 +141,18 @@ extension ChatListVC: UITableViewDataSource {
         let row     = indexPath.row
         
         if let chats = self.chats {
+            // loadAsync is method that came from Qiscus SDK, so we (client) also possible to used it
+            cell.avatarImageView.loadAsync(chats.list[row].avatarURL,
+                                           placeholderImage: UIImage(named: "avatar"),
+                                           header: Helper.headers)
             cell.chatNameLabel.text     = chats.list[row].name
             cell.lastMessageLabel.text  = chats.list[row].lastCommentText
+            
+            // set avatar image rounded
+            let cellImageLayer: CALayer?    = cell.avatarImageView.layer
+            let imageRadius: CGFloat        = CGFloat(cellImageLayer!.frame.size.height / 2)
+            cellImageLayer!.cornerRadius    = imageRadius
+            cellImageLayer!.masksToBounds   = true
         }
         
         self.tableView.tableFooterView = UIView()

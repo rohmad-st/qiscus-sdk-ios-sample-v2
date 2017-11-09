@@ -9,7 +9,7 @@
 import UIKit
 import Qiscus
 
-class MainVC: UIViewController {
+class MainVC: UIViewController, UILoadingView {
 
     @IBOutlet weak var appIdField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -47,6 +47,7 @@ class MainVC: UIViewController {
 
 extension MainVC {
     @objc func login(_ sender: Any) {
+        self.showWaiting(message: "Logged in...")
         guard let appId = self.appIdField.text else { return }
         guard let email = self.emailField.text else { return }
         guard let password = self.passwordField.text else { return }
@@ -80,12 +81,12 @@ extension MainVC: QiscusConfigDelegate {
         // custom theme sdk after success connected to qiscus sdk
         self.customTheme()
         
-        print("Success connected to Qiscus...")
-        let chatList = ChatListVC()
-        self.navigationController?.pushViewController(chatList, animated: true)
+        // start setup tab bar
+        let app = UIApplication.shared.delegate as! AppDelegate
+        app.setupTabBar()
     }
     
     func qiscusFailToConnect(_ withMessage: String) {
-        print("Failed connect to qiscus sdk. error: \(withMessage)")
+        self.showError(message: "Failed connect. Error: \(withMessage)")
     }
 }

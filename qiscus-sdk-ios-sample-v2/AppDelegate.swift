@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    // MARK: - Other methods
+    // MARK: - Set navigation color
     func setNavigationColor(_ barTintColor: UIColor, _ tintColor: UIColor) {
         let navigationBar = UINavigationBar.appearance()
         
@@ -61,6 +61,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBar.tintColor = tintColor
         navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: tintColor]
         navigationBar.isTranslucent = false
+    }
+    
+    // MARK: - Setup tab bar
+    func setupTabBar() -> Void {
+        let tabBarController = UITabBarController()
+        
+        // Set up the first View Controller
+        let nav1 = UINavigationController()
+        let vc1 = ChatListVC()
+        vc1.tabBarItem.title = "Chat"
+        vc1.tabBarItem.image = UIImage(named: "ic_forum")
+        nav1.setViewControllers([vc1], animated: true)
+        
+        // Set up chats controller
+        let nav2 = UINavigationController()
+        let vc2 = ContactVC()
+        vc2.tabBarItem.title = "Contact"
+        vc2.tabBarItem.image = UIImage(named: "ic_person")
+        nav2.setViewControllers([vc2], animated: true)
+        
+        // Set up the settings View Controller
+        let nav3 = UINavigationController()
+        let vc3 = UIViewController()
+        vc3.tabBarItem.title = "Setting"
+        vc3.tabBarItem.image = UIImage(named: "ic_settings")
+        nav3.setViewControllers([vc3], animated: true)
+        
+        // Set up the Tab Bar Controller
+        tabBarController.viewControllers = [nav1, nav2, nav3]
+        
+        // attribute tab bar
+        tabBarController.selectedIndex = 0
+        
+        // Make the Tab Bar Controller the root view controller
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
     
 }

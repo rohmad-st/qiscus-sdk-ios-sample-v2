@@ -6,6 +6,7 @@
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 import Foundation
+import Alamofire
 
 class Helper: NSObject {
     static var APP_ID: String {
@@ -32,5 +33,19 @@ class Helper: NSObject {
         get {
             return "http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-braindead-zombie.png"
         }
+    }
+    
+    static var headers : HTTPHeaders {
+        get {
+            return [
+                "platform": "ios",
+                "lang": self.getLocalization()
+            ]
+        }
+    }
+    
+    static func getLocalization() -> String{
+        let localization:String = (Locale.current as NSLocale).object(forKey: NSLocale.Key.languageCode)! as! String
+        return localization
     }
 }

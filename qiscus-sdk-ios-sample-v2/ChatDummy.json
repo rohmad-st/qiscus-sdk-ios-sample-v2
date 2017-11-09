@@ -1,0 +1,67 @@
+{
+  "data":[
+    {
+      "name":"name 1",
+      "avatarURL":"https://beebom-redkapmedia.netdna-ssl.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg",
+      "typingUser":0,
+      "roomId":"1",
+      "isGroup":1,
+      "unreadCount":0,
+      "lastCommentText":"comment text",
+      "participants":[
+        {
+          "name":"Rohmad",
+          "email":"rohmadsasmito@gmail.com",
+          "avatarURL":"https://media.giphy.com/media/rIFc8qJD19lPG/giphy.gif"
+        },
+        {
+          "name":"Rohmad 2",
+          "email":"rohmadsasmito@gmail.com",
+          "avatarURL":"https://media.giphy.com/media/rIFc8qJD19lPG/giphy.gif"
+        }
+      ]
+    },
+    {
+      "name":"name 2",
+      "avatarURL":"https://media.giphy.com/media/F5ifAFZBkZ6uI/giphy.gif",
+      "typingUser":0,
+      "roomId":"2",
+      "isGroup":1,
+      "unreadCount":3,
+      "lastCommentText":"lastCommenttext",
+      "participants":[
+        {
+          "name":"Rohmad 3",
+          "email":"rohmadsasmito@gmail.com",
+          "avatarURL":"https://media.giphy.com/media/rIFc8qJD19lPG/giphy.gif"
+        },
+        {
+          "name":"Rohmad 4",
+          "email":"rohmadsasmito@gmail.com",
+          "avatarURL":"https://media.giphy.com/media/rIFc8qJD19lPG/giphy.gif"
+        }
+      ]
+    },
+    {
+      "name":"name 3",
+      "avatarURL":"http://38.media.tumblr.com/ad2734b65e4820335fdebfe99067e291/tumblr_mu9sv6kj7i1shdotdo1_400.gif",
+      "typingUser":0,
+      "roomId":"3",
+      "isGroup":1,
+      "unreadCount":3,
+      "lastCommentText":"lastCommenttext",
+      "participants":[
+        {
+          "name":"Rohmad 5",
+          "email":"rohmadsasmito@gmail.com",
+          "avatarURL":"https://media.giphy.com/media/rIFc8qJD19lPG/giphy.gif"
+        },
+        {
+          "name":"Rohmad 6",
+          "email":"rohmadsasmito@gmail.com",
+          "avatarURL":"https://media.giphy.com/media/rIFc8qJD19lPG/giphy.gif"
+        }
+      ]
+    }
+  ]
+}
