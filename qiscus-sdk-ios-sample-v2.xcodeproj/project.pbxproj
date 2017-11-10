@@ -24,6 +24,15 @@
 		CC018FF31FB4461E00396446 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FF21FB4461E00396446 /* ContactListViewModel.swift */; };
 		CC018FF71FB4481600396446 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FF51FB4481600396446 /* ContactCell.swift */; };
 		CC018FF81FB4481600396446 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC018FF61FB4481600396446 /* ContactCell.xib */; };
+		CC0973C41FB54DEA007F31C1 /* ChatManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973C31FB54DEA007F31C1 /* ChatManagers.swift */; };
+		CC0973C61FB54FCA007F31C1 /* Responses.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973C51FB54FCA007F31C1 /* Responses.swift */; };
+		CC0973C81FB5795C007F31C1 /* ChatNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973C71FB5795C007F31C1 /* ChatNewViewModel.swift */; };
+		CC0973CC1FB57996007F31C1 /* CreateGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */; };
+		CC0973CD1FB57996007F31C1 /* CreateGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */; };
+		CC0973D01FB57AC2007F31C1 /* CreateStrangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */; };
+		CC0973D11FB57AC2007F31C1 /* CreateStrangerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */; };
+		CC0973D41FB58A62007F31C1 /* SelectContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */; };
+		CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */; };
 		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
 		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
 		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
@@ -95,6 +104,15 @@
 		CC018FF21FB4461E00396446 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		CC018FF51FB4481600396446 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		CC018FF61FB4481600396446 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		CC0973C31FB54DEA007F31C1 /* ChatManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManagers.swift; sourceTree = "<group>"; };
+		CC0973C51FB54FCA007F31C1 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
+		CC0973C71FB5795C007F31C1 /* ChatNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNewViewModel.swift; sourceTree = "<group>"; };
+		CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupCell.swift; sourceTree = "<group>"; };
+		CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGroupCell.xib; sourceTree = "<group>"; };
+		CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStrangerCell.swift; sourceTree = "<group>"; };
+		CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateStrangerCell.xib; sourceTree = "<group>"; };
+		CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectContactCell.swift; sourceTree = "<group>"; };
+		CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectContactCell.xib; sourceTree = "<group>"; };
 		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -217,6 +235,19 @@
 			path = Contact;
 			sourceTree = "<group>";
 		};
+		CC0973C91FB5797A007F31C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */,
+				CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */,
+				CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */,
+				CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */,
+				CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */,
+				CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CCABBC651FB187D90039B34E = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +325,8 @@
 				CCABBCAA1FB1890A0039B34E /* ChatManager.swift */,
 				CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */,
 				CC018FEE1FB43F0A00396446 /* ParseJSON.swift */,
+				CC0973C31FB54DEA007F31C1 /* ChatManagers.swift */,
+				CC0973C51FB54FCA007F31C1 /* Responses.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -352,6 +385,7 @@
 		CCDD6F541FB2BABB00D24921 /* NewChat */ = {
 			isa = PBXGroup;
 			children = (
+				CC0973C91FB5797A007F31C1 /* View */,
 				CCDD6F551FB2BAD600D24921 /* NewChatVC.swift */,
 				CCDD6F561FB2BAD600D24921 /* NewChatVC.xib */,
 			);
@@ -384,6 +418,7 @@
 			children = (
 				CCDD6F971FB2ED4900D24921 /* ChatModel.swift */,
 				CCDD6F9A1FB2EF6E00D24921 /* ChatDetailViewModel.swift */,
+				CC0973C71FB5795C007F31C1 /* ChatNewViewModel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -511,14 +546,17 @@
 				CCDD6F6C1FB2E02000D24921 /* DetailChatVC.xib in Resources */,
 				CCDD6F531FB2B67500D24921 /* ContactVC.xib in Resources */,
 				CC018FE81FB42FEF00396446 /* DetailContactVC.xib in Resources */,
+				CC0973CD1FB57996007F31C1 /* CreateGroupCell.xib in Resources */,
 				CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */,
 				CC018FEC1FB4314D00396446 /* LeaveCell.xib in Resources */,
 				CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */,
 				CCDD6F581FB2BAD600D24921 /* NewChatVC.xib in Resources */,
 				CCDD6F5D1FB2BC9200D24921 /* NewGroupVC.xib in Resources */,
+				CC0973D11FB57AC2007F31C1 /* CreateStrangerCell.xib in Resources */,
 				CC018FF81FB4481600396446 /* ContactCell.xib in Resources */,
 				CCDD6F611FB2BCEB00D24921 /* NewGroupNameVC.xib in Resources */,
 				CC018FE31FB347C700396446 /* ParticipantCell.xib in Resources */,
+				CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */,
 				CC018FDD1FB3469000396446 /* NamePictureCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,6 +720,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0973C41FB54DEA007F31C1 /* ChatManagers.swift in Sources */,
 				CCDD6F601FB2BCEB00D24921 /* NewGroupNameVC.swift in Sources */,
 				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
 				CCDD6F571FB2BAD600D24921 /* NewChatVC.swift in Sources */,
@@ -693,6 +732,9 @@
 				CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */,
 				CC018FF71FB4481600396446 /* ContactCell.swift in Sources */,
 				CCDD6F6B1FB2E02000D24921 /* DetailChatVC.swift in Sources */,
+				CC0973C61FB54FCA007F31C1 /* Responses.swift in Sources */,
+				CC0973D01FB57AC2007F31C1 /* CreateStrangerCell.swift in Sources */,
+				CC0973CC1FB57996007F31C1 /* CreateGroupCell.swift in Sources */,
 				CCDD6F461FB1B21600D24921 /* Chats.swift in Sources */,
 				CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */,
 				CC018FE21FB347C700396446 /* ParticipantCell.swift in Sources */,
@@ -700,6 +742,7 @@
 				CCABBCA61FB188940039B34E /* MainVC.swift in Sources */,
 				CCDD6F4E1FB2ADFF00D24921 /* UIImageView.swift in Sources */,
 				CC018FDC1FB3469000396446 /* NamePictureCell.swift in Sources */,
+				CC0973C81FB5795C007F31C1 /* ChatNewViewModel.swift in Sources */,
 				CCABBCAB1FB1890A0039B34E /* ChatManager.swift in Sources */,
 				CC018FF11FB43FCB00396446 /* ContactModel.swift in Sources */,
 				CCDD6F421FB1AC7500D24921 /* ChatListVC.swift in Sources */,
@@ -707,6 +750,7 @@
 				CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */,
 				CCDD6F631FB2DA9700D24921 /* UILoadingView.swift in Sources */,
 				CC018FEB1FB4314D00396446 /* LeaveCell.swift in Sources */,
+				CC0973D41FB58A62007F31C1 /* SelectContactCell.swift in Sources */,
 				CCDD6F981FB2ED4900D24921 /* ChatModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

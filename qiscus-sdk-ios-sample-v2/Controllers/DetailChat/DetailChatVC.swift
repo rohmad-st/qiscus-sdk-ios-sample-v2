@@ -11,17 +11,15 @@ import UIKit
 class DetailChatVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    fileprivate let viewModel = ChatDetailViewModel()
-    
-    override func viewWillAppear(_ animated: Bool) {
-         self.setupUI()
-    }
+    fileprivate var viewModel = ChatDetailViewModel()
+    var id: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        // self.setupUI()
+        self.viewModel.id = self.id
+        self.setupUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,9 +32,10 @@ extension DetailChatVC: UITableViewDelegate {
     func setupUI() -> Void {
         self.title = "Detail Chat"
         
+        tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel
         tableView.estimatedRowHeight    = 100
-         tableView.rowHeight             = UITableViewAutomaticDimension
+        tableView.rowHeight             = UITableViewAutomaticDimension
         tableView.register(NamePictureCell.nib,
                            forCellReuseIdentifier: NamePictureCell.identifier)
         tableView.register(ParticipantCell.nib,
@@ -44,9 +43,5 @@ extension DetailChatVC: UITableViewDelegate {
         tableView.register(LeaveCell.nib,
                            forCellReuseIdentifier: LeaveCell.identifier)
         
-    }
-    
-    @objc func leaveAction(_ sender: Any) {
-        print("leave action from DetailChatVC...")
     }
 }

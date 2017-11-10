@@ -55,7 +55,6 @@ extension ChatListVC {
                               page: 1,
                               onSuccess: { (listRoom, totalRoom, currentPage, limit) in
                                 var rooms = [Room]()
-                                // var contacts = [Contact]()
                                 listRoom.forEach({ (data) in
                                     let room = Room(name: data.name,
                                                     avatarURL: data.avatarURL,
@@ -66,22 +65,8 @@ extension ChatListVC {
                                                     lastCommentText: (data.lastComment?.text)!)
                                     
                                     rooms.append(room)
-//                                    for p in data.participants {
-//                                        guard let fullname = p.user?.fullname else { return }
-//                                        guard let avatarURL = p.user?.avatarURL else { return }
-//                                        guard let email = p.user?.email else { return }
-//
-//                                        let contact = Contact(name: fullname,
-//                                                              avatarURL: avatarURL,
-//                                                              phoneNumber: email,
-//                                                              email: email)
-//                                        print("Contact from roomList is \(contact!.name)")
-//                                        contacts.append(contact!)
-//                                    }
                                 })
                                 
-                                // print("We get contacts:", contacts)
-                                //_ = ContactListViewModel(withData: contacts)
                                 self.chats = Chats(withData: rooms)
                                 self.tableView.reloadData()
                                 self.dismissLoading()
@@ -93,10 +78,11 @@ extension ChatListVC {
     }
     
     func chatTarget(roomId: Int, _ isGroup: Bool = true) -> Void {
-        let chatView    = Qiscus.chatView(withRoomId: roomId)
-        let targetVC    = DetailChatVC() // (isGroup) ? DetailChatVC() : DetailContactVC()
+        let chatView = Qiscus.chatView(withRoomId: roomId)
         
         chatView.titleAction = {
+            let targetVC = DetailChatVC()
+            targetVC.id = roomId
             targetVC.hidesBottomBarWhenPushed = true
             chatView.navigationController?.pushViewController(targetVC, animated: true)
         }

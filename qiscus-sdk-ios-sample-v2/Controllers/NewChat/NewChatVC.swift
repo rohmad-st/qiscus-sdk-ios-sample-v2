@@ -10,6 +10,9 @@ import UIKit
 
 class NewChatVC: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    fileprivate var viewModel = ChatNewViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +29,17 @@ class NewChatVC: UIViewController {
 
 extension NewChatVC {
     func setupUI() -> Void {
-        self.title = "Create Chat"
+        self.title = "New Chat"
+        
+        tableView.delegate              = self.viewModel
+        tableView.dataSource            = self.viewModel
+        tableView.estimatedRowHeight    = 65
+        tableView.rowHeight             = UITableViewAutomaticDimension
+        tableView.register(CreateGroupCell.nib,
+                           forCellReuseIdentifier: CreateGroupCell.identifier)
+        tableView.register(CreateStrangerCell.nib,
+                           forCellReuseIdentifier: CreateStrangerCell.identifier)
+        tableView.register(SelectContactCell.nib,
+                           forCellReuseIdentifier: SelectContactCell.identifier)
     }
 }

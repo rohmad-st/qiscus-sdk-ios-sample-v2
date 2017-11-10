@@ -19,21 +19,22 @@ class ContactListViewModel: NSObject, UITableViewDataSource {
         QChatService.roomList(withLimit: 100,
                               page: 1,
                               onSuccess: { (listRoom, totalRoom, currentPage, limit) in
-                                listRoom.forEach({ (data) in
-                                    for p in data.participants {
-                                        guard let fullname = p.user?.fullname else { return }
-                                        guard let avatarURL = p.user?.avatarURL else { return }
-                                        guard let email = p.user?.email else { return }
-                                        
-                                        let contact = Contact(name: fullname,
-                                                              avatarURL: avatarURL,
-                                                              phoneNumber: email,
-                                                              email: email)
-                                        
-                                        let arrUnique = self.items.contains(where: { $0.name == fullname })
-                                        if !arrUnique { self.items.append(contact!) }
-                                    }
-                                })
+                                
+            listRoom.forEach({ (data) in
+                for p in data.participants {
+                    guard let fullname  = p.user?.fullname else { return }
+                    guard let avatarURL = p.user?.avatarURL else { return }
+                    guard let email     = p.user?.email else { return }
+                    
+                    let contact = Contact(name: fullname,
+                                          avatarURL: avatarURL,
+                                          phoneNumber: email,
+                                          email: email)
+                    
+                    let arrUnique = self.items.contains(where: { $0.name == fullname })
+                    if !arrUnique { self.items.append(contact!) }
+                }
+            })
                                 
         }, onFailed: { (err) in
             print("Failed load chats: \(err)")

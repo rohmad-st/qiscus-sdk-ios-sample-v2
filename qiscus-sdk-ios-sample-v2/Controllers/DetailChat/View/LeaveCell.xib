@@ -19,25 +19,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJR-n7-aJw">
-                        <rect key="frame" x="20" y="0.0" width="280" height="45"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_exit" translatesAutoresizingMaskIntoConstraints="NO" id="VDZ-J6-0PN">
+                        <rect key="frame" x="22" y="7" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="45" id="tNH-5e-AeQ"/>
+                            <constraint firstAttribute="width" constant="30" id="V0w-86-wbh"/>
+                            <constraint firstAttribute="height" constant="30" id="tmI-rh-umK"/>
                         </constraints>
-                        <color key="tintColor" red="0.87977871192893398" green="0.13160681091691889" blue="0.0076010976180935271" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" title="      Leave"/>
-                    </button>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Che-8k-gPR">
+                        <rect key="frame" x="67" y="0.0" width="233" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="chH-Ee-vaf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dJR-n7-aJw" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JsY-Rh-N8i"/>
-                    <constraint firstItem="dJR-n7-aJw" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Vzk-YD-yft"/>
-                    <constraint firstItem="dJR-n7-aJw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="wyN-0j-fkv"/>
+                    <constraint firstItem="VDZ-J6-0PN" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8aF-fv-Nr3"/>
+                    <constraint firstItem="Che-8k-gPR" firstAttribute="leading" secondItem="VDZ-J6-0PN" secondAttribute="trailing" constant="15" id="K5T-DQ-gVY"/>
+                    <constraint firstItem="VDZ-J6-0PN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="YKj-pH-Khi"/>
+                    <constraint firstItem="Che-8k-gPR" firstAttribute="centerY" secondItem="VDZ-J6-0PN" secondAttribute="centerY" id="kGZ-9L-Tb9"/>
+                    <constraint firstAttribute="trailing" secondItem="Che-8k-gPR" secondAttribute="trailing" constant="20" id="yVx-BE-nfR"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="leaveButton" destination="dJR-n7-aJw" id="bOe-nG-oc3"/>
+                <outlet property="iconImageView" destination="VDZ-J6-0PN" id="UI3-wM-YeM"/>
+                <outlet property="titleLabel" destination="Che-8k-gPR" id="gNd-6p-SVB"/>
             </connections>
+            <point key="canvasLocation" x="34" y="126.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_exit" width="24" height="24"/>
+    </resources>
 </document>

@@ -7,6 +7,30 @@
 //
 
 import Foundation
+import Qiscus
+
+
+class ContactList {
+    var contacts = [Contact]()
+    
+    init?(data: [QRoom]) {
+        for tmpParticipants in data {
+            for tmp in tmpParticipants.participants {
+                if let user = tmp.user {
+                    let fullname = user.fullname
+                    let email = user.email
+                    let arrUnique = contacts.contains(where: { $0.name == fullname })
+                    let contact = Contact(name: fullname,
+                                          avatarURL: user.avatarURL,
+                                          phoneNumber: email,
+                                          email: email)
+                    
+                    if !arrUnique { contacts.append(contact!) }
+                }
+            }
+        }
+    }
+}
 
 class Contact {
     var name: String?

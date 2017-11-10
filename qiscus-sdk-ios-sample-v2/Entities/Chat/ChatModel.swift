@@ -8,7 +8,6 @@
 
 import Foundation
 import Qiscus
-import SwiftyJSON
 
 class Chat {
     var name: String?
@@ -20,24 +19,22 @@ class Chat {
     var lastCommentText: String?
     var participants = [Participant]()
     
-    init?(data: [String: Any]) {
-        let dataJSON = JSON(data)
-        let arrayConversation = dataJSON["data"].arrayValue
+    init?(data body: QRoom) {
+        self.name = body.name
+        self.avatarURL = body.avatarURL
+        self.typingUser = body.typingUser
+        self.roomId = body.id
+        self.isGroup = (body.type == QRoomType.group)
+        self.unreadCount = body.unreadCount
+        self.lastCommentText = (body.lastComment?.text)!
         
-        for body in arrayConversation {
-            self.name = body["name"].stringValue
-            self.avatarURL = body["avatarURL"].stringValue
-            self.typingUser = body["typingUser"].stringValue
-            self.roomId = body["id"].intValue
-            self.isGroup = body["isGroup"].boolValue
-            self.unreadCount = body["unreadCount"].intValue
-            self.lastCommentText = body["lastCommentText"].stringValue
-            
-            let tmpParticipants = body["participants"].arrayValue
-            for tmp in tmpParticipants {
-                self.participants.append(Participant(name: tmp["name"].stringValue,
-                                                     email: tmp["email"].stringValue,
-                                                     avatarURL: tmp["avatarURL"].stringValue))
+        let tmpParticipants = body.participants
+        for tmp in tmpParticipants {
+            if let user = tmp.user {
+                self.participants.append(Participant(name: user.fullname,
+                                                     email: user.email,
+                                                     avatarURL: user.avatarURL)
+                )
             }
         }
     }

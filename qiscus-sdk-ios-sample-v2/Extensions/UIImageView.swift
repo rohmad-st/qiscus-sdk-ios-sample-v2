@@ -176,6 +176,18 @@ public extension UIImage {
         
         return newImage!
     }
-    
 }
 
+extension UIImageView {
+    class func tintColors(_ color: UIColor, fields: [UIImageView]) -> Void {
+        for field in fields {
+            field.image = field.image!.withRenderingMode(.alwaysTemplate)
+            field.tintColor = color
+        }
+    }
+    
+    func tintColor(_ color: UIColor) {
+        self.image = self.image!.withRenderingMode(.alwaysTemplate)
+        self.tintColor = color
+    }
+}

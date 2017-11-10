@@ -1,23 +1,26 @@
+
 //
-//  LeaveCell.swift
+//  CreateStrangerCell.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/9/17.
+//  Created by Rohmad Sasmito on 11/10/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import UIKit
 
-class LeaveCell: UITableViewCell {
-    
+class CreateStrangerCell: UITableViewCell {
+
     @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: NSLayoutConstraint!
     
-    var item: ChatDetailViewModelItem? {
+    var item: ChatNewViewModelItem? {
         didSet {
-            guard (item as? ChatDetailViewModelLeaveItem) != nil else {
+            guard let item = item as? ChatNewViewModelCreateStrangerItem else {
                 return
             }
+            
+            self.target(forAction: item.action, withSender: item.target)
         }
     }
     
@@ -32,12 +35,12 @@ class LeaveCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let color: UIColor = UIColor.dangerColor
-        self.titleLabel.textColor = color
-        self.iconImageView.tintColor(color)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
+    
 }

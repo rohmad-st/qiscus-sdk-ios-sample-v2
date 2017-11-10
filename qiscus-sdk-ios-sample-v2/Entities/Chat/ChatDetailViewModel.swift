@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Qiscus
 
 enum ChatDetailViewModelItemType {
     case nameAndPicture
@@ -24,22 +25,31 @@ protocol ChatDetailViewModelItem {
 class ChatDetailViewModel: NSObject {
     var items = [ChatDetailViewModelItem]()
     
-    override init() {
-        super.init()
+    // this id variable must be set from caller class
+    var id: Int = -1 {
+        didSet {
+            print("chat detail view model changed to be: \(id)")
+            self.setup()
+        }
+    }
+    
+    func setup() {
+        let data = QRoom.all().filter({ $0.id == id })
         
-        guard let data = parseJsonFile("ChatDummy"), let chat = Chat(data: data) else { return }
-        
+        guard let chat = Chat(data: data.first!) else { return }
+
         // name and picture section
-        let nameAndPictureItem = ChatDetailViewModelNamePictureItem(name: "Rohmad Sasmito", avatarURL: "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg")
+        let nameAndPictureItem = ChatDetailViewModelNamePictureItem(name: chat.name!,
+                                                                    avatarURL: chat.avatarURL!)
         items.append(nameAndPictureItem)
-        
+
         // participants section
         let participants = chat.participants
         if !participants.isEmpty {
             let participantsItem = ChatDetailViewModelParticipantsItem(participants: participants)
             items.append(participantsItem)
         }
-        
+
         // leave section
         let leaveItem = ChatDetailViewModelLeaveItem(target: UIViewController(), #selector(leaveAction(_:)))
         items.append(leaveItem)
@@ -47,6 +57,17 @@ class ChatDetailViewModel: NSObject {
     
     @objc func leaveAction(_ sender: Any) {
         print("leave action...")
+    }
+}
+
+extension ChatDetailViewModel: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.section]
+        if item.type == ChatDetailViewModelItemType.leave {
+            print("goto leave group page...")
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
