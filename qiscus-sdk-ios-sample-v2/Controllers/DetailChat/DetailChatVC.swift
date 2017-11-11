@@ -28,7 +28,7 @@ class DetailChatVC: UIViewController {
     }
 }
 
-extension DetailChatVC: UITableViewDelegate {
+extension DetailChatVC {
     func setupUI() -> Void {
         self.title = "Detail Chat"
         

@@ -27,14 +27,14 @@ class ChatNewViewModel: NSObject {
     var items = [ChatNewViewModelItem]()
     
     override init() {
-        guard let contact = ContactList(data: QRoom.all()) else { return }
+        guard let contact = ContactList(data: QUser.all()) else { return }
         
         // create group
-        let createGroupItem = ChatNewViewModelCreateGroupItem(target: UIViewController(), #selector(createGroup(_:)))
+        let createGroupItem = ChatNewViewModelCreateGroupItem()
         items.append(createGroupItem)
-        
+
         // create stranger
-        let createStrangerItem = ChatNewViewModelCreateStrangerItem(target: UIViewController(), #selector(createStranger(_:)))
+        let createStrangerItem = ChatNewViewModelCreateStrangerItem()
         items.append(createStrangerItem)
         
         let contacts = contact.contacts
@@ -43,14 +43,6 @@ class ChatNewViewModel: NSObject {
             items.append(contactItem)
         }
     }
-    
-    @objc func createGroup(_ sender: Any) {
-        print("create group..")
-    }
-    
-    @objc func createStranger(_ sender: Any) {
-        print("create stranger..")
-    }
 }
 
 extension ChatNewViewModel: UITableViewDelegate {
@@ -58,13 +50,20 @@ extension ChatNewViewModel: UITableViewDelegate {
         let item = items[indexPath.section]
         switch item.type {
         case .createGroup:
-            print("goto create group page...")
+            let targetVC = NewGroupVC()
+            openViewController(targetVC)
+            
         case .createStranger:
-            print("goto create stranger ...")
+            let targetVC = NewStrangerVC()
+            openViewController(targetVC)
+            
         case .contacts:
             if let item = item as? ChatNewViewModelContactsItem {
                 let contact = item.contacts[indexPath.row]
-                 print("chat with contact : \(contact.email!)")
+                guard let email = contact.email else { return }
+                print("Creating 1-to-1 chat with: \(email) \(contact.id!)")
+                let chatView = Qiscus.chatView(withUsers: [email])
+                openViewController(chatView)
             }
         }
         
@@ -89,13 +88,13 @@ extension ChatNewViewModel: UITableViewDataSource {
                 cell.item = item
                 return cell
             }
-            
+
         case .createStranger:
             if let cell = tableView.dequeueReusableCell(withIdentifier: CreateStrangerCell.identifier, for: indexPath) as? CreateStrangerCell {
                 cell.item = item
                 return cell
             }
-            
+        
         case .contacts:
             if let item = item as? ChatNewViewModelContactsItem, let cell = tableView.dequeueReusableCell(withIdentifier: SelectContactCell.identifier, for: indexPath) as? SelectContactCell {
                 let contact = item.contacts[indexPath.row]
@@ -117,21 +116,13 @@ class ChatNewViewModelCreateGroupItem: ChatNewViewModelItem {
     var type: ChatNewViewModelItemType {
         return .createGroup
     }
-    
+
     var sectionTitle: String {
         return ""
     }
-    
+
     var rowCount: Int {
         return 1
-    }
-    
-    var target: Any
-    var action: Selector
-    
-    init(target: Any, _ action: Selector) {
-        self.target = target
-        self.action = action
     }
 }
 
@@ -139,21 +130,13 @@ class ChatNewViewModelCreateStrangerItem: ChatNewViewModelItem {
     var type: ChatNewViewModelItemType {
         return .createStranger
     }
-    
+
     var sectionTitle: String {
         return ""
     }
-    
+
     var rowCount: Int {
         return 1
-    }
-    
-    var target: Any
-    var action: Selector
-    
-    init(target: Any, _ action: Selector) {
-        self.target = target
-        self.action = action
     }
 }
 

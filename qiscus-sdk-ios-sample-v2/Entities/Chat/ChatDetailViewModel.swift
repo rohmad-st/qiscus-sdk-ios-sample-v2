@@ -35,12 +35,10 @@ class ChatDetailViewModel: NSObject {
     
     func setup() {
         let data = QRoom.all().filter({ $0.id == id })
-        
         guard let chat = Chat(data: data.first!) else { return }
 
         // name and picture section
-        let nameAndPictureItem = ChatDetailViewModelNamePictureItem(name: chat.name!,
-                                                                    avatarURL: chat.avatarURL!)
+        let nameAndPictureItem = ChatDetailViewModelNamePictureItem(name: chat.name!, avatarURL: chat.avatarURL!)
         items.append(nameAndPictureItem)
 
         // participants section

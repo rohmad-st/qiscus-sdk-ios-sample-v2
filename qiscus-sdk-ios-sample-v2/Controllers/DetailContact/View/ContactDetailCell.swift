@@ -1,24 +1,26 @@
-
 //
-//  CreateStrangerCell.swift
+//  ContactDetailCell.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/10/17.
+//  Created by Rohmad Sasmito on 11/11/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import UIKit
 
-class CreateStrangerCell: UITableViewCell {
+class ContactDetailCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var titleLabel: NSLayoutConstraint!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     
-    var item: ChatNewViewModelItem? {
+    var item: [String: String]? {
         didSet {
-            guard (item as? ChatNewViewModelCreateStrangerItem) != nil else {
+            guard let item = item else {
                 return
             }
+            
+            nameLabel.text = item.flatMap({ $0.key }).first
+            valueLabel.text = item.flatMap({ ($0.value) }).first
         }
     }
     
@@ -30,9 +32,11 @@ class CreateStrangerCell: UITableViewCell {
         return String(describing: self)
     }
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

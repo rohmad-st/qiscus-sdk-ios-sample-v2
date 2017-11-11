@@ -22,16 +22,9 @@ class ContactListViewModel: NSObject, UITableViewDataSource {
                                 
             listRoom.forEach({ (data) in
                 for p in data.participants {
-                    guard let fullname  = p.user?.fullname else { return }
-                    guard let avatarURL = p.user?.avatarURL else { return }
-                    guard let email     = p.user?.email else { return }
-                    
-                    let contact = Contact(name: fullname,
-                                          avatarURL: avatarURL,
-                                          phoneNumber: email,
-                                          email: email)
-                    
-                    let arrUnique = self.items.contains(where: { $0.name == fullname })
+                    guard let user = p.user else { return }
+                    let contact = Contact(data: user)
+                    let arrUnique = self.items.contains(where: { $0.id == user.id })
                     if !arrUnique { self.items.append(contact!) }
                 }
             })

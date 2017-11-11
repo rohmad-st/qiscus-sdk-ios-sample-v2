@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 //import Qiscus
 
 class ChatManager {
@@ -20,5 +21,17 @@ class ChatManager {
         //        )
         
         print("Init chat with APP_ID", Helper.APP_ID)
+    }
+}
+
+public func openViewController(_ viewController: UIViewController) -> Void {
+    let app = UIApplication.shared.delegate as! AppDelegate
+    if let rootView = app.window?.rootViewController as? UINavigationController {
+        rootView.pushViewController(viewController, animated: true)
+        
+    } else if let rootView = app.window?.rootViewController as? UITabBarController {
+        if let navigation = rootView.selectedViewController as? UINavigationController {
+            navigation.pushViewController(viewController, animated: true)
+        }
     }
 }

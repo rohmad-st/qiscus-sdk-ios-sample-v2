@@ -10,10 +10,15 @@ import UIKit
 
 class DetailContactVC: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    fileprivate var viewModel = ContactDetailViewModel()
+    var email: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.viewModel.email = self.email
         self.setupUI()
     }
 
@@ -27,5 +32,14 @@ class DetailContactVC: UIViewController {
 extension DetailContactVC {
     func setupUI() -> Void {
         self.title = "Detail Contact"
+        
+        tableView.dataSource            = self.viewModel
+        tableView.estimatedRowHeight    = 100
+        tableView.rowHeight             = UITableViewAutomaticDimension
+        tableView.register(ContactPictureCell.nib,
+                           forCellReuseIdentifier: ContactPictureCell.identifier)
+        tableView.register(ContactDetailCell.nib,
+                           forCellReuseIdentifier: ContactDetailCell.identifier)
+        
     }
 }

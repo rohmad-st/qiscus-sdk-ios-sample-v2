@@ -1,28 +1,26 @@
 //
-//  ChatCell.swift
+//  ContactPictureCell.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/7/17.
+//  Created by Rohmad Sasmito on 11/11/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import UIKit
 
-class ChatCell: UITableViewCell {
+class ContactPictureCell: UITableViewCell {
 
-    @IBOutlet weak var chatNameLabel: UILabel!
-    @IBOutlet weak var lastMessageLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
-    var item: Chat? {
+    var item: ContactDetailViewModelItem? {
         didSet {
-            guard let item = item else { return }
+            guard let item = item as? ContactDetailViewModelPictureItem else {
+                return
+            }
             
-            avatarImageView.loadAsync(item.avatarURL!,
+            avatarImageView.loadAsync(item.avatarURL,
                                       placeholderImage: UIImage(named: "avatar"),
                                       header: Helper.headers)
-            chatNameLabel.text      = item.name
-            lastMessageLabel.text   = item.lastCommentText
         }
     }
     
@@ -37,9 +35,8 @@ class ChatCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        avatarImageView.layer.cornerRadius  = (avatarImageView.frame.height / 2)
         avatarImageView?.clipsToBounds      = true
-        avatarImageView?.contentMode        = .scaleAspectFit
+        avatarImageView?.contentMode        = .scaleAspectFill
         avatarImageView?.backgroundColor    = UIColor.lightGray
     }
     

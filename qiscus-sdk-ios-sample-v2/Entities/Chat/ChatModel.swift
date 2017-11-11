@@ -9,6 +9,17 @@
 import Foundation
 import Qiscus
 
+class ChatList {
+    var chats = [Chat]()
+    
+    init?(data: [QRoom]) {
+        for body in data {
+            guard let chat = Chat(data: body) else { return }
+            chats.append(chat)
+        }
+    }
+}
+
 class Chat {
     var name: String?
     var avatarURL: String?
