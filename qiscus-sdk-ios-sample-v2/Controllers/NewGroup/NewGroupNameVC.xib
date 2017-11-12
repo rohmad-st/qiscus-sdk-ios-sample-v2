@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewGroupNameVC" customModule="qiscus_sdk_ios_sample_v2" customModuleProvider="target">
             <connections>
+                <outlet property="avatarImageView" destination="Nkd-lL-61N" id="iSM-om-Pem"/>
+                <outlet property="cameraButton" destination="0s0-Pe-UrG" id="hSo-EW-01d"/>
+                <outlet property="groupNameField" destination="893-SA-cZD" id="5eg-pb-ZTO"/>
+                <outlet property="participantsCountLabel" destination="iok-1N-RqC" id="onS-XB-mgm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,8 +23,59 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Nkd-lL-61N">
+                    <rect key="frame" x="98" y="60" width="125" height="125"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="Xuo-6f-XSN"/>
+                        <constraint firstAttribute="width" constant="125" id="tUW-Zv-BDh"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0s0-Pe-UrG">
+                    <rect key="frame" x="178" y="140" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="52h-wX-RX4"/>
+                        <constraint firstAttribute="width" constant="45" id="PrB-YX-cGE"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" backgroundImage="ic_photo_camera"/>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input group name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="893-SA-cZD">
+                    <rect key="frame" x="30" y="205" width="261" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="CJG-3x-ix5"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                    <connections>
+                        <action selector="groupNameDidChanged:" destination="-1" eventType="editingChanged" id="tn7-JC-gB6"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Participants Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iok-1N-RqC">
+                    <rect key="frame" x="71.5" y="255" width="178" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Nkd-lL-61N" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="H3R-e5-8qw"/>
+                <constraint firstItem="Nkd-lL-61N" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="IbS-nU-zte"/>
+                <constraint firstItem="893-SA-cZD" firstAttribute="centerX" secondItem="Nkd-lL-61N" secondAttribute="centerX" id="TbT-7A-aL4"/>
+                <constraint firstItem="iok-1N-RqC" firstAttribute="centerX" secondItem="893-SA-cZD" secondAttribute="centerX" id="V2R-6Z-MFw"/>
+                <constraint firstItem="0s0-Pe-UrG" firstAttribute="bottom" secondItem="Nkd-lL-61N" secondAttribute="bottom" id="YkA-Ev-h17"/>
+                <constraint firstItem="893-SA-cZD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="agJ-PH-rwh"/>
+                <constraint firstItem="iok-1N-RqC" firstAttribute="top" secondItem="893-SA-cZD" secondAttribute="bottom" constant="15" id="m55-2N-j2k"/>
+                <constraint firstItem="0s0-Pe-UrG" firstAttribute="trailing" secondItem="Nkd-lL-61N" secondAttribute="trailing" id="vnd-sq-tDx"/>
+                <constraint firstItem="893-SA-cZD" firstAttribute="top" secondItem="Nkd-lL-61N" secondAttribute="bottom" constant="20" id="xod-F4-77M"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="avatar" width="60" height="60"/>
+        <image name="ic_photo_camera" width="24" height="24"/>
+    </resources>
 </document>

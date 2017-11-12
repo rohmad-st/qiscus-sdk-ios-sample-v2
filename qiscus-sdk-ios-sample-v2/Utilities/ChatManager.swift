@@ -60,3 +60,22 @@ public func chatWithUser(_ email: String) {
     chatView.hidesBottomBarWhenPushed = true
     openViewController(chatView)
 }
+
+public func createGroupChat(_ users: [String], title: String) {
+    let chatView = Qiscus.createChatView(withUsers: users, title: title)
+    
+    chatView.titleAction = {
+        let targetVC                        = DetailChatVC()
+        //targetVC.id                         = -1
+        targetVC.hidesBottomBarWhenPushed   = true
+        chatView.navigationController?.pushViewController(targetVC, animated: true)
+    }
+    
+    chatView.setBackButton(withAction: {
+        chatView.tabBarController?.selectedIndex = 0
+        _ = chatView.navigationController?.popToRootViewController(animated: true)
+    })
+    
+    chatView.hidesBottomBarWhenPushed = true
+    openViewController(chatView)
+}

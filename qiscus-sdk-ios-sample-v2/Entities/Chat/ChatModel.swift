@@ -37,7 +37,7 @@ class Chat {
         self.roomId = body.id
         self.isGroup = (body.type == QRoomType.group)
         self.unreadCount = body.unreadCount
-        self.lastCommentText = (body.lastComment?.text)!
+        self.lastCommentText = body.lastComment?.text
         
         let tmpParticipants = body.participants
         for tmp in tmpParticipants {

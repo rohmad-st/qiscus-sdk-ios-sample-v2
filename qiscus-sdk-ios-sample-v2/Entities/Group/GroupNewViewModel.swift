@@ -11,7 +11,7 @@ import UIKit
 import Qiscus
 
 protocol GroupNewViewDelegate {
-    func itemsDidChanged()
+    func itemsDidChanged(contacts: [Contact])
 }
 
 class GroupNewViewModel: NSObject {
@@ -19,7 +19,7 @@ class GroupNewViewModel: NSObject {
     var items = [Contact]()
     var itemSelecteds = [Contact]() {
         didSet {
-            delegate?.itemsDidChanged()
+            delegate?.itemsDidChanged(contacts: itemSelecteds)
         }
     }
     
@@ -51,6 +51,7 @@ extension GroupNewViewModel: UITableViewDelegate {
             }
         }
     }
+
 }
 
 extension GroupNewViewModel: UITableViewDataSource {

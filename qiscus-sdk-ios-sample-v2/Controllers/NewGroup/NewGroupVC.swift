@@ -12,6 +12,12 @@ class NewGroupVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel: GroupNewViewModel?
+    var selectedContacts = [Contact]() {
+        didSet {
+            let isEnable: Bool = (selectedContacts.count >= 1)
+            self.isEnableButton(isEnable)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,17 +50,25 @@ extension NewGroupVC {
                                           target: self,
                                           action: #selector(next(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
+        self.isEnableButton(false)
+    }
+ 
+    func isEnableButton(_ enable: Bool) {
+        self.navigationItem.rightBarButtonItem?.isEnabled = enable
     }
     
     @objc func next(_ sender: Any) {
         let view = NewGroupNameVC()
+        view.selectedContacts = self.selectedContacts
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)
     }
 }
 
 extension NewGroupVC: GroupNewViewDelegate {
-    func itemsDidChanged() {
+    func itemsDidChanged(contacts: [Contact]) {
+        self.selectedContacts.removeAll()
+        self.selectedContacts.append(contentsOf: contacts)
         self.tableView.reloadData()
     }
 }
