@@ -45,6 +45,13 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? =
 public func chatWithUser(_ email: String) {
     let chatView = Qiscus.chatView(withUsers: [email])
     
+    chatView.titleAction = {
+        let targetVC                        = DetailContactVC()
+        targetVC.email                      = email
+        targetVC.hidesBottomBarWhenPushed   = true
+        chatView.navigationController?.pushViewController(targetVC, animated: true)
+    }
+    
     chatView.setBackButton(withAction: {
         chatView.tabBarController?.selectedIndex = 0
         _ = chatView.navigationController?.popToRootViewController(animated: true)
