@@ -33,6 +33,10 @@
 		CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356191FB8147F0007EA37 /* ChatManager.swift */; };
 		CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23561C1FB82D930007EA37 /* SettingVC.swift */; };
 		CC23561F1FB82D930007EA37 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC23561D1FB82D930007EA37 /* SettingVC.xib */; };
+		CC2356221FB85EB30007EA37 /* GroupNewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356211FB85EB20007EA37 /* GroupNewViewModel.swift */; };
+		CC23562A1FB861060007EA37 /* ParticipantCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356281FB861060007EA37 /* ParticipantCollCell.swift */; };
+		CC23562B1FB861060007EA37 /* ParticipantCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2356291FB861060007EA37 /* ParticipantCollCell.xib */; };
+		CC23562D1FB863EE0007EA37 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23562C1FB863EE0007EA37 /* CGFloat.swift */; };
 		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
 		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
 		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
@@ -121,6 +125,10 @@
 		CC2356191FB8147F0007EA37 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CC23561C1FB82D930007EA37 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		CC23561D1FB82D930007EA37 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
+		CC2356211FB85EB20007EA37 /* GroupNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNewViewModel.swift; sourceTree = "<group>"; };
+		CC2356281FB861060007EA37 /* ParticipantCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCollCell.swift; sourceTree = "<group>"; };
+		CC2356291FB861060007EA37 /* ParticipantCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipantCollCell.xib; sourceTree = "<group>"; };
+		CC23562C1FB863EE0007EA37 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -236,7 +244,7 @@
 		CC018FE41FB42FC200396446 /* DetailContact */ = {
 			isa = PBXGroup;
 			children = (
-				CCD689D61FB747E400235674 /* View */,
+				CCD689D61FB747E400235674 /* Views */,
 				CC018FE51FB42FEF00396446 /* DetailContactVC.swift */,
 				CC018FE61FB42FEF00396446 /* DetailContactVC.xib */,
 			);
@@ -281,6 +289,23 @@
 				CC23561D1FB82D930007EA37 /* SettingVC.xib */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		CC2356201FB85E990007EA37 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				CC2356211FB85EB20007EA37 /* GroupNewViewModel.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		CC2356231FB860940007EA37 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC2356281FB861060007EA37 /* ParticipantCollCell.swift */,
+				CC2356291FB861060007EA37 /* ParticipantCollCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CCABBC651FB187D90039B34E = {
@@ -379,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				CCABBCAD1FB19FC70039B34E /* UIViewController.swift */,
+				CC23562C1FB863EE0007EA37 /* CGFloat.swift */,
 				CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */,
 				CCDD6F4D1FB2ADFF00D24921 /* UIImageView.swift */,
 			);
@@ -394,7 +420,7 @@
 			path = NewStranger;
 			sourceTree = "<group>";
 		};
-		CCD689D61FB747E400235674 /* View */ = {
+		CCD689D61FB747E400235674 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CCD689D71FB7480900235674 /* ContactPictureCell.swift */,
@@ -402,7 +428,7 @@
 				CCD689DB1FB748BD00235674 /* ContactDetailCell.swift */,
 				CCD689DC1FB748BD00235674 /* ContactDetailCell.xib */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CCD689E11FB7639C00235674 /* Preference */ = {
@@ -427,6 +453,7 @@
 		CCDD6F441FB1B1FF00D24921 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				CC2356201FB85E990007EA37 /* Group */,
 				CCD689E11FB7639C00235674 /* Preference */,
 				CC018FED1FB43EE100396446 /* Contact */,
 				CCDD6F991FB2EF5400D24921 /* Chat */,
@@ -458,6 +485,7 @@
 		CCDD6F591FB2BC7F00D24921 /* NewGroup */ = {
 			isa = PBXGroup;
 			children = (
+				CC2356231FB860940007EA37 /* Views */,
 				CCDD6F5A1FB2BC9200D24921 /* NewGroupVC.swift */,
 				CCDD6F5B1FB2BC9200D24921 /* NewGroupVC.xib */,
 				CCDD6F5E1FB2BCEB00D24921 /* NewGroupNameVC.swift */,
@@ -604,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCDD6F431FB1AC7500D24921 /* ChatListVC.xib in Resources */,
+				CC23562B1FB861060007EA37 /* ParticipantCollCell.xib in Resources */,
 				CCABBCA71FB188950039B34E /* MainVC.xib in Resources */,
 				CCD689D51FB73C4500235674 /* NewStrangerVC.xib in Resources */,
 				CCDD6F4A1FB1B57800D24921 /* ChatCell.xib in Resources */,
@@ -795,6 +824,7 @@
 				CCDD6F9B1FB2EF6E00D24921 /* ChatDetailViewModel.swift in Sources */,
 				CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */,
 				CCDD6F521FB2B67500D24921 /* ContactVC.swift in Sources */,
+				CC23562D1FB863EE0007EA37 /* CGFloat.swift in Sources */,
 				CC018FE71FB42FEF00396446 /* DetailContactVC.swift in Sources */,
 				CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */,
 				CC018FF71FB4481600396446 /* ContactCell.swift in Sources */,
@@ -815,11 +845,13 @@
 				CC018FF11FB43FCB00396446 /* ContactModel.swift in Sources */,
 				CCDD6F421FB1AC7500D24921 /* ChatListVC.swift in Sources */,
 				CCD689D91FB7480900235674 /* ContactPictureCell.swift in Sources */,
+				CC23562A1FB861060007EA37 /* ParticipantCollCell.swift in Sources */,
 				CCD689DD1FB748BD00235674 /* ContactDetailCell.swift in Sources */,
 				CCDD6F5C1FB2BC9200D24921 /* NewGroupVC.swift in Sources */,
 				CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */,
 				CCDD6F631FB2DA9700D24921 /* UILoadingView.swift in Sources */,
 				CC018FEB1FB4314D00396446 /* LeaveCell.swift in Sources */,
+				CC2356221FB85EB30007EA37 /* GroupNewViewModel.swift in Sources */,
 				CC0973D41FB58A62007F31C1 /* SelectContactCell.swift in Sources */,
 				CCD689E01FB74AD300235674 /* ContactDetailViewModel.swift in Sources */,
 				CCDD6F981FB2ED4900D24921 /* ChatModel.swift in Sources */,

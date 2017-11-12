@@ -1,17 +1,16 @@
 //
-//  ContactCell.swift
+//  ParticipantCollCell.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/9/17.
+//  Created by Rohmad Sasmito on 11/12/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import UIKit
 
-class ContactCell: UITableViewCell {
+class ParticipantCollCell: UICollectionViewCell {
 
     @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
     
     var item: Contact? {
         didSet {
@@ -22,7 +21,6 @@ class ContactCell: UITableViewCell {
             avatarImageView.loadAsync(item.avatarURL!,
                                       placeholderImage: UIImage(named: "avatar"),
                                       header: Helper.headers)
-            nameLabel.text = item.name
         }
     }
     
@@ -37,22 +35,16 @@ class ContactCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        // Initialization code
         avatarImageView.layer.cornerRadius  = (avatarImageView.frame.height / 2)
         avatarImageView?.clipsToBounds      = true
         avatarImageView?.contentMode        = .scaleAspectFit
         avatarImageView?.backgroundColor    = UIColor.lightGray
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         
         avatarImageView?.image = nil
     }
-    
 }
