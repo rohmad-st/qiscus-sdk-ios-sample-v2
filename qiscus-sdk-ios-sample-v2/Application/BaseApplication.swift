@@ -14,11 +14,13 @@ protocol BaseAppDelegate {
     func needLoggedIn()
 }
 
-class BaseApplication: QiscusConfigDelegate {
+class BaseApplication {
     fileprivate var delegate: BaseAppDelegate?
     
     init(delegate: BaseAppDelegate) {
         self.delegate = delegate
+        
+        QiscusCommentClient.sharedInstance.roomDelegate = self
     }
     
     func validateUser() {
@@ -56,7 +58,9 @@ class BaseApplication: QiscusConfigDelegate {
         // activate qiscus iCloud
         // Qiscus.iCloudUploadActive(true)
     }
-    
+}
+
+extension BaseApplication: QiscusConfigDelegate {
     func qiscusConnected() {
         // custom theme sdk after success connected to qiscus sdk
         self.customTheme()
@@ -64,5 +68,28 @@ class BaseApplication: QiscusConfigDelegate {
     
     func qiscusFailToConnect(_ withMessage: String) {
         print("Failed connect. Error: \(withMessage)")
+    }
+}
+
+extension BaseApplication: QiscusRoomDelegate {
+    func gotNewComment(_ comments: QComment) {
+        print("Got new comment: \(comments.text)")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"), object: comments)
+    }
+    
+    func didFinishLoadRoom(onRoom room: QRoom) {
+        print("Already finish load room: \(room.name)")
+    }
+    
+    func didFailLoadRoom(withError error: String) {
+        print("Failed load room. Error: \(error)")
+    }
+    
+    func didFinishUpdateRoom(onRoom room: QRoom) {
+        print("Finish update room: \(room.name)")
+    }
+    
+    func didFailUpdateRoom(withError error: String) {
+        print("Failed update room. Error: \(error)")
     }
 }

@@ -10,12 +10,15 @@ import Foundation
 import UIKit
 import Qiscus
 
+protocol ChatListViewDelegate {
+    func didFinishUpdated()
+}
+
 class ChatListViewModel: NSObject {
+    var delegate: ChatListViewDelegate?
     var items = [Chat]()
     
-    override init() {
-        super.init()
-        
+    func loadData() {
         var rooms = QRoom.all()
         if rooms.isEmpty {
             QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
@@ -28,11 +31,14 @@ class ChatListViewModel: NSObject {
         }
         
         guard let chat = ChatList(data: rooms) else { return }
+        self.items.removeAll()
         
         let chats = chat.chats
         if !chats.isEmpty {
             self.items.append(contentsOf: chats)
         }
+        
+        self.delegate?.didFinishUpdated()
     }
 }
 

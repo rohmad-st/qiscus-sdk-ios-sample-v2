@@ -19,6 +19,21 @@ class ChatListVC: UIViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        
+        self.viewModel.delegate = self
+        self.viewModel.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
+                                               name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"),
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func gotNewComment(_ sender: Notification) {
+        self.viewModel.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,5 +66,11 @@ extension ChatListVC {
         
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)
+    }
+}
+
+extension ChatListVC: ChatListViewDelegate {
+    func didFinishUpdated() {
+        self.tableView.reloadData()
     }
 }
