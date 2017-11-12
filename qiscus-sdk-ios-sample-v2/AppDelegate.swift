@@ -109,7 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
     func alreadyLoggedIn() {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
             self.setupTabBar()
-            return
         })
     }
     

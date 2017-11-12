@@ -228,7 +228,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CC018FD91FB3466A00396446 /* View */ = {
+		CC018FD91FB3466A00396446 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CC018FDA1FB3469000396446 /* NamePictureCell.swift */,
@@ -238,7 +238,7 @@
 				CC018FE91FB4314D00396446 /* LeaveCell.swift */,
 				CC018FEA1FB4314D00396446 /* LeaveCell.xib */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CC018FE41FB42FC200396446 /* DetailContact */ = {
@@ -261,7 +261,7 @@
 			path = Contact;
 			sourceTree = "<group>";
 		};
-		CC0973C91FB5797A007F31C1 /* View */ = {
+		CC0973C91FB5797A007F31C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */,
@@ -271,7 +271,7 @@
 				CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */,
 				CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CC2356181FB76FB00007EA37 /* Application */ = {
@@ -304,6 +304,24 @@
 			children = (
 				CC2356281FB861060007EA37 /* ParticipantCollCell.swift */,
 				CC2356291FB861060007EA37 /* ParticipantCollCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC6150B51FB8B7E100543F45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CCDD6F471FB1B57800D24921 /* ChatCell.swift */,
+				CCDD6F481FB1B57800D24921 /* ChatCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC6150B61FB8B7EE00543F45 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC018FF51FB4481600396446 /* ContactCell.swift */,
+				CC018FF61FB4481600396446 /* ContactCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -442,10 +460,9 @@
 		CCDD6F3F1FB1AC5A00D24921 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
+				CC6150B51FB8B7E100543F45 /* Views */,
 				CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */,
 				CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */,
-				CCDD6F471FB1B57800D24921 /* ChatCell.swift */,
-				CCDD6F481FB1B57800D24921 /* ChatCell.xib */,
 			);
 			path = ChatList;
 			sourceTree = "<group>";
@@ -464,10 +481,9 @@
 		CCDD6F4F1FB2B63D00D24921 /* ContactList */ = {
 			isa = PBXGroup;
 			children = (
+				CC6150B61FB8B7EE00543F45 /* Views */,
 				CCDD6F501FB2B67500D24921 /* ContactVC.swift */,
 				CCDD6F511FB2B67500D24921 /* ContactVC.xib */,
-				CC018FF51FB4481600396446 /* ContactCell.swift */,
-				CC018FF61FB4481600396446 /* ContactCell.xib */,
 			);
 			path = ContactList;
 			sourceTree = "<group>";
@@ -475,7 +491,7 @@
 		CCDD6F541FB2BABB00D24921 /* NewChat */ = {
 			isa = PBXGroup;
 			children = (
-				CC0973C91FB5797A007F31C1 /* View */,
+				CC0973C91FB5797A007F31C1 /* Views */,
 				CCDD6F551FB2BAD600D24921 /* NewChatVC.swift */,
 				CCDD6F561FB2BAD600D24921 /* NewChatVC.xib */,
 			);
@@ -497,7 +513,7 @@
 		CCDD6F641FB2DC0D00D24921 /* DetailChat */ = {
 			isa = PBXGroup;
 			children = (
-				CC018FD91FB3466A00396446 /* View */,
+				CC018FD91FB3466A00396446 /* Views */,
 				CCDD6F691FB2E02000D24921 /* DetailChatVC.swift */,
 				CCDD6F6A1FB2E02000D24921 /* DetailChatVC.xib */,
 			);
