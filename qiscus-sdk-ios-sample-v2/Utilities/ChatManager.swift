@@ -2,36 +2,54 @@
 //  ChatManager.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/7/17.
+//  Created by Rohmad Sasmito on 11/12/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import Foundation
-import UIKit
-//import Qiscus
+import Qiscus
 
-class ChatManager {
-    class func initChat() -> Void {
-        //        Qiscus.setup(withAppId: Helper.APP_ID,
-        //                     userEmail: Helper.USER_EMAIL,
-        //                     userKey: Helper.USER_PASSWORD,
-        //                     username: Helper.USER_USERNAME,
-        //                     avatarURL: Helper.USER_AVATAR_URL,
-        //                     delegate: self
-        //        )
+public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? = "") -> Void {
+    let chatView = Qiscus.chatView(withRoomId: roomId)
+    
+    if isGroup {
+        chatView.titleAction = {
+            let targetVC                        = DetailChatVC()
+            targetVC.id                         = roomId
+            targetVC.hidesBottomBarWhenPushed   = true
+            chatView.navigationController?.pushViewController(targetVC, animated: true)
+        }
         
-        print("Init chat with APP_ID", Helper.APP_ID)
-    }
-}
-
-public func openViewController(_ viewController: UIViewController) -> Void {
-    let app = UIApplication.shared.delegate as! AppDelegate
-    if let rootView = app.window?.rootViewController as? UINavigationController {
-        rootView.pushViewController(viewController, animated: true)
-        
-    } else if let rootView = app.window?.rootViewController as? UITabBarController {
-        if let navigation = rootView.selectedViewController as? UINavigationController {
-            navigation.pushViewController(viewController, animated: true)
+    } else {
+        chatView.titleAction = {
+            guard let email = email else { return }
+            
+            let targetVC                        = DetailContactVC()
+            targetVC.email                      = email
+            targetVC.hidesBottomBarWhenPushed   = true
+            chatView.navigationController?.pushViewController(targetVC, animated: true)
         }
     }
+    
+    chatView.setBackButton(withAction: {
+        chatView.tabBarController?.selectedIndex = 0
+        _ = chatView.navigationController?.popToRootViewController(animated: true)
+    })
+    
+    chatView.hidesBottomBarWhenPushed = true
+    openViewController(chatView)
+}
+
+
+// chat with user, email can be insert with unique id
+public func chatWithUser(_ email: String) {
+    let chatView = Qiscus.chatView(withUsers: [email])
+    
+    chatView.setBackButton(withAction: {
+        chatView.tabBarController?.selectedIndex = 0
+        _ = chatView.navigationController?.popToRootViewController(animated: true)
+    })
+    
+    chatView.hidesBottomBarWhenPushed = true
+    openViewController(chatView)
 }

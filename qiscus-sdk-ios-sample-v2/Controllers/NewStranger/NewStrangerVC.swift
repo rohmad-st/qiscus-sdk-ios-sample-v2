@@ -49,8 +49,7 @@ extension NewStrangerVC {
     
     @objc func starChat(_ sender: Any) {
         guard let phoneNumber = self.phoneField.text else { return }
-        let chatView = Qiscus.chatView(withUsers: [phoneNumber])
-        self.navigationController?.pushViewController(chatView, animated: true)
+        chatWithUser(phoneNumber)
     }
     
     func isEnableButton(_ enable: Bool) {

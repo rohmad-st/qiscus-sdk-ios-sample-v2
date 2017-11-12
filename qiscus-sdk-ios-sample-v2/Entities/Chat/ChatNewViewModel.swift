@@ -61,9 +61,8 @@ extension ChatNewViewModel: UITableViewDelegate {
             if let item = item as? ChatNewViewModelContactsItem {
                 let contact = item.contacts[indexPath.row]
                 guard let email = contact.email else { return }
-                print("Creating 1-to-1 chat with: \(email) \(contact.id!)")
-                let chatView = Qiscus.chatView(withUsers: [email])
-                openViewController(chatView)
+                print("Creating 1-to-1 chat with: \(email)")
+                chatWithUser(email)
             }
         }
         

@@ -7,10 +7,8 @@
 //
 
 import UIKit
-import Qiscus
-import Alamofire
 
-class ChatListVC: UIViewController, UILoadingView {
+class ChatListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,7 +18,6 @@ class ChatListVC: UIViewController, UILoadingView {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.showWaiting(message: "Please wait...")
         self.setupUI()
     }
 
@@ -45,11 +42,11 @@ extension ChatListVC {
         // add button in navigation right
         let rightButton = UIBarButtonItem(barButtonSystemItem: .add,
                                          target: self,
-                                         action: #selector(add(_:)))
+                                         action: #selector(newChat(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    @objc func add(_ sender: Any) {
+    @objc func newChat(_ sender: Any) {
         let view = NewChatVC()
         
         view.hidesBottomBarWhenPushed = true

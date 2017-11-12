@@ -9,23 +9,26 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
 
     var window: UIWindow?
-
+    var baseApp: BaseApplication?
+    let tabBarController = UITabBarController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.setNavigationColor(.baseNavigateColor, .baseNavigateTextColor)
+        self.setTabBarColor(.baseTabBarColor, .basetabBarActiveColor)
         
-        let navController               = UINavigationController()
-        navController.viewControllers   = [MainVC()]
+        // check user is already logged in?
+        self.baseApp?.validateUser()
         
-        let root                            = navController
-        self.window                         = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.rootViewController     = root
-        self.window!.backgroundColor        = UIColor.white
-        self.window!.makeKeyAndVisible()
+        return true
+    }
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        Preference.instance.clearAll()
+        self.baseApp = BaseApplication(delegate: self)
         return true
     }
 
@@ -50,6 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func getBaseApp() -> BaseApplication {
+        return self.baseApp!
+    }
 
     // MARK: - Set navigation color
     func setNavigationColor(_ barTintColor: UIColor, _ tintColor: UIColor) {
@@ -64,40 +71,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Setup tab bar
-    func setupTabBar() -> Void {
-        let tabBarController = UITabBarController()
-        
+    func setupTabBar() {
         // Set up the first View Controller
         let nav1 = UINavigationController()
         let vc1 = ChatListVC()
         vc1.tabBarItem.title = "Chat"
         vc1.tabBarItem.image = UIImage(named: "ic_forum")
         nav1.setViewControllers([vc1], animated: true)
-        
+
         // Set up chats controller
         let nav2 = UINavigationController()
         let vc2 = ContactVC()
         vc2.tabBarItem.title = "Contact"
         vc2.tabBarItem.image = UIImage(named: "ic_person")
         nav2.setViewControllers([vc2], animated: true)
-        
+
         // Set up the settings View Controller
         let nav3 = UINavigationController()
         let vc3 = UIViewController()
         vc3.tabBarItem.title = "Setting"
         vc3.tabBarItem.image = UIImage(named: "ic_settings")
         nav3.setViewControllers([vc3], animated: true)
-        
+
         // Set up the Tab Bar Controller
         tabBarController.viewControllers = [nav1, nav2, nav3]
-        
+
         // attribute tab bar
         tabBarController.selectedIndex = 0
-        
+
         // Make the Tab Bar Controller the root view controller
-        window?.rootViewController = tabBarController
+        window?.rootViewController  = tabBarController
+        //window?.backgroundColor     = UIColor.white
         window?.makeKeyAndVisible()
     }
     
+    func alreadyLoggedIn() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+            self.setupTabBar()
+            return
+        })
+    }
+    
+    func needLoggedIn() {
+        let navController               = UINavigationController()
+        navController.viewControllers   = [MainVC()]
+        
+        let root                            = navController
+        self.window                         = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.rootViewController     = root
+        self.window!.backgroundColor        = UIColor.white
+        self.window!.makeKeyAndVisible()
+    }
+    
+    func setTabBarColor(_ barTintColor: UIColor, _ tintColor: UIColor) {
+        let tabBar = UITabBar.appearance()
+        tabBar.barTintColor = barTintColor
+        tabBar.tintColor = tintColor
+    }
 }
-

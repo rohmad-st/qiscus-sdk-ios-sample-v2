@@ -15,7 +15,9 @@ class ContactList {
     init?(data: [QUser]) {
         for user in data {
             if let contact = Contact(data: user) {
-                contacts.append(contact)
+                if !(contact.email == Preference.instance.getEmail()) {
+                    contacts.append(contact)
+                }
             }
         }
     }

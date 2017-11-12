@@ -12,132 +12,16 @@ import Qiscus
 
 var cache = NSCache<NSString,UIImage>()
 
-//public extension UIImageView {
-//    public func loadAsync(_ url: String,
-//                          placeholderImage: UIImage? = nil,
-//                          header: [String: String] = [String: String](),
-//                          useCache:Bool = true,
-//                          maskImage:UIImage? = nil) {
-//        var returnImage = UIImage()
-//        if placeholderImage != nil {
-//            if maskImage != nil{
-//                returnImage = UIImageView.maskImage(placeholderImage!, mask: maskImage!)
-//            } else {
-//                returnImage = placeholderImage!
-//            }
-//            self.image = returnImage
-//
-//        } else {
-//            self.image = nil
-//        }
-//
-//        imageForUrl(url: url,
-//                    header: header,
-//                    useCache: useCache,
-//                    completionHandler:{ (image: UIImage?, url: String) in
-//            print("image url: \(url)    ---   image is nil = \(image == nil)")
-//            if image != nil {
-//                if maskImage != nil {
-//                    print("here")
-//                    returnImage = UIImageView.maskImage(image!, mask: maskImage!)
-//                } else {
-//                    returnImage = image!
-//                }
-//                self.image = returnImage
-//            }
-//        })
-//    }
-//
-//    public class func maskImage(_ image: UIImage,
-//                                mask:(UIImage)) -> UIImage {
-//
-//        let scaledImage = UIImage.resizeImage(image, toFillOnImage: mask)
-//        let imageReference = scaledImage.cgImage
-//        let maskReference = mask.cgImage
-//
-//        let imageMask = CGImage(maskWidth: (maskReference?.width)!,
-//                                height: (maskReference?.height)!,
-//                                bitsPerComponent: (maskReference?.bitsPerComponent)!,
-//                                bitsPerPixel: (maskReference?.bitsPerPixel)!,
-//                                bytesPerRow: (maskReference?.bytesPerRow)!,
-//                                provider: (maskReference?.dataProvider!)!,
-//                                decode: nil,
-//                                shouldInterpolate: false)
-//
-//        let maskedReference = imageReference?.masking(imageMask!)
-//        let maskedImage = UIImage(cgImage:maskedReference!)
-//
-//        return maskedImage
-//    }
-//
-//    // func imageForUrl
-//    //  Modified from ImageLoader.swift Created by Nate Lyman on 7/5/14.
-//    //              git: https://github.com/natelyman/SwiftImageLoader
-//    //              Copyright (c) 2014 NateLyman.com. All rights reserved.
-//    //
-//    func imageForUrl(url urlString: String,
-//                     header: [String : String] = [:],
-//                     useCache: Bool = true,
-//                     completionHandler: @escaping (_ image: UIImage?, _ url: String) -> ()) {
-//
-//        DispatchQueue.main.async {
-//            let image = cache.object(forKey: urlString as NSString)
-//
-//            if useCache == true && image != nil {
-//                completionHandler(image!, urlString)
-//            } else if let url = URL(string: urlString) {
-//                var urlRequest = URLRequest(url: url)
-//
-//                for (key, value) in header {
-//                    urlRequest.addValue(value, forHTTPHeaderField: key)
-//                }
-//
-//                let downloadTask = URLSession.shared.dataTask(with: urlRequest, completionHandler: {(data: Data?, response: URLResponse?, error: Error?) -> Void in
-//
-//                    if (error != nil) {
-//                        completionHandler(nil, urlString)
-//                        print("[QAsyncImageView] : \(String(describing: error))")
-//                        return
-//                    }
-//
-//                    if let data = data {
-//                        if let image = UIImage(data: data) {
-//                            if useCache {
-//                                cache.setObject(image, forKey: urlString as NSString)
-//                            } else {
-//                                cache.removeObject(forKey: urlString as NSString)
-//                            }
-//                            DispatchQueue.main.sync(execute: {() in
-//                                completionHandler(image, urlString)
-//                            })
-//                        } else {
-//                            DispatchQueue.main.sync(execute: {() in
-//                                completionHandler(nil, urlString)
-//                            })
-//                            print("[QAsyncImageView] : Can't get image from URL: \(url)")
-//                        }
-//                        return
-//                    }
-//                    return ()
-//
-//                })
-//
-//                downloadTask.resume()
-//            }
-//        }
-//    }
-//}
-
 public extension UIImage {
-    public class func clearAllCache(){
+    public class func clearAllCache() {
         cache.removeAllObjects()
     }
-    public class func clearCachedImageForURL(_ urlString:String){
+    
+    public class func clearCachedImageForURL(_ urlString:String) {
         cache.removeObject(forKey: urlString as NSString)
     }
-    public class func resizeImage(_ image: UIImage,
-                                  toFillOnImage: UIImage) -> UIImage {
-        
+    
+    public class func resizeImage(_ image: UIImage, toFillOnImage: UIImage) -> UIImage {
         var scale:CGFloat = 1
         var newSize:CGSize = toFillOnImage.size
         

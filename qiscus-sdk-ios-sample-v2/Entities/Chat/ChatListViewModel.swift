@@ -16,38 +16,23 @@ class ChatListViewModel: NSObject {
     override init() {
         super.init()
         
-        guard let chat = ChatList(data: QRoom.all()) else { return }
+        var rooms = QRoom.all()
+        if rooms.isEmpty {
+            QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
+                DispatchQueue.main.async {
+                    rooms = QRoom.all()
+                }
+            }) { (error) in
+                print("Failed load list rooms \(error)")
+            }
+        }
+        
+        guard let chat = ChatList(data: rooms) else { return }
         
         let chats = chat.chats
         if !chats.isEmpty {
             self.items.append(contentsOf: chats)
         }
-    }
-    
-    func chatTarget(_ roomId: Int, isGroup: Bool = true, email: String? = "") -> Void {
-        let chatView = Qiscus.chatView(withRoomId: roomId)
-        
-        if isGroup {
-            chatView.titleAction = {
-                let targetVC                        = DetailChatVC()
-                targetVC.id                         = roomId
-                targetVC.hidesBottomBarWhenPushed   = true
-                chatView.navigationController?.pushViewController(targetVC, animated: true)
-            }
-            
-        } else {
-            chatView.titleAction = {
-                guard let email = email else { return }
-                
-                let targetVC                        = DetailContactVC()
-                targetVC.email                      = email
-                targetVC.hidesBottomBarWhenPushed   = true
-                chatView.navigationController?.pushViewController(targetVC, animated: true)
-            }
-        }
-        
-        chatView.hidesBottomBarWhenPushed = true
-        openViewController(chatView)
     }
 }
 
@@ -58,12 +43,13 @@ extension ChatListViewModel: UITableViewDelegate {
         guard let isGroup   = chat.isGroup else { return }
         
         // get email of target user from participants
-        guard let email = chat.participants.flatMap({ $0.email }).last else {
-            self.chatTarget(roomId, isGroup: isGroup)
+        let myEmail = Preference.instance.getEmail()
+        guard let filterParticipant = chat.participants.filter({ $0.email != myEmail }).first else {
+            chatWithRoomId(roomId, isGroup: isGroup)
             return
         }
         
-        self.chatTarget(roomId, isGroup: isGroup, email: email)
+        chatWithRoomId(roomId, isGroup: isGroup, email: filterParticipant.email)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -23,7 +23,7 @@ protocol ContactDetailViewModelItem {
 class ContactDetailViewModel: NSObject {
     var items = [ContactDetailViewModelItem]()
     
-    // this id variable must be set from caller class
+    // this email variable must be set from caller class
     var email: String = "" {
         didSet {
             self.setup()
@@ -32,9 +32,9 @@ class ContactDetailViewModel: NSObject {
     
     func setup() {
         guard let contact = ContactList(data: QUser.all()) else { return }
-        
-        let data = contact.contacts.filter({ $0.email == self.email })
-        guard let filterData = data.first else { return }
+        guard let filterData = contact.contacts.filter({ $0.email == self.email }).first else {
+            return
+        }
         
         // picture section
         let pictureItem = ContactDetailViewModelPictureItem(avatarURL: filterData.avatarURL!)
