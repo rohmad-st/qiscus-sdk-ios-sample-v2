@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
     }
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        Preference.instance.clearAll()
+        // Preference.instance.clearAll()
         self.baseApp = BaseApplication(delegate: self)
         return true
     }
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
 
         // Set up the settings View Controller
         let nav3 = UINavigationController()
-        let vc3 = UIViewController()
+        let vc3 = SettingVC()
         vc3.tabBarItem.title = "Setting"
         vc3.tabBarItem.image = UIImage(named: "ic_settings")
         nav3.setViewControllers([vc3], animated: true)
@@ -100,8 +100,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
         tabBarController.selectedIndex = 0
 
         // Make the Tab Bar Controller the root view controller
+        window                      = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController  = tabBarController
-        //window?.backgroundColor     = UIColor.white
+        window?.backgroundColor     = UIColor.white
         window?.makeKeyAndVisible()
     }
     

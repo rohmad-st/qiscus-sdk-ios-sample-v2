@@ -31,6 +31,8 @@
 		CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */; };
 		CC2356171FB76F720007EA37 /* BaseApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356161FB76F720007EA37 /* BaseApplication.swift */; };
 		CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356191FB8147F0007EA37 /* ChatManager.swift */; };
+		CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23561C1FB82D930007EA37 /* SettingVC.swift */; };
+		CC23561F1FB82D930007EA37 /* SettingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC23561D1FB82D930007EA37 /* SettingVC.xib */; };
 		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
 		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
 		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
@@ -117,6 +119,8 @@
 		CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectContactCell.xib; sourceTree = "<group>"; };
 		CC2356161FB76F720007EA37 /* BaseApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApplication.swift; sourceTree = "<group>"; };
 		CC2356191FB8147F0007EA37 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		CC23561C1FB82D930007EA37 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		CC23561D1FB82D930007EA37 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -270,6 +274,15 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		CC23561B1FB82D7B0007EA37 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				CC23561C1FB82D930007EA37 /* SettingVC.swift */,
+				CC23561D1FB82D930007EA37 /* SettingVC.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		CCABBC651FB187D90039B34E = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +342,7 @@
 		CCABBC9F1FB1881F0039B34E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC23561B1FB82D7B0007EA37 /* Setting */,
 				CC018FE41FB42FC200396446 /* DetailContact */,
 				CCDD6F641FB2DC0D00D24921 /* DetailChat */,
 				CCD689D11FB73C2900235674 /* NewStranger */,
@@ -608,6 +622,7 @@
 				CCDD6F611FB2BCEB00D24921 /* NewGroupNameVC.xib in Resources */,
 				CC018FE31FB347C700396446 /* ParticipantCell.xib in Resources */,
 				CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */,
+				CC23561F1FB82D930007EA37 /* SettingVC.xib in Resources */,
 				CCD689DA1FB7480900235674 /* ContactPictureCell.xib in Resources */,
 				CC018FDD1FB3469000396446 /* NamePictureCell.xib in Resources */,
 			);
@@ -776,6 +791,7 @@
 				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
 				CCDD6F571FB2BAD600D24921 /* NewChatVC.swift in Sources */,
 				CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */,
+				CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */,
 				CCDD6F9B1FB2EF6E00D24921 /* ChatDetailViewModel.swift in Sources */,
 				CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */,
 				CCDD6F521FB2B67500D24921 /* ContactVC.swift in Sources */,

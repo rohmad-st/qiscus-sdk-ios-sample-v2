@@ -20,11 +20,19 @@ class ContactListViewModel: NSObject {
         self.items.append(contentsOf: contact.contacts)
     }
     
-    func showDialog(_ email: String) -> Void {
-        let alertController = UIAlertController(title: "Action Sheet",
+    func showDialog(_ email: String, title: String) -> Void {
+        let alertController = UIAlertController(title: title,
                                                 message: "What would you like to do?",
                                                 preferredStyle: .actionSheet)
         
+        let detailButton = UIAlertAction(title: "Detail",
+                                       style: .default,
+                                       handler: { (action) -> Void in
+                                        let targetVC = DetailContactVC()
+                                        targetVC.email = email
+                                        targetVC.hidesBottomBarWhenPushed = true
+                                        openViewController(targetVC)
+        })
         let chatButton = UIAlertAction(title: "Chat",
                                        style: .default,
                                        handler: { (action) -> Void in
@@ -37,6 +45,7 @@ class ContactListViewModel: NSObject {
                                             print("Cancel button tapped")
         })
         
+        alertController.addAction(detailButton)
         alertController.addAction(chatButton)
         alertController.addAction(cancelButton)
         alertController.preferredAction = chatButton
@@ -54,7 +63,8 @@ class ContactListViewModel: NSObject {
 extension ContactListViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let email = self.items[indexPath.row].email else { return }
-        self.showDialog(email)
+        guard let name = self.items[indexPath.row].name else { return }
+        self.showDialog(email, title: name)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
