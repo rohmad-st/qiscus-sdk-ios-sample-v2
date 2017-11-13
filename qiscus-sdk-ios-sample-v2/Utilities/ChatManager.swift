@@ -64,7 +64,12 @@ public func chatWithUser(_ email: String) {
 public func createGroupChat(_ users: [String], title: String) {
     let chatView = Qiscus.createChatView(withUsers: users, title: title)
 
-    chatView.titleAction = {}
+    chatView.titleAction = {
+        let targetVC                        = DetailChatVC()
+        targetVC.id                         = chatView.chatRoom?.id
+        targetVC.hidesBottomBarWhenPushed   = true
+        chatView.navigationController?.pushViewController(targetVC, animated: true)
+    }
     
     chatView.setBackButton(withAction: {
         chatView.tabBarController?.selectedIndex = 0
