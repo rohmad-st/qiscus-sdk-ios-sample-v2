@@ -14,7 +14,7 @@ class NewGroupVC: UIViewController {
     fileprivate var viewModel: GroupNewViewModel?
     var selectedContacts = [Contact]() {
         didSet {
-            let isEnable: Bool = (selectedContacts.count >= 1)
+            let isEnable: Bool = (selectedContacts.count > 1)
             self.isEnableButton(isEnable)
         }
     }

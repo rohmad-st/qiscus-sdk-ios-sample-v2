@@ -41,7 +41,10 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? =
 }
 
 
-// chat with user, email can be insert with unique id
+/*
+ * {email} can be contains of email or uniqueId
+ * but in this case we always use value of email
+ */
 public func chatWithUser(_ email: String) {
     let chatView = Qiscus.chatView(withUsers: [email])
     
@@ -51,6 +54,21 @@ public func chatWithUser(_ email: String) {
         targetVC.hidesBottomBarWhenPushed   = true
         chatView.navigationController?.pushViewController(targetVC, animated: true)
     }
+    
+    chatView.setBackButton(withAction: {
+        chatView.tabBarController?.selectedIndex = 0
+        _ = chatView.navigationController?.popToRootViewController(animated: true)
+    })
+    
+    chatView.hidesBottomBarWhenPushed = true
+    openViewController(chatView)
+}
+
+// {uniqueId} can be contains of: email/userId/phone
+public func chatWithUniqueId(_ uniqueId: String) {
+    let chatView = Qiscus.chatView(withUsers: [uniqueId])
+    
+    chatView.titleAction = {}
     
     chatView.setBackButton(withAction: {
         chatView.tabBarController?.selectedIndex = 0

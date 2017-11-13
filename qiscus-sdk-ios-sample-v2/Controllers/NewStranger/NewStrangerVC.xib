@@ -21,20 +21,23 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input Phone Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-EI-PFg">
-                    <rect key="frame" x="20" y="85" width="280" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input a Unique ID, Email, or Phone Number" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-EI-PFg">
+                    <rect key="frame" x="10" y="85" width="300" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="bI4-xF-USG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O9d-Vw-diy">
-                    <rect key="frame" x="20" y="116" width="281" height="35"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input a Unique ID, Email, or Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O9d-Vw-diy">
+                    <rect key="frame" x="10" y="117" width="301" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="80w-zv-P1t"/>
                     </constraints>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     <connections>
                         <action selector="phoneNumberEditingDidChanged:" destination="-1" eventType="editingChanged" id="prE-Ga-LwG"/>
                     </connections>
@@ -43,8 +46,8 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="a0Y-EI-PFg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="65" id="LXu-po-Ima"/>
-                <constraint firstItem="O9d-Vw-diy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="UEX-Qh-U4r"/>
-                <constraint firstItem="a0Y-EI-PFg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="lfj-Dt-cIX"/>
+                <constraint firstItem="O9d-Vw-diy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="UEX-Qh-U4r"/>
+                <constraint firstItem="a0Y-EI-PFg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="lfj-Dt-cIX"/>
                 <constraint firstItem="O9d-Vw-diy" firstAttribute="centerX" secondItem="a0Y-EI-PFg" secondAttribute="centerX" id="pcp-UO-XKA"/>
                 <constraint firstItem="a0Y-EI-PFg" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="uy3-Ob-Scr"/>
                 <constraint firstItem="O9d-Vw-diy" firstAttribute="top" secondItem="a0Y-EI-PFg" secondAttribute="bottom" constant="10" id="wXy-8u-HFr"/>

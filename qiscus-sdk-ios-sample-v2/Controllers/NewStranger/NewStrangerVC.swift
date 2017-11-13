@@ -11,6 +11,7 @@ import Qiscus
 
 class NewStrangerVC: UIViewController {
 
+    // this field is also can contain of uniqueID, email, or phoneNumber
     @IBOutlet weak var phoneField: UITextField!
     
     override func viewDidLoad() {
@@ -49,7 +50,7 @@ extension NewStrangerVC {
     
     @objc func starChat(_ sender: Any) {
         guard let phoneNumber = self.phoneField.text else { return }
-        chatWithUser(phoneNumber)
+        chatWithUniqueId(phoneNumber)
     }
     
     func isEnableButton(_ enable: Bool) {
