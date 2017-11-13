@@ -11,27 +11,27 @@ import Alamofire
 class Helper: NSObject {
     static var APP_ID: String {
         get {
-            return "kopihitam-o6xn13fos3n"
+            return "sampleapp-65ghcsaysse"
         }
     }
     static var USER_EMAIL: String {
         get {
-            return "rohmadsasmito@gmail.com"
+            return "piyut@qiscus.com"
         }
     }
     static var USER_PASSWORD: String {
         get {
-            return "qiscusqiscus"
+            return "qiscus-123"
         }
     }
     static var USER_USERNAME: String {
         get {
-            return "rohmad"
+            return "piyut"
         }
     }
     static var USER_AVATAR_URL: String {
         get {
-            return "http://www.lovemarks.com/wp-content/uploads/profile-avatars/default-avatar-braindead-zombie.png"
+            return "https://pbs.twimg.com/profile_images/509529944431407104/PJITGbsA_400x400.jpeg"
         }
     }
     

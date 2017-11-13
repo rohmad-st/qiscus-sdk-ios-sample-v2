@@ -41,6 +41,10 @@ class BaseApplication {
                          secureURl: true)
 
         } else {
+            // call clear func for cleared data of Qiscus SDK
+            // so when we switch user for login, we get truly new data
+            Qiscus.clear()
+            
             self.delegate?.needLoggedIn()
         }
     }

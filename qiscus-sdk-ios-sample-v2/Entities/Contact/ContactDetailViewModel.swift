@@ -24,15 +24,16 @@ class ContactDetailViewModel: NSObject {
     var items = [ContactDetailViewModelItem]()
     
     // this email variable must be set from caller class
-    var email: String = "" {
+    var email: String? {
         didSet {
             self.setup()
         }
     }
     
     func setup() {
+        guard let email = self.email else { return }
         guard let contact = ContactList(data: QUser.all()) else { return }
-        guard let filterData = contact.contacts.filter({ $0.email == self.email }).first else {
+        guard let filterData = contact.contacts.filter({ $0.email == email }).first else {
             return
         }
         

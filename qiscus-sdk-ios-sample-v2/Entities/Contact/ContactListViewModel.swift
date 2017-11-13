@@ -10,14 +10,31 @@ import Foundation
 import UIKit
 import Qiscus
 
+protocol ContactListViewDelegate {
+    func didFinishUpdated()
+}
+
 class ContactListViewModel: NSObject {
+    var delegate: ContactListViewDelegate?
     var items = [Contact]()
     
-    override init() {
-        super.init()
-
-        guard let contact = ContactList(data: QUser.all()) else { return }
+    func loadData() {
+        var users = QUser.all()
+        if users.isEmpty {
+            QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
+                DispatchQueue.main.async {
+                    users = QUser.all()
+                }
+            }) { (error) in
+                print("Failed load list rooms \(error)")
+            }
+        }
+        self.items.removeAll()
+        
+        guard let contact = ContactList(data: users) else { return }
         self.items.append(contentsOf: contact.contacts)
+        
+        self.delegate?.didFinishUpdated()
     }
     
     func showDialog(_ email: String, title: String) -> Void {

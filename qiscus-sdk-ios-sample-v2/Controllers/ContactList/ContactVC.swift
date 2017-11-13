@@ -18,6 +18,9 @@ class ContactVC: UIViewController {
 
         // Do any additional setup after loading the view.
         self.setupUI()
+        
+        self.viewModel.delegate = self
+        self.viewModel.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +37,11 @@ extension ContactVC {
         tableView.dataSource = self.viewModel
         tableView.register(ContactCell.nib,
                            forCellReuseIdentifier: ContactCell.identifier)
+    }
+}
+
+extension ContactVC: ContactListViewDelegate {
+    func didFinishUpdated() {
+        tableView.reloadData()
     }
 }
