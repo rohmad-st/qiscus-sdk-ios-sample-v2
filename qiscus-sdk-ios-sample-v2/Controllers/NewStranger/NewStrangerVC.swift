@@ -29,7 +29,7 @@ class NewStrangerVC: UIViewController {
     
     @IBAction func phoneNumberEditingDidChanged(_ sender: UITextField) {
         guard let phoneNumber = sender.text else { return }
-        let isEnable: Bool = (phoneNumber.count >= 9)
+        let isEnable: Bool = (phoneNumber.count >= 3)
         self.isEnableButton(isEnable)
     }
 }
