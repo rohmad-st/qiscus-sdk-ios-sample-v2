@@ -73,12 +73,15 @@ extension BaseApplication: QiscusConfigDelegate {
 
 extension BaseApplication: QiscusRoomDelegate {
     func gotNewComment(_ comments: QComment) {
-        print("Got new comment: \(comments.text)")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"), object: comments)
+        print("Got new comment: \(comments.text): \(comments)")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"),
+                                        object: comments)
     }
     
     func didFinishLoadRoom(onRoom room: QRoom) {
-        print("Already finish load room: \(room.name)")
+        print("Already finish load room \(room.id): \(room)")
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
+                                        object: room)
     }
     
     func didFailLoadRoom(withError error: String) {

@@ -24,6 +24,9 @@ class ChatListVC: UIViewController {
         self.viewModel.loadData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
+                                               name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
                                                name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"),
                                                object: nil)
     }

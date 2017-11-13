@@ -26,14 +26,14 @@ class ChatDetailViewModel: NSObject {
     var items = [ChatDetailViewModelItem]()
     
     // this id variable must be set from caller class
-    var id: Int = -1 {
+    var id: Int? {
         didSet {
-            print("chat detail view model changed to be: \(id)")
             self.setup()
         }
     }
     
     func setup() {
+        guard let id = self.id else { return }
         let data = QRoom.all().filter({ $0.id == id })
         guard let chat = Chat(data: data.first!) else { return }
 

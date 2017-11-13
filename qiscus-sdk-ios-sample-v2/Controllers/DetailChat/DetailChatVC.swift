@@ -12,13 +12,15 @@ class DetailChatVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel = ChatDetailViewModel()
-    var id: Int = -1
+    var id: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.viewModel.id = self.id
+        guard let roomId = self.id else { return }
+        
+        self.viewModel.id = roomId
         self.setupUI()
     }
 
