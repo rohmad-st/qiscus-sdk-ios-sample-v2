@@ -39,6 +39,9 @@
 		CC23562D1FB863EE0007EA37 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23562C1FB863EE0007EA37 /* CGFloat.swift */; };
 		CC7FDD541FBC1F7B00901594 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD531FBC1F7B00901594 /* String.swift */; };
 		CC7FDD561FBC1F9200901594 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD551FBC1F9200901594 /* Date.swift */; };
+		CC7FDD591FBC334A00901594 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD571FBC334A00901594 /* ActionCell.swift */; };
+		CC7FDD5A1FBC334A00901594 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7FDD581FBC334A00901594 /* ActionCell.xib */; };
+		CC7FDD5C1FBC3FE600901594 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD5B1FBC3FE600901594 /* UIView.swift */; };
 		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
 		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
 		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
@@ -135,6 +138,9 @@
 		CC23562C1FB863EE0007EA37 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		CC7FDD531FBC1F7B00901594 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		CC7FDD551FBC1F9200901594 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		CC7FDD571FBC334A00901594 /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		CC7FDD581FBC334A00901594 /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		CC7FDD5B1FBC3FE600901594 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -278,6 +284,8 @@
 				CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */,
 				CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */,
 				CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */,
+				CC7FDD571FBC334A00901594 /* ActionCell.swift */,
+				CC7FDD581FBC334A00901594 /* ActionCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -428,6 +436,7 @@
 				CCB2B22C1FBBF561002FBB2D /* UITextField.swift */,
 				CC7FDD531FBC1F7B00901594 /* String.swift */,
 				CC7FDD551FBC1F9200901594 /* Date.swift */,
+				CC7FDD5B1FBC3FE600901594 /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -681,6 +690,7 @@
 				CC018FE31FB347C700396446 /* ParticipantCell.xib in Resources */,
 				CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */,
 				CC23561F1FB82D930007EA37 /* SettingVC.xib in Resources */,
+				CC7FDD5A1FBC334A00901594 /* ActionCell.xib in Resources */,
 				CCD689DA1FB7480900235674 /* ContactPictureCell.xib in Resources */,
 				CC018FDD1FB3469000396446 /* NamePictureCell.xib in Resources */,
 			);
@@ -850,6 +860,7 @@
 				CCB2B2311FBBFEF7002FBB2D /* LoginVC.swift in Sources */,
 				CCDD6F571FB2BAD600D24921 /* NewChatVC.swift in Sources */,
 				CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */,
+				CC7FDD591FBC334A00901594 /* ActionCell.swift in Sources */,
 				CCB2B22D1FBBF561002FBB2D /* UITextField.swift in Sources */,
 				CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */,
 				CCDD6F9B1FB2EF6E00D24921 /* ChatDetailViewModel.swift in Sources */,
@@ -869,6 +880,7 @@
 				CCD689C91FB725B500235674 /* ChatListViewModel.swift in Sources */,
 				CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */,
 				CC018FE21FB347C700396446 /* ParticipantCell.swift in Sources */,
+				CC7FDD5C1FBC3FE600901594 /* UIView.swift in Sources */,
 				CC018FF31FB4461E00396446 /* ContactListViewModel.swift in Sources */,
 				CCDD6F4E1FB2ADFF00D24921 /* UIImageView.swift in Sources */,
 				CC018FDC1FB3469000396446 /* NamePictureCell.swift in Sources */,

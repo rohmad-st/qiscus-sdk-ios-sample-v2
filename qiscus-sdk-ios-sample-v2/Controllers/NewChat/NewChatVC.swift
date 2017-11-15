@@ -29,7 +29,7 @@ class NewChatVC: UIViewController {
 
 extension NewChatVC {
     func setupUI() -> Void {
-        self.title = "New Chat"
+        self.title = "Create New Chat"
         
         tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel

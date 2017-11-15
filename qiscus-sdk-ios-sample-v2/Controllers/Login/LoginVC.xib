@@ -35,13 +35,13 @@
                     <rect key="frame" x="20" y="150" width="280" height="275"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xP1-f2-iBU">
-                            <rect key="frame" x="15" y="20" width="250" height="21"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <rect key="frame" x="15" y="20" width="250" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type email here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TW4-1f-RRm">
-                            <rect key="frame" x="15" y="49" width="250" height="35"/>
+                            <rect key="frame" x="15" y="46" width="250" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="e79-IT-BPT"/>
                             </constraints>
@@ -50,13 +50,13 @@
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartQuotesType="no" textContentType="email"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISPLAY NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWM-Df-wcz">
-                            <rect key="frame" x="15" y="104" width="250" height="21"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <rect key="frame" x="15" y="101" width="250" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type display name here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Bh-14-6iq">
-                            <rect key="frame" x="15" y="133" width="250" height="35"/>
+                            <rect key="frame" x="15" y="127" width="250" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="hiY-mq-ghk"/>
                             </constraints>
@@ -64,14 +64,14 @@
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRJ-cN-GFm">
-                            <rect key="frame" x="15" y="188" width="250" height="21"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USER KEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRJ-cN-GFm">
+                            <rect key="frame" x="15" y="182" width="250" height="18"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type user key here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cdh-dx-HgX">
-                            <rect key="frame" x="15" y="217" width="250" height="35"/>
+                            <rect key="frame" x="15" y="208" width="250" height="35"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="y6N-bT-rvY"/>
                             </constraints>

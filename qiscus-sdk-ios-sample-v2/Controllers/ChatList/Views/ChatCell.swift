@@ -21,15 +21,14 @@ class ChatCell: UITableViewCell {
     var item: Chat? {
         didSet {
             guard let item = item else { return }
-            
+            let imageDefault = (item.isGroup!) ? UIImage(named: "ic_default_group") : UIImage(named: "ic_default_avatar")
             avatarImageView.loadAsync(item.avatarURL!,
-                                      placeholderImage: UIImage(named: "avatar"),
+                                      placeholderImage: imageDefault,
                                       header: Helper.headers)
             chatNameLabel.text      = item.name
             lastMessageLabel.text   = item.lastCommentText
             
             if let date = item.date {
-                print("Now data is: \(date.timestampFormat())")
                 timestampLabel.text = date.timestampFormat()
             }
             if let unreadCount = item.unreadCount {

@@ -50,6 +50,21 @@ extension UIColor {
             return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
         }
     }
+    class var baseIconColor: UIColor {
+        get {
+            return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
+        }
+    }
+    class var baseBgHeader: UIColor {
+        get {
+            return UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+        }
+    }
+    class var baseFontDark: UIColor {
+        get {
+            return UIColor(red: 109/255, green: 109/255, blue: 114/255, alpha: 1)
+        }
+    }
     class var baseBorderActiveColor: UIColor {
         get {
             return UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)

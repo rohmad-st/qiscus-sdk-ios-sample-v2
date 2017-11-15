@@ -48,7 +48,7 @@ class ChatListVC: UIViewController {
 
 extension ChatListVC {
     func setupUI() -> Void {
-        self.title = "Chat"
+        self.title = "Room List"
         
         // MARK: - Register table & cell
         tableView.delegate              = self.viewModel

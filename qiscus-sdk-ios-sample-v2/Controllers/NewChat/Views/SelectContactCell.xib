@@ -20,14 +20,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-Ar-CsO">
-                        <rect key="frame" x="23" y="10" width="35" height="35"/>
+                        <rect key="frame" x="10" y="10" width="35" height="35"/>
+                        <color key="backgroundColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="4wE-ZF-4I7"/>
                             <constraint firstAttribute="height" constant="35" id="AAi-kd-i6m"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUg-v0-Yj1">
-                        <rect key="frame" x="78" y="-0.5" width="222" height="60.5"/>
+                        <rect key="frame" x="55" y="-0.5" width="255" height="60.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="n01-LE-32S"/>
                         </constraints>
@@ -37,10 +38,10 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hUg-v0-Yj1" firstAttribute="leading" secondItem="Tvh-Ar-CsO" secondAttribute="trailing" constant="20" id="ASo-ay-DJ0"/>
+                    <constraint firstItem="hUg-v0-Yj1" firstAttribute="leading" secondItem="Tvh-Ar-CsO" secondAttribute="trailing" constant="10" id="ASo-ay-DJ0"/>
                     <constraint firstItem="Tvh-Ar-CsO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-2.25" id="Dgf-Bd-eMm"/>
-                    <constraint firstAttribute="trailing" secondItem="hUg-v0-Yj1" secondAttribute="trailing" constant="20" id="FCn-LM-7dF"/>
-                    <constraint firstItem="Tvh-Ar-CsO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="23" id="M0j-sB-fxw"/>
+                    <constraint firstAttribute="trailing" secondItem="hUg-v0-Yj1" secondAttribute="trailing" constant="10" id="FCn-LM-7dF"/>
+                    <constraint firstItem="Tvh-Ar-CsO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="M0j-sB-fxw"/>
                     <constraint firstItem="hUg-v0-Yj1" firstAttribute="centerY" secondItem="Tvh-Ar-CsO" secondAttribute="centerY" constant="2.25" id="Xyk-8r-az5"/>
                 </constraints>
             </tableViewCellContentView>

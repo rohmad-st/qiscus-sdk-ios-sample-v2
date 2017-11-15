@@ -44,9 +44,7 @@ class LoginVC: UIViewController, UILoadingView {
     @IBAction func loginButtonDidTouchUpInside(_ sender: Any) {
         self.login()
     }
-    
 }
-
 
 extension LoginVC {
     func setupUI() -> Void {

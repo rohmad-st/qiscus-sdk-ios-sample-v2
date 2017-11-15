@@ -16,8 +16,9 @@ extension String {
         
         if let date = dateFormat.date(from: self) {
             if date.today() {
-                dateFormat.dateFormat = "HH:mm"
-                return dateFormat.string(from: date)
+                return "Today"
+                // dateFormat.dateFormat = "HH:mm"
+                // return dateFormat.string(from: date)
                 
             } else {
                 dateFormat.dateFormat = "dd/MM/yyyy"

@@ -31,7 +31,9 @@ class CreateGroupCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
+        iconImageView.tintColor(.baseIconColor)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

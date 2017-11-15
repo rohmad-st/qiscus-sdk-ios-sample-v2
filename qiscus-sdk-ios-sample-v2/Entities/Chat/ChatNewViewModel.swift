@@ -42,6 +42,37 @@ class ChatNewViewModel: NSObject {
             items.append(contactItem)
         }
     }
+    
+    func chatWithStranger() {
+        let alertController = UIAlertController(title: "Chat With Stranger",
+                                                message: "Enter the unique id for your chat target ex: johnny@appleseed.com.",
+                                                preferredStyle: .alert)
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Unique ID"
+        }
+
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            guard let textField = alertController.textFields![0] as UITextField! else { return }
+            if let field = textField.text {
+                if !(field.isEmpty) {
+                    chatWithUniqueId(field)
+                }
+            }
+        })
+        
+        let cancelButton = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: { (action) -> Void in
+            print("Cancel button tapped")
+        })
+        
+        alertController.addAction(okButton)
+        alertController.addAction(cancelButton)
+        alertController.preferredAction = okButton
+        
+        presentViewController(alertController)
+    }
 }
 
 extension ChatNewViewModel: UITableViewDelegate {
@@ -53,8 +84,7 @@ extension ChatNewViewModel: UITableViewDelegate {
             openViewController(targetVC)
             
         case .createStranger:
-            let targetVC = NewStrangerVC()
-            openViewController(targetVC)
+            self.chatWithStranger()
             
         case .contacts:
             if let item = item as? ChatNewViewModelContactsItem {
@@ -72,6 +102,55 @@ extension ChatNewViewModel: UITableViewDelegate {
 extension ChatNewViewModel: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        let item = items[section]
+        switch item.type {
+        case .createGroup:
+            return 15.0
+            
+        case .createStranger:
+            return 0.0
+            
+        case .contacts:
+            return 50.0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let title   = items[section].sectionTitle
+        let view    = UIView.headerInTableView(title)
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let item = items[indexPath.section]
+        switch item.type {
+        case .createGroup:
+            if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0)
+            }
+            
+        case .createStranger:
+            if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
+            }
+            
+        case .contacts:
+            if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 55, bottom: 0, right: 0)
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if (items[indexPath.section].type == .contacts) {
+            return 60.0
+        }
+        
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,6 +176,9 @@ extension ChatNewViewModel: UITableViewDataSource {
             if let item = item as? ChatNewViewModelContactsItem, let cell = tableView.dequeueReusableCell(withIdentifier: SelectContactCell.identifier, for: indexPath) as? SelectContactCell {
                 let contact = item.contacts[indexPath.row]
                 cell.item = contact
+                
+                tableView.tableFooterView = UIView()
+                
                 return cell
             }
         }
@@ -144,7 +226,7 @@ class ChatNewViewModelContactsItem: ChatNewViewModelItem {
     }
     
     var sectionTitle: String {
-        return "Contacts"
+        return "CONTACTS"
     }
     
     var rowCount: Int {
