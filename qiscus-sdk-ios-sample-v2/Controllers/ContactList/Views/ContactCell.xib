@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdb-DJ-wOP">
-                        <rect key="frame" x="81" y="-1" width="219" height="65"/>
+                        <rect key="frame" x="65" y="-1" width="245" height="65"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="8MP-fb-Zfw"/>
                         </constraints>
@@ -29,7 +29,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="hmV-Tl-0Ik">
-                        <rect key="frame" x="16" y="9" width="45" height="45"/>
+                        <rect key="frame" x="10" y="9" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="45" id="Ofb-3W-Pei"/>
                             <constraint firstAttribute="height" constant="45" id="QQl-96-bpU"/>
@@ -37,11 +37,11 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hmV-Tl-0Ik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="0WR-pE-bKB"/>
+                    <constraint firstItem="hmV-Tl-0Ik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="0WR-pE-bKB"/>
                     <constraint firstItem="mdb-DJ-wOP" firstAttribute="centerY" secondItem="hmV-Tl-0Ik" secondAttribute="centerY" id="DC2-V1-Pse"/>
                     <constraint firstItem="hmV-Tl-0Ik" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Esx-Bf-jR8"/>
-                    <constraint firstItem="mdb-DJ-wOP" firstAttribute="leading" secondItem="hmV-Tl-0Ik" secondAttribute="trailing" constant="20" id="tNU-Ci-fvj"/>
-                    <constraint firstAttribute="trailing" secondItem="mdb-DJ-wOP" secondAttribute="trailing" constant="20" id="z1m-7b-dcC"/>
+                    <constraint firstItem="mdb-DJ-wOP" firstAttribute="leading" secondItem="hmV-Tl-0Ik" secondAttribute="trailing" constant="10" id="tNU-Ci-fvj"/>
+                    <constraint firstAttribute="trailing" secondItem="mdb-DJ-wOP" secondAttribute="trailing" constant="10" id="z1m-7b-dcC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

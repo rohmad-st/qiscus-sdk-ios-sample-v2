@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_qiscus" translatesAutoresizingMaskIntoConstraints="NO" id="F9D-OT-acR">
-                                <rect key="frame" x="30" y="303.5" width="315" height="80"/>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo_qiscus" translatesAutoresizingMaskIntoConstraints="NO" id="F9D-OT-acR">
+                                <rect key="frame" x="30" y="281" width="315" height="125"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="lQh-LL-xzf"/>
+                                    <constraint firstAttribute="height" constant="125" id="lQh-LL-xzf"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16470588235294117" green="0.79607843137254897" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F9D-OT-acR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RxV-wK-HJH"/>
                             <constraint firstItem="F9D-OT-acR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="g2t-vL-PmH"/>
@@ -40,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_qiscus" width="200" height="74"/>
+        <image name="ic_logo_qiscus" width="129" height="136"/>
     </resources>
 </document>

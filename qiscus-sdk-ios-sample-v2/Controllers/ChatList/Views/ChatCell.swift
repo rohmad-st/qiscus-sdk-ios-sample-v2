@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import BadgeSwift
 
 class ChatCell: UITableViewCell {
 
     @IBOutlet weak var chatNameLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var badgeLabel: BadgeSwift!
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var arrowRightImageView: UIImageView!
     
     var item: Chat? {
         didSet {
@@ -23,6 +27,15 @@ class ChatCell: UITableViewCell {
                                       header: Helper.headers)
             chatNameLabel.text      = item.name
             lastMessageLabel.text   = item.lastCommentText
+            
+            if let date = item.date {
+                print("Now data is: \(date.timestampFormat())")
+                timestampLabel.text = date.timestampFormat()
+            }
+            if let unreadCount = item.unreadCount {
+                badgeLabel.text     = String(unreadCount)
+                badgeLabel.isHidden = (unreadCount == 0) ? true : false
+            }
         }
     }
     
@@ -37,6 +50,7 @@ class ChatCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        arrowRightImageView.tintColor(.baseLineColor)
         avatarImageView.layer.cornerRadius  = (avatarImageView.frame.height / 2)
         avatarImageView?.clipsToBounds      = true
         avatarImageView?.contentMode        = .scaleAspectFit

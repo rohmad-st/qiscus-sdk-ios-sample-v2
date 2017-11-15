@@ -28,6 +28,7 @@ class Chat {
     var isGroup: Bool?
     var unreadCount: Int?
     var lastCommentText: String?
+    var date: String?
     var participants = [Participant]()
     
     init?(data body: QRoom) {
@@ -38,6 +39,7 @@ class Chat {
         self.isGroup = (body.type == QRoomType.group)
         self.unreadCount = body.unreadCount
         self.lastCommentText = body.lastComment?.text
+        self.date = body.lastComment?.date
         
         let tmpParticipants = body.participants
         for tmp in tmpParticipants {

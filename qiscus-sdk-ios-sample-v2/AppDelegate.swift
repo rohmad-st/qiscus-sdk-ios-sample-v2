@@ -76,14 +76,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
         let nav1 = UINavigationController()
         let vc1 = ChatListVC()
         vc1.tabBarItem.title = "Chat"
-        vc1.tabBarItem.image = UIImage(named: "ic_forum")
+        vc1.tabBarItem.image = UIImage(named: "ic_room_list")
         nav1.setViewControllers([vc1], animated: true)
 
         // Set up chats controller
         let nav2 = UINavigationController()
         let vc2 = ContactVC()
         vc2.tabBarItem.title = "Contact"
-        vc2.tabBarItem.image = UIImage(named: "ic_person")
+        vc2.tabBarItem.image = UIImage(named: "ic_contact")
         nav2.setViewControllers([vc2], animated: true)
 
         // Set up the settings View Controller
@@ -113,7 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
     }
     
     func needLoggedIn(_ message: String) {
-        let targetVC                    = MainVC()
+        let targetVC                    = LoginVC() 
         targetVC.withMessage            = message
         
         let navController               = UINavigationController()

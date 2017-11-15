@@ -58,9 +58,10 @@ extension ChatListVC {
                            forCellReuseIdentifier: ChatCell.identifier)
         
         // add button in navigation right
-        let rightButton = UIBarButtonItem(barButtonSystemItem: .add,
-                                         target: self,
-                                         action: #selector(newChat(_:)))
+        let rightButton = UIBarButtonItem(image: UIImage(named: "ic_new_chat"),
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(newChat(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
     }
     

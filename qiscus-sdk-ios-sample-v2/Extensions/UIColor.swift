@@ -47,7 +47,7 @@ extension UIColor {
     }
     class var baseNavigateColor: UIColor {
         get {
-            return UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)
+            return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
         }
     }
     class var baseBorderActiveColor: UIColor {
@@ -58,7 +58,7 @@ extension UIColor {
     
     class var baseLineColor: UIColor {
         get {
-            return UIColor.lightGray
+            return UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
         }
     }
     class var baseBgClearIcon: UIColor {
@@ -134,7 +134,7 @@ extension UIColor {
     }
     class var basetabBarActiveColor: UIColor {
         get {
-            return UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)
+            return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
         }
     }
     

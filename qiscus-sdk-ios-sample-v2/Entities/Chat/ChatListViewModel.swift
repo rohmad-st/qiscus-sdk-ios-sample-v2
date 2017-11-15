@@ -69,6 +69,8 @@ extension ChatListViewModel: UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as? ChatCell {
             let chat = self.items[indexPath.row]
             cell.item = chat
+        
+            tableView.tableFooterView = UIView()
             
             return cell
         }
