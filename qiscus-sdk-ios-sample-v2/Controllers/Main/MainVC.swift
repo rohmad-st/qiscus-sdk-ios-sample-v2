@@ -13,6 +13,19 @@ class MainVC: UIViewController, UILoadingView {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    // show alert message while cannot connect with qiscus sdk
+    var withMessage: String? {
+        didSet {
+            guard let message = withMessage else { return }
+            if !(message.isEmpty) {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+                    self.showError(message: message)
+                    Preference.instance.clearAll()
+                })
+            }
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         // set default fields
         self.emailField.text        = Helper.USER_EMAIL
@@ -50,7 +63,7 @@ extension MainVC {
         let data = PrefData(appId: Helper.APP_ID,
                             email: email,
                             password: password,
-                            username: Helper.USER_USERNAME)
+                            username: email)
         Preference.instance.setLocal(preference: data!)
         
         // start authenticate user

@@ -11,7 +11,7 @@ import Qiscus
 
 protocol BaseAppDelegate {
     func alreadyLoggedIn()
-    func needLoggedIn()
+    func needLoggedIn(_ message: String)
 }
 
 class BaseApplication {
@@ -31,8 +31,6 @@ class BaseApplication {
         let pass = pref.password!
         
         if !(email.isEmpty) {
-            self.delegate?.alreadyLoggedIn()
-
             Qiscus.setup(withAppId: appId,
                          userEmail: email,
                          userKey: pass,
@@ -45,7 +43,7 @@ class BaseApplication {
             // so when we switch user for login, we get truly new data
             Qiscus.clear()
             
-            self.delegate?.needLoggedIn()
+            self.delegate?.needLoggedIn("")
         }
     }
     
@@ -67,11 +65,13 @@ class BaseApplication {
 extension BaseApplication: QiscusConfigDelegate {
     func qiscusConnected() {
         // custom theme sdk after success connected to qiscus sdk
+        self.delegate?.alreadyLoggedIn()
         self.customTheme()
     }
     
     func qiscusFailToConnect(_ withMessage: String) {
         print("Failed connect. Error: \(withMessage)")
+        self.delegate?.needLoggedIn(withMessage)
     }
 }
 

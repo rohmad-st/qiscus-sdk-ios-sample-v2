@@ -112,9 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
         })
     }
     
-    func needLoggedIn() {
+    func needLoggedIn(_ message: String) {
+        let targetVC                    = MainVC()
+        targetVC.withMessage            = message
+        
         let navController               = UINavigationController()
-        navController.viewControllers   = [MainVC()]
+        navController.viewControllers   = [targetVC]
         
         let root                            = navController
         self.window                         = UIWindow(frame: UIScreen.main.bounds)
