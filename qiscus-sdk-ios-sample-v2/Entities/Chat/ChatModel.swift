@@ -29,6 +29,7 @@ class Chat {
     var unreadCount: Int?
     var lastCommentText: String?
     var date: String?
+    var time: String?
     var participants = [Participant]()
     
     init?(data body: QRoom) {
@@ -40,6 +41,7 @@ class Chat {
         self.unreadCount = body.unreadCount
         self.lastCommentText = body.lastComment?.text
         self.date = body.lastComment?.date
+        self.time = body.lastComment?.time
         
         let tmpParticipants = body.participants
         for tmp in tmpParticipants {

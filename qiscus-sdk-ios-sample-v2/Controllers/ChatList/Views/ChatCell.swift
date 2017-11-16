@@ -29,7 +29,7 @@ class ChatCell: UITableViewCell {
             lastMessageLabel.text   = item.lastCommentText
             
             if let date = item.date {
-                timestampLabel.text = date.timestampFormat()
+                timestampLabel.text = date.timestampFormat(of: item.time)
             }
             if let unreadCount = item.unreadCount {
                 badgeLabel.text     = String(unreadCount)

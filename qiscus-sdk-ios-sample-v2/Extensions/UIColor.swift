@@ -132,7 +132,7 @@ extension UIColor {
     
     class var baseButtonBgColor: UIColor {
         get {
-            return UIColor(red: 0, green: 150/255, blue: 136/255, alpha: 1)
+            return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
         }
     }
     

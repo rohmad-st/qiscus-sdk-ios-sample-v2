@@ -52,7 +52,6 @@
 		CCB2B22D1FBBF561002FBB2D /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2B22C1FBBF561002FBB2D /* UITextField.swift */; };
 		CCB2B2311FBBFEF7002FBB2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2B22F1FBBFEF7002FBB2D /* LoginVC.swift */; };
 		CCB2B2321FBBFEF7002FBB2D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB2B2301FBBFEF7002FBB2D /* LoginVC.xib */; };
-		CCB2B2341FBC117B002FBB2D /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCB2B2331FBC117B002FBB2D /* SplashScreen.storyboard */; };
 		CCD689C91FB725B500235674 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689C81FB725B500235674 /* ChatListViewModel.swift */; };
 		CCD689D41FB73C4500235674 /* NewStrangerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689D21FB73C4500235674 /* NewStrangerVC.swift */; };
 		CCD689D51FB73C4500235674 /* NewStrangerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD689D31FB73C4500235674 /* NewStrangerVC.xib */; };
@@ -158,7 +157,6 @@
 		CCB2B22C1FBBF561002FBB2D /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		CCB2B22F1FBBFEF7002FBB2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CCB2B2301FBBFEF7002FBB2D /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
-		CCB2B2331FBC117B002FBB2D /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		CCD689C81FB725B500235674 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		CCD689D21FB73C4500235674 /* NewStrangerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrangerVC.swift; sourceTree = "<group>"; };
 		CCD689D31FB73C4500235674 /* NewStrangerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewStrangerVC.xib; sourceTree = "<group>"; };
@@ -378,7 +376,6 @@
 				CCABBC781FB187D90039B34E /* Assets.xcassets */,
 				CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */,
 				CCABBC7D1FB187D90039B34E /* Info.plist */,
-				CCB2B2331FBC117B002FBB2D /* SplashScreen.storyboard */,
 			);
 			path = "qiscus-sdk-ios-sample-v2";
 			sourceTree = "<group>";
@@ -676,7 +673,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCDD6F431FB1AC7500D24921 /* ChatListVC.xib in Resources */,
-				CCB2B2341FBC117B002FBB2D /* SplashScreen.storyboard in Resources */,
 				CC23562B1FB861060007EA37 /* ParticipantCollCell.xib in Resources */,
 				CCD689D51FB73C4500235674 /* NewStrangerVC.xib in Resources */,
 				CCDD6F4A1FB1B57800D24921 /* ChatCell.xib in Resources */,

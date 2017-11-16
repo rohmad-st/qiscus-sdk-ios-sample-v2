@@ -21,6 +21,18 @@ class ContactVC: UIViewController {
         
         self.viewModel.delegate = self
         self.viewModel.loadData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(finishLoadRoom(_:)),
+                                               name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func finishLoadRoom(_ sender: Notification) {
+        self.viewModel.loadData()
     }
 
     override func didReceiveMemoryWarning() {

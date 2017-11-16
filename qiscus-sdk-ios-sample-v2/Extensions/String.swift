@@ -9,16 +9,17 @@
 import Foundation
 
 extension String {
-    func timestampFormat() -> String {
+    func timestampFormat(of time: String?) -> String {
         let dateFormat               = DateFormatter()
-        dateFormat.dateFormat        = "d MMMM yyyy" // timestamp format: "yyyy-MM-dd'T'HH:mm:ssZ"
+        dateFormat.dateFormat        = "d MMMM yyyy"
         dateFormat.timeZone          = TimeZone.autoupdatingCurrent
         
         if let date = dateFormat.date(from: self) {
             if date.today() {
+                if let time = time {
+                    return time
+                }
                 return "Today"
-                // dateFormat.dateFormat = "HH:mm"
-                // return dateFormat.string(from: date)
                 
             } else {
                 dateFormat.dateFormat = "dd/MM/yyyy"

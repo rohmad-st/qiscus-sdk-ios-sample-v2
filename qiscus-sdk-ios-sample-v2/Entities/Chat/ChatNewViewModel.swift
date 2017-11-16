@@ -135,7 +135,7 @@ extension ChatNewViewModel: UITableViewDataSource {
             
         case .createStranger:
             if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
-                cell.separatorInset = UIEdgeInsets(top: 0, left: 30, bottom: 0, right: 0)
+                cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             }
             
         case .contacts:
@@ -169,6 +169,9 @@ extension ChatNewViewModel: UITableViewDataSource {
         case .createStranger:
             if let cell = tableView.dequeueReusableCell(withIdentifier: CreateStrangerCell.identifier, for: indexPath) as? CreateStrangerCell {
                 cell.item = item
+                
+                tableView.tableFooterView = UIView()
+                
                 return cell
             }
         
