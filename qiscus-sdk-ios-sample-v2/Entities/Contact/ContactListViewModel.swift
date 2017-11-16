@@ -123,14 +123,14 @@ extension ContactListViewModel: UITableViewDataSource {
             return 1
             
         } else {
-            tableView.backgroundView = UIView.backgroundReload(UIImage(named: "ic_empty_contact")!,
-                                                               title: "Contact is Empty",
-                                                               description: "If you chat with stranger, it’ll automaticaly added to here",
-                                                               titleButton: "Chat With Stranger",
-                                                               iconButton: UIImage(named: "ic_stranger")!,
-                                                               target: self,
-                                                               action: #selector(chatWithStranger(_:)),
-                                                               btnWidth: 244)
+            tableView.backgroundView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
+                                                             title: "Contact is Empty",
+                                                             description: "If you chat with stranger, it’ll automaticaly added to here",
+                                                             titleButton: "Chat With Stranger",
+                                                             iconButton: UIImage(named: "ic_stranger")!,
+                                                             target: self,
+                                                             action: #selector(chatWithStranger(_:)),
+                                                             btnWidth: 244)
             tableView.separatorStyle            = .none
             tableView.backgroundView?.isHidden  = false
             

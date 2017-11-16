@@ -55,14 +55,14 @@ extension ChatListViewModel: UITableViewDelegate {
             return 1
             
         } else {
-            tableView.backgroundView = UIView.backgroundReload(UIImage(named: "ic_empty_room")!,
-                                                               title: "You don’t have any room",
-                                                               description: "Start 1 on 1 chat with stranger or group chat with your friend.",
-                                                               titleButton: "New Chat",
-                                                               iconButton: UIImage(named: "ic_new_chat")!,
-                                                               target: self,
-                                                               action: #selector(newChat(_:)),
-                                                               btnWidth: 172)
+            tableView.backgroundView = UIView.backgroundView(UIImage(named: "ic_empty_room")!,
+                                                             title: "You don’t have any room",
+                                                             description: "Start 1 on 1 chat with stranger or group chat with your friend.",
+                                                             titleButton: "New Chat",
+                                                             iconButton: UIImage(named: "ic_new_chat")!,
+                                                             target: self,
+                                                             action: #selector(newChat(_:)),
+                                                             btnWidth: 172)
             tableView.separatorStyle            = .none
             tableView.backgroundView?.isHidden  = false
             

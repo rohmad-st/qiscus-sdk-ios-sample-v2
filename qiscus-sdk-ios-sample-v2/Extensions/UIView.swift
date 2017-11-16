@@ -30,50 +30,7 @@ extension UIView {
     }
     
     // MARK: - Empty background state
-    class func backgroundEmpty(_ image: UIImage, title top: String, description bottom: String) -> UIView {
-        let height: CGFloat = CGFloat.screenHeight
-        let width: CGFloat = (CGFloat.screenWidth - 30)
-        let x: CGFloat = 15
-        let y: CGFloat = (height/2)
-        let imageSize: CGFloat = ((width / 2) + 30)
-        let spacing: CGFloat = 20
-        let centerPosition: CGFloat = (CGFloat.screenWidth / 2) - (imageSize / 2)
-        let centerHorizontal: CGFloat = (CGFloat.screenHeight / 2) - imageSize
-        let view = UIView(frame:CGRect(x: x, y: y, width: width, height: height))
-        
-        // add image
-        
-//        let image: UIImage          = image.imageWithInsets(insetDimen: 10.0)
-        let imageView               = UIImageView(frame: CGRect(x: centerPosition, y: centerHorizontal, width: imageSize, height: imageSize))
-        imageView.image             = image
-        // imageView.image             = image.withRenderingMode(.alwaysTemplate)
-        // imageView.tintColor         = UIColor.darkGray
-        
-        // add title
-        let xPosition: CGFloat = (imageView.bounds.origin.x + x)
-        let title               = UILabel(frame: CGRect(x: xPosition, y: (imageView.frame.origin.y + imageSize + spacing), width: width, height: 20))
-        title.textAlignment     = NSTextAlignment.center
-        title.textColor         = UIColor.black
-        title.font              = UIFont.boldSystemFont(ofSize: 17)
-        title.text              = top
-        
-        // add description
-        let description               = UITextView(frame: CGRect(x: xPosition, y: (title.frame.origin.y + spacing), width: width, height: 50))
-        description.textAlignment     = NSTextAlignment.center
-        description.textColor         = UIColor.black
-        description.font              = UIFont.systemFont(ofSize: 17)
-        description.text              = bottom
-        description.isEditable        = false
-        
-        view.addSubview(imageView)
-        view.addSubview(title)
-        view.addSubview(description)
-        
-        return view
-    }
-    
-    // MARK: - Reload background state
-    class func backgroundReload(_ image: UIImage, title top: String, description bottom: String, titleButton button: String, iconButton icon: UIImage, target: Any, action: Selector, btnWidth: CGFloat? = 0) -> UIView {
+    class func backgroundView(_ image: UIImage, title top: String, description bottom: String, titleButton button: String, iconButton icon: UIImage, target: Any, action: Selector, btnWidth: CGFloat? = 0) -> UIView {
         let height: CGFloat         = CGFloat.screenHeight
         let width: CGFloat          = (CGFloat.screenWidth - 30)
         let x: CGFloat              = 15
