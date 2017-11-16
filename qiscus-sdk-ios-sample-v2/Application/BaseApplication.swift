@@ -25,10 +25,10 @@ class BaseApplication {
     
     func validateUser() {
         let pref = Preference.instance.getLocal()
-        let appId = pref.appId!
-        let username = pref.username!
-        let email = pref.email!
-        let pass = pref.password!
+        guard let appId = pref.appId else { return }
+        guard let username = pref.username else { return }
+        guard let email = pref.email else { return }
+        guard let pass = pref.password else { return }
         
         if !(email.isEmpty) {
             Qiscus.setup(withAppId: appId,
@@ -58,7 +58,7 @@ class BaseApplication {
         Qiscus.setNavigationColor(UIColor.baseNavigateColor, tintColor: UIColor.baseNavigateTextColor)
         
         // activate qiscus iCloud
-        // Qiscus.iCloudUploadActive(true)
+        Qiscus.iCloudUploadActive(true)
     }
 }
 

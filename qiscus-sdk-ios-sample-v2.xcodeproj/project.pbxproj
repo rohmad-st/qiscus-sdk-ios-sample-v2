@@ -128,6 +128,7 @@
 		CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateStrangerCell.xib; sourceTree = "<group>"; };
 		CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectContactCell.swift; sourceTree = "<group>"; };
 		CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectContactCell.xib; sourceTree = "<group>"; };
+		CC09DE361FBD7AA500BD4941 /* qiscus-sdk-ios-sample-v2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "qiscus-sdk-ios-sample-v2.entitlements"; sourceTree = "<group>"; };
 		CC2356161FB76F720007EA37 /* BaseApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApplication.swift; sourceTree = "<group>"; };
 		CC2356191FB8147F0007EA37 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CC23561C1FB82D930007EA37 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -367,6 +368,7 @@
 		CCABBC701FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */ = {
 			isa = PBXGroup;
 			children = (
+				CC09DE361FBD7AA500BD4941 /* qiscus-sdk-ios-sample-v2.entitlements */,
 				CC2356181FB76FB00007EA37 /* Application */,
 				CCDD6F441FB1B1FF00D24921 /* Entities */,
 				CCABBCAC1FB19FB40039B34E /* Extensions */,
@@ -630,6 +632,11 @@
 					CCABBC6D1FB187D90039B34E = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					CCABBC811FB187D90039B34E = {
 						CreatedOnToolsVersion = 9.1;
@@ -1058,6 +1065,7 @@
 			baseConfigurationReference = 7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/qiscus-sdk-ios-sample-v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";
@@ -1075,6 +1083,7 @@
 			baseConfigurationReference = EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/qiscus-sdk-ios-sample-v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";

@@ -98,6 +98,9 @@ extension ContactListViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell {
             cell.item = self.items[indexPath.row]
+            
+            tableView.tableFooterView = UIView()
+            
             return cell
         }
         
