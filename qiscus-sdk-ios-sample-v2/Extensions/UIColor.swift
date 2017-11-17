@@ -91,12 +91,6 @@ extension UIColor {
             return UIColor.white
         }
     }
-    class var baseBgSelectedIcon: UIColor {
-        get {
-            return UIColor(red: 42/255, green: 178/255, blue: 123/255, alpha: 1)
-        }
-    }
-    
     class var baseProgressColor: UIColor {
         get {
             return UIColor.white
@@ -196,6 +190,11 @@ extension UIColor {
     class var dangerColor: UIColor {
         get {
             return UIColor(red: 231/255, green: 90/255, blue: 77/255, alpha: 1)
+        }
+    }
+    class var baseIconChecked: UIColor {
+        get {
+            return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
         }
     }
     class var baseBorderIconUncheck: UIColor {

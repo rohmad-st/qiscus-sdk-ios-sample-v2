@@ -84,8 +84,8 @@ extension UIImageView {
         imageView.layer.cornerRadius    = (imageView.frame.height / 2)
         imageView.contentMode           = .scaleAspectFit
         imageView.layer.borderWidth     = 1
-        imageView.layer.borderColor     = (selected) ? UIColor.baseBgSelectedIcon.cgColor : UIColor.baseBorderIconUncheck.cgColor
-        imageView.backgroundColor       = (selected) ? UIColor.baseBgSelectedIcon : UIColor.white
+        imageView.layer.borderColor     = (selected) ? UIColor.baseIconChecked.cgColor : UIColor.baseBorderIconUncheck.cgColor
+        imageView.backgroundColor       = (selected) ? UIColor.baseIconChecked : UIColor.white
         imageView.clipsToBounds         = true
         imageView.layer.masksToBounds   = true
         
