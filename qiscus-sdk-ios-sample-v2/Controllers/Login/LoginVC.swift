@@ -72,12 +72,18 @@ extension LoginVC {
         guard let email = self.emailField.text else { return }
         guard let username = self.usernameField.text else { return }
         guard let password = self.passwordField.text else { return }
-
+        let emailStr = email.replacingOccurrences(of: "[\\@.]",
+                                                  with: "-",
+                                                  options: .regularExpression,
+                                                  range: nil)
+        let avatarURL = "https://robohash.org/\(emailStr)/bgset_bg1/3.14159?set=set4"
+        
         // save data in local storage for temporary
         if let data = PrefData(appId: Helper.APP_ID,
-                            email: email,
-                            password: password,
-                            username: username) {
+                               email: email,
+                               password: password,
+                               username: username,
+                               avatarURL: avatarURL) {
             
             Preference.instance.setLocal(preference: data)
         }

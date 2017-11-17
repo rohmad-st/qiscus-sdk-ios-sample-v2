@@ -29,12 +29,14 @@ class BaseApplication {
         guard let username = pref.username else { return }
         guard let email = pref.email else { return }
         guard let pass = pref.password else { return }
+        guard let avatarURL = pref.avatarURL else { return }
         
         if !(email.isEmpty) {
             Qiscus.setup(withAppId: appId,
                          userEmail: email,
                          userKey: pass,
                          username: username,
+                         avatarURL: avatarURL,
                          delegate: self,
                          secureURl: true)
 
