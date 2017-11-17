@@ -42,6 +42,9 @@
 		CC7FDD591FBC334A00901594 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD571FBC334A00901594 /* ActionCell.swift */; };
 		CC7FDD5A1FBC334A00901594 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7FDD581FBC334A00901594 /* ActionCell.xib */; };
 		CC7FDD5C1FBC3FE600901594 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD5B1FBC3FE600901594 /* UIView.swift */; };
+		CC80056C1FBF15750009AE35 /* SelectParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80056A1FBF15750009AE35 /* SelectParticipantCell.swift */; };
+		CC80056D1FBF15750009AE35 /* SelectParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC80056B1FBF15750009AE35 /* SelectParticipantCell.xib */; };
+		CC80056F1FBF18570009AE35 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80056E1FBF18570009AE35 /* UIImage.swift */; };
 		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
 		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
 		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
@@ -141,6 +144,9 @@
 		CC7FDD571FBC334A00901594 /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		CC7FDD581FBC334A00901594 /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
 		CC7FDD5B1FBC3FE600901594 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		CC80056A1FBF15750009AE35 /* SelectParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantCell.swift; sourceTree = "<group>"; };
+		CC80056B1FBF15750009AE35 /* SelectParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectParticipantCell.xib; sourceTree = "<group>"; };
+		CC80056E1FBF18570009AE35 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -319,6 +325,8 @@
 			children = (
 				CC2356281FB861060007EA37 /* ParticipantCollCell.swift */,
 				CC2356291FB861060007EA37 /* ParticipantCollCell.xib */,
+				CC80056A1FBF15750009AE35 /* SelectParticipantCell.swift */,
+				CC80056B1FBF15750009AE35 /* SelectParticipantCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -436,6 +444,7 @@
 				CC7FDD531FBC1F7B00901594 /* String.swift */,
 				CC7FDD551FBC1F9200901594 /* Date.swift */,
 				CC7FDD5B1FBC3FE600901594 /* UIView.swift */,
+				CC80056E1FBF18570009AE35 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -680,6 +689,7 @@
 				CCB2B2321FBBFEF7002FBB2D /* LoginVC.xib in Resources */,
 				CCDD6F531FB2B67500D24921 /* ContactVC.xib in Resources */,
 				CC018FE81FB42FEF00396446 /* DetailContactVC.xib in Resources */,
+				CC80056D1FBF15750009AE35 /* SelectParticipantCell.xib in Resources */,
 				CC0973CD1FB57996007F31C1 /* CreateGroupCell.xib in Resources */,
 				CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */,
 				CC018FEC1FB4314D00396446 /* LeaveCell.xib in Resources */,
@@ -862,11 +872,13 @@
 				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
 				CCB2B2311FBBFEF7002FBB2D /* LoginVC.swift in Sources */,
 				CCDD6F571FB2BAD600D24921 /* NewChatVC.swift in Sources */,
+				CC80056F1FBF18570009AE35 /* UIImage.swift in Sources */,
 				CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */,
 				CC7FDD591FBC334A00901594 /* ActionCell.swift in Sources */,
 				CCB2B22D1FBBF561002FBB2D /* UITextField.swift in Sources */,
 				CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */,
 				CCDD6F9B1FB2EF6E00D24921 /* ChatDetailViewModel.swift in Sources */,
+				CC80056C1FBF15750009AE35 /* SelectParticipantCell.swift in Sources */,
 				CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */,
 				CCDD6F521FB2B67500D24921 /* ContactVC.swift in Sources */,
 				CC23562D1FB863EE0007EA37 /* CGFloat.swift in Sources */,

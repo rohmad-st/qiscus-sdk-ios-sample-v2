@@ -10,7 +10,9 @@ import UIKit
 
 class ParticipantCollCell: UICollectionViewCell {
 
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var removeButton: UIButton!
     
     var item: Contact? {
         didSet {
@@ -18,13 +20,14 @@ class ParticipantCollCell: UICollectionViewCell {
                 return
             }
             
+            nameLabel.text = item.name
             avatarImageView.loadAsync(item.avatarURL!,
-                                      placeholderImage: UIImage(named: "avatar"),
+                                      placeholderImage: UIImage(named: "ic_default_avatar"),
                                       header: Helper.headers)
         }
     }
     
-    static var nib:UINib {
+    static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
     

@@ -20,7 +20,7 @@ class SelectContactCell: UITableViewCell {
             }
             
             avatarImageView.loadAsync(item.avatarURL!,
-                                      placeholderImage: UIImage(named: "avatar"),
+                                      placeholderImage: UIImage(named: "ic_default_avatar"),
                                       header: Helper.headers)
             nameLabel.text = item.name
         }

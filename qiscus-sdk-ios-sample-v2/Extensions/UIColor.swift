@@ -198,4 +198,9 @@ extension UIColor {
             return UIColor(red: 231/255, green: 90/255, blue: 77/255, alpha: 1)
         }
     }
+    class var baseBorderIconUncheck: UIColor {
+        get {
+            return UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        }
+    }
 }

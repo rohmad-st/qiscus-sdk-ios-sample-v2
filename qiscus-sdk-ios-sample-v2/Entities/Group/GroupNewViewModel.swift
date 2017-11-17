@@ -39,15 +39,14 @@ class GroupNewViewModel: NSObject {
 extension GroupNewViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contact = self.items[indexPath.row]
-
         if !(self.itemSelecteds.contains(where: { $0.email == contact.email })) {
             self.itemSelecteds.append(contact)
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-            
+            tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView.checkImage(true)
+
         } else {
             if let idx = self.itemSelecteds.index(where: { $0.email == contact.email }) {
                 self.itemSelecteds.remove(at: idx)
-                tableView.cellForRow(at: indexPath)?.accessoryType = .none
+                tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView.checkImage(false)
             }
         }
     }
@@ -62,8 +61,8 @@ extension GroupNewViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // Register collection view
         let screenWidth: CGFloat    = CGFloat.screenWidth
-        let sectionHeight: CGFloat  = 55.0
-        let itemWidth: CGFloat      = (sectionHeight + 5)
+        let sectionHeight: CGFloat  = 80.0
+        let itemWidth: CGFloat      = 65.0
         let headerView              = UIView(frame: CGRect(x: 0,
                                                            y: 0,
                                                            width: screenWidth,
@@ -98,7 +97,7 @@ extension GroupNewViewModel: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if self.itemSelecteds.count > 0 {
-            return 55.0
+            return 80.0
             
         } else {
             return 0
@@ -110,12 +109,15 @@ extension GroupNewViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell {
-            let contact = self.items[indexPath.row]
-            let selected = self.itemSelecteds.contains(where: { $0.email == contact.email})
+        if let cell = tableView.dequeueReusableCell(withIdentifier: SelectParticipantCell.identifier, for: indexPath) as? SelectParticipantCell {
+            let contact     = self.items[indexPath.row]
+            let selected    = self.itemSelecteds.contains(where: { $0.email == contact.email})
             
-            cell.accessoryType = (selected) ? UITableViewCellAccessoryType.checkmark : UITableViewCellAccessoryType.none
-            cell.item = contact
+            cell.item           = contact
+            cell.accessoryView  = UIImageView.checkImage(selected)
+            
+            tableView.tableFooterView = UIView()
+            
             return cell
         }
         

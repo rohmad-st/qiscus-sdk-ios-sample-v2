@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="KGk-i7-Jjw" customClass="SelectParticipantCell" customModule="qiscus_sdk_ios_sample_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="x3N-fN-WLS">
+                        <rect key="frame" x="16" y="16.5" width="43" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="CFO-YA-BBE"/>
+                            <constraint firstAttribute="height" constant="43" id="UGU-v2-u9X"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYa-pL-U6N">
+                        <rect key="frame" x="75" y="28" width="189" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="x3N-fN-WLS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CDj-uw-kur"/>
+                    <constraint firstItem="UYa-pL-U6N" firstAttribute="leading" secondItem="x3N-fN-WLS" secondAttribute="trailing" constant="16" id="S07-t2-n77"/>
+                    <constraint firstItem="x3N-fN-WLS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="agt-Ch-AG1"/>
+                    <constraint firstItem="UYa-pL-U6N" firstAttribute="centerY" secondItem="x3N-fN-WLS" secondAttribute="centerY" id="xdN-Ob-gHO"/>
+                    <constraint firstAttribute="trailing" secondItem="UYa-pL-U6N" secondAttribute="trailing" constant="56" id="xj5-SD-HE4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="avatarImageView" destination="x3N-fN-WLS" id="o8J-d9-Olb"/>
+                <outlet property="nameLabel" destination="UYa-pL-U6N" id="OL4-WB-BzP"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="53"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_default_avatar" width="45" height="45"/>
+    </resources>
+</document>

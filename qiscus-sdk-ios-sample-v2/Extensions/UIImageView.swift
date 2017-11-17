@@ -74,4 +74,21 @@ extension UIImageView {
         self.image = self.image!.withRenderingMode(.alwaysTemplate)
         self.tintColor = color
     }
+    
+    class func checkImage(_ selected: Bool) -> UIImageView {
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 280.0,
+                                                               y: 26.0,
+                                                               width: 24.0,
+                                                               height: 24.0))
+        imageView.image = UIImage(named: "ic_check")?.imageWithInsets(insetDimen: 7)
+        imageView.layer.cornerRadius    = (imageView.frame.height / 2)
+        imageView.contentMode           = .scaleAspectFit
+        imageView.layer.borderWidth     = 1
+        imageView.layer.borderColor     = (selected) ? UIColor.baseBgSelectedIcon.cgColor : UIColor.baseBorderIconUncheck.cgColor
+        imageView.backgroundColor       = (selected) ? UIColor.baseBgSelectedIcon : UIColor.white
+        imageView.clipsToBounds         = true
+        imageView.layer.masksToBounds   = true
+        
+        return imageView
+    }
 }

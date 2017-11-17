@@ -36,17 +36,18 @@ class NewGroupVC: UIViewController {
 
 extension NewGroupVC {
     func setupUI() -> Void {
-        self.title = "Create Group"
+        self.title = "Select Participants"
         
         tableView.delegate = self.viewModel
         tableView.allowsMultipleSelection = true
-        tableView.rowHeight = 65
+        tableView.rowHeight = 76
         tableView.dataSource = self.viewModel
-        tableView.register(ContactCell.nib,
-                           forCellReuseIdentifier: ContactCell.identifier)
+        tableView.register(SelectParticipantCell.nib,
+                           forCellReuseIdentifier: SelectParticipantCell.identifier)
         
         // add button in navigation right
-        let rightButton = UIBarButtonItem(barButtonSystemItem: .save,
+        let rightButton = UIBarButtonItem(title: "Next",
+                                          style: .done,
                                           target: self,
                                           action: #selector(next(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
