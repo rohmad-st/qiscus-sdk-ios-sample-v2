@@ -91,4 +91,17 @@ extension UIImageView {
         
         return imageView
     }
+    
+    class func removeImage() -> UIImageView {
+        let imageView: UIImageView = UIImageView(frame: CGRect(x: 280.0,
+                                                               y: 26.0,
+                                                               width: 24.0,
+                                                               height: 24.0))
+        imageView.image                 = UIImage(named: "ic_remove_participant_small")!
+        imageView.layer.cornerRadius    = (imageView.frame.height / 2)
+        imageView.contentMode           = .scaleAspectFit
+        imageView.clipsToBounds         = true
+        
+        return imageView
+    }
 }

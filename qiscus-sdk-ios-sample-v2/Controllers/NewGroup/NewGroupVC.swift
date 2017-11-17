@@ -59,7 +59,7 @@ extension NewGroupVC {
     }
     
     @objc func next(_ sender: Any) {
-        let view = NewGroupNameVC()
+        let view = NewGroupInfoVC()
         view.selectedContacts = self.selectedContacts
         view.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(view, animated: true)

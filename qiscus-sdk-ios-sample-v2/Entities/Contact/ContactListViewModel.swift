@@ -67,12 +67,7 @@ class ContactListViewModel: NSObject {
         alertController.addAction(cancelButton)
         alertController.preferredAction = chatButton
         
-        let app = UIApplication.shared.delegate as! AppDelegate
-        if let rootView = app.window?.rootViewController as? UITabBarController {
-            if let navigation = rootView.selectedViewController as? UINavigationController {
-                navigation.present(alertController, animated: true, completion: nil)
-            }
-        }
+        presentViewController(alertController)
     }
     
     @objc func chatWithStranger(_ sender: Any) {

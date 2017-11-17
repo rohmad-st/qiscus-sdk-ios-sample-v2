@@ -9,6 +9,18 @@
 import Foundation
 import UIKit
 
+public func popViewController(_ animated: Bool = true) -> Void {
+    let app = UIApplication.shared.delegate as! AppDelegate
+    if let rootView = app.window?.rootViewController as? UINavigationController {
+        rootView.popViewController(animated: animated)
+        
+    } else if let rootView = app.window?.rootViewController as? UITabBarController {
+        if let navigation = rootView.selectedViewController as? UINavigationController {
+            navigation.popViewController(animated: animated)
+        }
+    }
+}
+
 public func openViewController(_ viewController: UIViewController) -> Void {
     let app = UIApplication.shared.delegate as! AppDelegate
     if let rootView = app.window?.rootViewController as? UINavigationController {
