@@ -49,4 +49,13 @@ extension String {
             return dateFormat.string(from: Date())
         }
     }
+    
+    func getRandomAvatar() -> String {
+        if !(self.isValidEmail) { return "" }
+        let emailStr = self.replacingOccurrences(of: "[\\@.]",
+                                                 with: "-",
+                                                 options: .regularExpression,
+                                                 range: nil)
+        return "https://robohash.org/\(emailStr)/bgset_bg1/3.14159?set=set4"
+    }
 }

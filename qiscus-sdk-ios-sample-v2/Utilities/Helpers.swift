@@ -14,26 +14,6 @@ class Helper: NSObject {
             return "sampleapp-65ghcsaysse"
         }
     }
-    static var USER_EMAIL: String {
-        get {
-            return "piyut@qiscus.com"
-        }
-    }
-    static var USER_PASSWORD: String {
-        get {
-            return "qiscus-123"
-        }
-    }
-    static var USER_USERNAME: String {
-        get {
-            return "piyut"
-        }
-    }
-    static var USER_AVATAR_URL: String {
-        get {
-            return "https://pbs.twimg.com/profile_images/509529944431407104/PJITGbsA_400x400.jpeg"
-        }
-    }
     
     static var headers : HTTPHeaders {
         get {

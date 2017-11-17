@@ -51,7 +51,8 @@ class ChatListViewModel: NSObject {
 extension ChatListViewModel: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.items.count > 0 {
-            tableView.backgroundView?.isHidden = true
+            tableView.backgroundView?.isHidden  = true
+            tableView.separatorStyle            = .singleLine
             return 1
             
         } else {
@@ -65,7 +66,6 @@ extension ChatListViewModel: UITableViewDelegate {
                                                              btnWidth: 172)
             tableView.separatorStyle            = .none
             tableView.backgroundView?.isHidden  = false
-            
             return 0
         }
     }

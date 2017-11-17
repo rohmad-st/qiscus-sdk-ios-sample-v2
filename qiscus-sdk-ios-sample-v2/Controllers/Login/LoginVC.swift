@@ -58,11 +58,6 @@ extension LoginVC {
         self.usernameField.setBottomBorder()
         self.passwordField.setBottomBorder()
         
-        // MARK: - Set default fields
-        self.emailField.text        = Helper.USER_EMAIL
-        self.usernameField.text     = Helper.USER_USERNAME
-        self.passwordField.text     = Helper.USER_PASSWORD
-        
         self.emailField.becomeFirstResponder()
         self.hideKeyboardWhenTappedAround()
     }
@@ -72,18 +67,18 @@ extension LoginVC {
         guard let email = self.emailField.text else { return }
         guard let username = self.usernameField.text else { return }
         guard let password = self.passwordField.text else { return }
-        let emailStr = email.replacingOccurrences(of: "[\\@.]",
-                                                  with: "-",
-                                                  options: .regularExpression,
-                                                  range: nil)
-        let avatarURL = "https://robohash.org/\(emailStr)/bgset_bg1/3.14159?set=set4"
         
-        // save data in local storage for temporary
+        if !(email.isValidEmail) {
+            self.showError(message: "Please input valid email!")
+            return
+        }
+        
+        // save data in local storage
         if let data = PrefData(appId: Helper.APP_ID,
                                email: email,
                                password: password,
                                username: username,
-                               avatarURL: avatarURL) {
+                               avatarURL: email.getRandomAvatar()) {
             
             Preference.instance.setLocal(preference: data)
         }
