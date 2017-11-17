@@ -18,11 +18,17 @@ pod install
 ![room chat](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_200/v1510473578/ios-sample-app/Simulator_Screen_Shot_-_iPhone_SE_-_2017-11-12_at_14.59.18.png)
 
 ## Features
+- [x] Splash/Launch Screen
 - [x] Login
 - [x] Random user avatar
 - [x] Room List
 - [x] Contact List
-- [x] Chat with Stranger
-- [x] Create Group
+- [x] Create New Chat
+  - [x] Chat with Stranger
+  - [x] Create Group
+    - [x] Select Participant
+    - [x] Add Group Info
+- [ ] Group Info (old design)
+- [ ] Contact Info (old design)
 - [ ] Setting (soon)
 - [ ] Set group avatar (soon)
