@@ -31,9 +31,14 @@ class GroupNewViewModel: NSObject {
     }
 
     func setup() {
-        guard let data = dataFromURL(of: Helper.URL_CONTACTS) else { return }
-        guard let contact = ContactList(data: data) else { return }
-        self.items.append(contentsOf: contact.contacts)
+        var contacts = ContactLocal.instance.contacts
+        if contacts.isEmpty {
+            guard let data = dataFromURL(of: Helper.URL_CONTACTS) else { return }
+            guard let contactList = ContactList(data: data) else { return }
+            contacts = contactList.contacts
+        }
+        
+        self.items.append(contentsOf: contacts)
     }
 }
 

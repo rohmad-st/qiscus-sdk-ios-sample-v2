@@ -13,6 +13,11 @@ class DetailContactVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel = ContactDetailViewModel()
     
+    var enableChatButton: Bool? {
+        didSet {
+            self.viewModel.enableChatButton = enableChatButton
+        }
+    }
     var contact: Contact? {
         didSet {
             self.viewModel.contact = contact

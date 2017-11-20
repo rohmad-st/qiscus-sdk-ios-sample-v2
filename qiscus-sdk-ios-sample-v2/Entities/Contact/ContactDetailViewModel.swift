@@ -29,6 +29,7 @@ class ContactDetailViewModel: NSObject {
             self.setup()
         }
     }
+    var enableChatButton: Bool? = true
     
     func setup() {
         guard let contact = self.contact else { return }
@@ -38,7 +39,7 @@ class ContactDetailViewModel: NSObject {
         items.append(infoContactItem)
         
         // actions section
-        let action: Action = Action(title: "Start Chat", icon: UIImage(named: "ic_room_list")!, type: .chat)
+        let action: Action = Action(title: "Start Chat", icon: UIImage(named: "ic_room_list")!, type: .chat, enable: enableChatButton!)
         let chatActionItem = ContactDetailViewModelActionItem(action: action)
         items.append(chatActionItem)
     }
@@ -49,11 +50,15 @@ extension ContactDetailViewModel: UITableViewDelegate {
         let item = items[indexPath.section]
         if item.type == .actions {
             if let action = item as? ContactDetailViewModelActionItem {
+                guard let enable = action.action.enable else { return }
                 guard let type = action.action.type else { return }
                 guard let contact = contact else { return }
+                guard type == .chat else { return }
                 
-                if type == .chat {
+                if enable {
                     chatWithUser(contact)
+                } else {
+                    popViewController()
                 }
             }
         }

@@ -30,7 +30,8 @@ class Chat {
     var lastCommentText: String?
     var date: String?
     var time: String?
-    var participants = [Participant]()
+    var participants = [Contact]()
+    //var participants = [Participant]()
     
     init?(data body: QRoom) {
         self.name = body.name
@@ -46,10 +47,8 @@ class Chat {
         let tmpParticipants = body.participants
         for tmp in tmpParticipants {
             if let user = tmp.user {
-                self.participants.append(Participant(name: user.fullname,
-                                                     email: user.email,
-                                                     avatarURL: user.avatarURL)
-                )
+                guard let contact = Contact(user: user) else { return }
+                self.participants.append(contact)
             }
         }
     }

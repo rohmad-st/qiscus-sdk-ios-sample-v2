@@ -170,9 +170,9 @@ class GroupDetailViewModelParticipantsItem: GroupDetailViewModelItem {
         return participants.count
     }
     
-    var participants: [Participant]
+    var participants: [Contact]
     
-    init(participants: [Participant]) {
+    init(participants: [Contact]) {
         self.participants = participants
     }
 }

@@ -9,6 +9,15 @@
 import Foundation
 import Qiscus
 
+class ContactLocal {
+    var contacts = [Contact]()
+    static let instance = ContactLocal()
+    
+    func setData(_ contacts: [Contact]) {
+        self.contacts = contacts
+    }
+}
+
 class ContactList {
     var contacts = [Contact]()
     
@@ -19,7 +28,9 @@ class ContactList {
         do {
             if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any], let body = json["results"] as? [String: Any] {
                 if let users = body["users"] as? [[String: Any]] {
-                    contacts = users.map { Contact(json: $0) }
+                    let userList = users.map { Contact(json: $0) }
+                    contacts = userList
+                    ContactLocal.instance.setData(userList)
                 }
             }
             

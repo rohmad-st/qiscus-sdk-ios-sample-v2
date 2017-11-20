@@ -25,7 +25,9 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, contact: Contact
             guard let contact = contact else { return }
             
             let targetVC                        = DetailContactVC()
+            targetVC.enableChatButton           = false
             targetVC.contact                    = contact
+            
             targetVC.hidesBottomBarWhenPushed   = true
             chatView.navigationController?.pushViewController(targetVC, animated: true)
         }
@@ -37,6 +39,7 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, contact: Contact
     })
     
     chatView.hidesBottomBarWhenPushed = true
+    chatView.setBackTitle()
     openViewController(chatView)
 }
 
@@ -51,6 +54,7 @@ public func chatWithUser(_ contact: Contact) {
     
     chatView.titleAction = {
         let targetVC                        = DetailContactVC()
+        targetVC.enableChatButton           = false
         targetVC.contact                    = contact
         targetVC.hidesBottomBarWhenPushed   = true
         chatView.navigationController?.pushViewController(targetVC, animated: true)
@@ -62,6 +66,7 @@ public func chatWithUser(_ contact: Contact) {
     })
     
     chatView.hidesBottomBarWhenPushed = true
+    chatView.setBackTitle()
     openViewController(chatView)
 }
 
@@ -77,6 +82,7 @@ public func chatWithUniqueId(_ uniqueId: String) {
     })
     
     chatView.hidesBottomBarWhenPushed = true
+    chatView.setBackTitle()
     openViewController(chatView)
 }
 
@@ -96,5 +102,6 @@ public func createGroupChat(_ users: [String], title: String) {
     })
     
     chatView.hidesBottomBarWhenPushed = true
+    chatView.setBackTitle()
     openViewController(chatView)
 }

@@ -21,18 +21,6 @@ class ContactVC: UIViewController, UILoadingView {
         
         self.viewModel.delegate = self
         self.viewModel.loadData()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(finishLoadRoom(_:)),
-                                               name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
-                                               object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func finishLoadRoom(_ sender: Notification) {
-        self.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,16 +49,12 @@ extension ContactVC {
     }
     
     @objc func refreshData(_ sender: Any) {
-        self.loadData()
+        self.viewModel.loadData()
     }
     
     func isEnableButton(_ enable: Bool) {
         self.navigationItem.rightBarButtonItem?.isEnabled = enable
         self.navigationItem.rightBarButtonItem?.tintColor = enable ? UIColor.white : UIColor.clear
-    }
-    
-    func loadData() {
-        self.viewModel.loadData()
     }
 }
 

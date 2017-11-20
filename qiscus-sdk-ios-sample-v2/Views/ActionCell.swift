@@ -22,12 +22,13 @@ class ActionCell: UITableViewCell {
             titleLabel.text = item.title
             iconImageView.image = item.icon
             
-            guard let type = item.type else { return }
-            self.customCell(type)
+            self.customCell(item)
         }
     }
     
-    private func customCell(_ type: ActionType) {
+    private func customCell(_ action: Action?) {
+        guard let type = action?.type else { return }
+        
         switch type {
         case .chat:
             iconImageView.tintColor(.baseIconColor)

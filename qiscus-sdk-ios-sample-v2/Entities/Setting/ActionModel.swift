@@ -17,10 +17,12 @@ class Action {
     var title: String?
     var icon: UIImage?
     var type: ActionType?
+    var enable: Bool?
     
-    init(title: String, icon: UIImage, type: ActionType) {
+    init(title: String, icon: UIImage, type: ActionType, enable: Bool) {
         self.title = title
         self.icon = icon
         self.type = type
+        self.enable = enable
     }
 }

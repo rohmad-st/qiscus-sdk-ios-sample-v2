@@ -24,7 +24,7 @@ class SettingViewModel: NSObject {
         items.append(infoContactItem)
         
         // actions section
-        let action: Action = Action(title: "Logout", icon: UIImage(named: "ic_logout")!, type: .logout)
+        let action: Action = Action(title: "Logout", icon: UIImage(named: "ic_logout")!, type: .logout, enable: true)
         let chatActionItem = ContactDetailViewModelActionItem(action: action)
         items.append(chatActionItem)
     }

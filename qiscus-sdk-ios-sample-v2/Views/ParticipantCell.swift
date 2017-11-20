@@ -13,7 +13,7 @@ class ParticipantCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var item: Participant? {
+    var item: Contact? {
         didSet {
             guard let item = item else {
                 return

@@ -61,15 +61,7 @@ extension ChatListViewModel: UITableViewDelegate {
             return
         }
         
-        guard let name = filterParticipant.name else { return }
-        guard let avatarURL = filterParticipant.avatarURL else { return }
-        guard let email = filterParticipant.email else { return }
-        
-        let contact = Contact(id: 0,
-                              name: name,
-                              avatarURL: avatarURL,
-                              email: email)
-        chatWithRoomId(roomId, isGroup: isGroup, contact: contact)
+        chatWithRoomId(roomId, isGroup: isGroup, contact: filterParticipant)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
