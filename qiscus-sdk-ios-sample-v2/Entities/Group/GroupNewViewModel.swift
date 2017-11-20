@@ -47,7 +47,7 @@ class GroupNewViewModel: NSObject {
 
 extension GroupNewViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contact = self.items[indexPath.row]
+        let contact = self.filteredData[indexPath.row]
         if !(self.itemSelecteds.contains(where: { $0.email == contact.email })) {
             self.itemSelecteds.append(contact)
             tableView.cellForRow(at: indexPath)?.accessoryView = UIImageView.checkImage(true)
