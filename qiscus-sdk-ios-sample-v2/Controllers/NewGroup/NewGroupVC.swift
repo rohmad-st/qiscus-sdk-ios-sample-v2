@@ -11,6 +11,7 @@ import UIKit
 class NewGroupVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
     fileprivate var viewModel: GroupNewViewModel?
     var selectedContacts = [Contact]() {
         didSet {
@@ -38,6 +39,14 @@ extension NewGroupVC {
     func setupUI() -> Void {
         self.title = "Select Participants"
         
+        // MARK: - Register search controller
+        searchController.searchResultsUpdater = self.viewModel
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+        
+        // MARK: - Register table & cell
         tableView.delegate = self.viewModel
         tableView.allowsMultipleSelection = true
         tableView.rowHeight = 76
@@ -71,6 +80,10 @@ extension NewGroupVC: GroupNewViewDelegate {
     func itemsDidChanged(contacts: [Contact]) {
         self.selectedContacts.removeAll()
         self.selectedContacts.append(contentsOf: contacts)
+        self.tableView.reloadData()
+    }
+    
+    func filterSearchDidChanged() {
         self.tableView.reloadData()
     }
 }

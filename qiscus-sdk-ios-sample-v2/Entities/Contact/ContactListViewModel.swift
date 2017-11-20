@@ -24,14 +24,18 @@ class ContactListViewModel: NSObject {
         delegate?.showLoading("Please wait...")
         self.items.removeAll()
         
-        guard let data = dataFromURL(of: Helper.URL_CONTACTS) else {
-            delegate?.didFailedUpdated("Failed load contact.")
-            return
+        var contacts = ContactLocal.instance.contacts
+        if contacts.isEmpty {
+            guard let data = dataFromURL(of: Helper.URL_CONTACTS) else {
+                delegate?.didFailedUpdated("Failed load contact.")
+                return
+            }
+            
+            guard let contactList = ContactList(data: data) else { return }
+            contacts = contactList.contacts
         }
         
-        guard let contact = ContactList(data: data) else { return }
-        self.items.append(contentsOf: contact.contacts)
-        
+        self.items.append(contentsOf: contacts)
         self.delegate?.didFinishUpdated()
     }
     

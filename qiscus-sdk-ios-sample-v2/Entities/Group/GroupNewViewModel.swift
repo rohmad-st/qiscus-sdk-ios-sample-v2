@@ -12,6 +12,7 @@ import Qiscus
 
 protocol GroupNewViewDelegate {
     func itemsDidChanged(contacts: [Contact])
+    func filterSearchDidChanged()
 }
 
 class GroupNewViewModel: NSObject {
@@ -22,6 +23,7 @@ class GroupNewViewModel: NSObject {
             delegate?.itemsDidChanged(contacts: itemSelecteds)
         }
     }
+    var filteredData = [Contact]()
     
     init(delegate: GroupNewViewDelegate) {
         super.init()
@@ -38,7 +40,8 @@ class GroupNewViewModel: NSObject {
             contacts = contactList.contacts
         }
         
-        self.items.append(contentsOf: contacts)
+        self.items          = contacts
+        self.filteredData   = contacts
     }
 }
 
@@ -110,12 +113,12 @@ extension GroupNewViewModel: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return self.filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell {
-            let contact     = self.items[indexPath.row]
+            let contact     = self.filteredData[indexPath.row]
             let selected    = self.itemSelecteds.contains(where: { $0.email == contact.email})
             
             cell.item           = contact
@@ -152,5 +155,17 @@ extension GroupNewViewModel: UICollectionViewDataSource {
         }
         
         return UICollectionViewCell()
+    }
+}
+
+extension GroupNewViewModel: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filteredData = searchText.isEmpty ? items : items.filter({ (contact: Contact) -> Bool in
+                return contact.name!.lowercased().contains(searchText.lowercased())
+            })
+            
+            delegate?.filterSearchDidChanged()
+        }
     }
 }
