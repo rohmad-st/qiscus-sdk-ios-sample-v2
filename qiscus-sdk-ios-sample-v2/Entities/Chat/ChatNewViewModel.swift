@@ -26,7 +26,8 @@ class ChatNewViewModel: NSObject {
     var items = [ChatNewViewModelItem]()
     
     override init() {
-        guard let contact = ContactList(data: QUser.all()) else { return }
+        guard let data = dataFromURL(of: Helper.URL_CONTACTS) else { return }
+        guard let contactList = ContactList(data: data) else { return }
         
         // create group
         let createGroupItem = ChatNewViewModelCreateGroupItem()
@@ -36,7 +37,7 @@ class ChatNewViewModel: NSObject {
         let createStrangerItem = ChatNewViewModelCreateStrangerItem()
         items.append(createStrangerItem)
         
-        let contacts = contact.contacts
+        let contacts = contactList.contacts
         if !contacts.isEmpty {
             let contactItem = ChatNewViewModelContactsItem(contacts: contacts)
             items.append(contactItem)
@@ -91,7 +92,7 @@ extension ChatNewViewModel: UITableViewDelegate {
                 let contact = item.contacts[indexPath.row]
                 guard let email = contact.email else { return }
                 print("Creating 1-to-1 chat with: \(email)")
-                chatWithUser(email)
+                chatWithUser(contact)
             }
         }
         

@@ -9,7 +9,7 @@
 import Foundation
 import Qiscus
 
-public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? = "") -> Void {
+public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, contact: Contact? = nil) -> Void {
     let chatView = Qiscus.chatView(withRoomId: roomId)
     
     if isGroup {
@@ -22,10 +22,10 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? =
         
     } else {
         chatView.titleAction = {
-            guard let email = email else { return }
+            guard let contact = contact else { return }
             
             let targetVC                        = DetailContactVC()
-            targetVC.email                      = email
+            targetVC.contact                    = contact
             targetVC.hidesBottomBarWhenPushed   = true
             chatView.navigationController?.pushViewController(targetVC, animated: true)
         }
@@ -45,12 +45,13 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? =
  * {email} can be contains of email or uniqueId
  * but in this case we always use value of email
  */
-public func chatWithUser(_ email: String) {
+public func chatWithUser(_ contact: Contact) {
+    guard let email = contact.email else { return }
     let chatView = Qiscus.chatView(withUsers: [email])
     
     chatView.titleAction = {
         let targetVC                        = DetailContactVC()
-        targetVC.email                      = email
+        targetVC.contact                    = contact
         targetVC.hidesBottomBarWhenPushed   = true
         chatView.navigationController?.pushViewController(targetVC, animated: true)
     }

@@ -23,17 +23,15 @@ protocol ContactDetailViewModelItem {
 class ContactDetailViewModel: NSObject {
     var items = [ContactDetailViewModelItem]()
     
-    // this email variable must be set from caller class
-    var email: String? {
+    // this contact variable must be set from caller class
+    var contact: Contact? {
         didSet {
             self.setup()
         }
     }
     
     func setup() {
-        guard let email = self.email else { return }
-        guard let data = QUser.user(withEmail: email) else { return }
-        guard let contact = Contact(data: data) else { return }
+        guard let contact = self.contact else { return }
         
         // info contact section
         let infoContactItem = ContactDetailViewModelInfoItem(contact: contact)
@@ -52,10 +50,10 @@ extension ContactDetailViewModel: UITableViewDelegate {
         if item.type == .actions {
             if let action = item as? ContactDetailViewModelActionItem {
                 guard let type = action.action.type else { return }
-                guard let email = self.email else { return }
+                guard let contact = contact else { return }
                 
                 if type == .chat {
-                    chatWithUser(email)
+                    chatWithUser(contact)
                 }
             }
         }

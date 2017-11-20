@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+public func dataFromURL(of url: String) -> Data? {
+    if let url = URL(string: url) {
+        return try? Data(contentsOf: url)
+    }
+    
+    return nil
+}
+
 public func popViewController(_ animated: Bool = true) -> Void {
     let app = UIApplication.shared.delegate as! AppDelegate
     if let rootView = app.window?.rootViewController as? UINavigationController {

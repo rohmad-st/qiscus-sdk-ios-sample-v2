@@ -11,6 +11,8 @@ import UIKit
 import Qiscus
 
 protocol ContactListViewDelegate {
+    func showLoading(_ message: String)
+    func didFailedUpdated(_ message: String)
     func didFinishUpdated()
 }
 
@@ -19,25 +21,21 @@ class ContactListViewModel: NSObject {
     var items = [Contact]()
     
     func loadData() {
-        var users = QUser.all()
-        if users.isEmpty {
-            QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
-                DispatchQueue.main.async {
-                    users = QUser.all()
-                }
-            }) { (error) in
-                print("Failed load list rooms \(error)")
-            }
-        }
+        delegate?.showLoading("Please wait...")
         self.items.removeAll()
         
-        guard let contact = ContactList(data: users) else { return }
+        guard let data = dataFromURL(of: Helper.URL_CONTACTS) else {
+            delegate?.didFailedUpdated("Failed load contact.")
+            return
+        }
+        
+        guard let contact = ContactList(data: data) else { return }
         self.items.append(contentsOf: contact.contacts)
         
         self.delegate?.didFinishUpdated()
     }
     
-    func showDialog(_ email: String) -> Void {
+    func showDialog(_ contact: Contact) -> Void {
         let alertController = UIAlertController(title: nil,
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
@@ -46,14 +44,14 @@ class ContactListViewModel: NSObject {
                                        style: .default,
                                        handler: { (action) -> Void in
                                         let targetVC = DetailContactVC()
-                                        targetVC.email = email
+                                        targetVC.contact = contact
                                         targetVC.hidesBottomBarWhenPushed = true
                                         openViewController(targetVC)
         })
         let chatButton = UIAlertAction(title: "Send Message",
                                        style: .default,
                                        handler: { (action) -> Void in
-                                        chatWithUser(email)
+                                        chatWithUser(contact)
         })
         
         let cancelButton = UIAlertAction(title: "Cancel",
@@ -104,8 +102,7 @@ class ContactListViewModel: NSObject {
 
 extension ContactListViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let email = self.items[indexPath.row].email else { return }
-        self.showDialog(email)
+        self.showDialog(self.items[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

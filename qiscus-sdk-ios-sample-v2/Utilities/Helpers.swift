@@ -23,6 +23,15 @@ class Helper: NSObject {
             ]
         }
     }
+    static var URL_CONTACTS: String {
+        get {
+            return "https://dashboard-sample.herokuapp.com/rest/contacts"
+        }
+    }
+    
+    static func urlContacts(of page: Int, limit: Int = 10) -> String {
+        return "https://dashboard-sample.herokuapp.com/rest/contacts?page=\(page)&limit=\(limit)"
+    }
     
     static func getLocalization() -> String{
         let localization:String = (Locale.current as NSLocale).object(forKey: NSLocale.Key.languageCode)! as! String

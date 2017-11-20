@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactVC: UIViewController {
+class ContactVC: UIViewController, UILoadingView {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel = ContactListViewModel()
@@ -32,7 +32,7 @@ class ContactVC: UIViewController {
     }
     
     @objc func finishLoadRoom(_ sender: Notification) {
-        self.viewModel.loadData()
+        self.loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,12 +50,44 @@ extension ContactVC {
         tableView.register(ContactCell.nib,
                            forCellReuseIdentifier: ContactCell.identifier)
         
+        // add button in navigation right
+        let rightButton = UIBarButtonItem(image: UIImage(named: "ic_refresh"),
+                                          style: .plain,
+                                          target: self,
+                                          action: #selector(refreshData(_:)))
+        self.navigationItem.rightBarButtonItem = rightButton
+        self.isEnableButton(false)
         self.setBackIcon()
+    }
+    
+    @objc func refreshData(_ sender: Any) {
+        self.loadData()
+    }
+    
+    func isEnableButton(_ enable: Bool) {
+        self.navigationItem.rightBarButtonItem?.isEnabled = enable
+        self.navigationItem.rightBarButtonItem?.tintColor = enable ? UIColor.white : UIColor.clear
+    }
+    
+    func loadData() {
+        self.viewModel.loadData()
     }
 }
 
 extension ContactVC: ContactListViewDelegate {
+    func showLoading(_ message: String) {
+        self.showWaiting(message: message)
+    }
+    
+    func didFailedUpdated(_ message: String) {
+        self.isEnableButton(true)
+        self.showError(message: message)
+    }
+    
     func didFinishUpdated() {
+        self.isEnableButton(false)
+        self.dismissLoading()
         tableView.reloadData()
     }
+    
 }

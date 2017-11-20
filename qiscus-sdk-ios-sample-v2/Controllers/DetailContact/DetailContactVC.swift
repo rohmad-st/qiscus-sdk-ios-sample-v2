@@ -12,13 +12,17 @@ class DetailContactVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel = ContactDetailViewModel()
-    var email: String = ""
     
+    var contact: Contact? {
+        didSet {
+            self.viewModel.contact = contact
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.viewModel.email = self.email
         self.setupUI()
     }
 
