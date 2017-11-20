@@ -42,8 +42,8 @@ extension NewGroupVC {
         tableView.allowsMultipleSelection = true
         tableView.rowHeight = 76
         tableView.dataSource = self.viewModel
-        tableView.register(SelectParticipantCell.nib,
-                           forCellReuseIdentifier: SelectParticipantCell.identifier)
+        tableView.register(ContactCell.nib,
+                           forCellReuseIdentifier: ContactCell.identifier)
         
         // add button in navigation right
         let rightButton = UIBarButtonItem(title: "Next",
@@ -52,6 +52,7 @@ extension NewGroupVC {
                                           action: #selector(next(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
         self.isEnableButton(false)
+        self.setBackTitle()
     }
  
     func isEnableButton(_ enable: Bool) {

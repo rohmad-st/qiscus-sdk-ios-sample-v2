@@ -51,13 +51,6 @@ extension GroupNewViewModel: UITableViewDelegate {
         }
     }
 
-}
-
-extension GroupNewViewModel: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // Register collection view
         let screenWidth: CGFloat    = CGFloat.screenWidth
@@ -103,13 +96,19 @@ extension GroupNewViewModel: UITableViewDataSource {
             return 0
         }
     }
+}
+
+extension GroupNewViewModel: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: SelectParticipantCell.identifier, for: indexPath) as? SelectParticipantCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell {
             let contact     = self.items[indexPath.row]
             let selected    = self.itemSelecteds.contains(where: { $0.email == contact.email})
             

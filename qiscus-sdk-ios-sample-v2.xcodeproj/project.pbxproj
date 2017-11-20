@@ -10,14 +10,10 @@
 		2027CDA08A444739C297BDD4 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EAB425F960634838704550 /* Pods_qiscus_sdk_ios_sample_v2Tests.framework */; };
 		69BD8B15D4381105408666BB /* Pods_qiscus_sdk_ios_sample_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADF9936243519949EDC306E /* Pods_qiscus_sdk_ios_sample_v2.framework */; };
 		A242AEF4E3E47DB70EA17818 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3447BE6071916A765D72FD64 /* Pods_qiscus_sdk_ios_sample_v2UITests.framework */; };
-		CC018FDC1FB3469000396446 /* NamePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FDA1FB3469000396446 /* NamePictureCell.swift */; };
-		CC018FDD1FB3469000396446 /* NamePictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC018FDB1FB3469000396446 /* NamePictureCell.xib */; };
 		CC018FE21FB347C700396446 /* ParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FE01FB347C700396446 /* ParticipantCell.swift */; };
 		CC018FE31FB347C700396446 /* ParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC018FE11FB347C700396446 /* ParticipantCell.xib */; };
 		CC018FE71FB42FEF00396446 /* DetailContactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FE51FB42FEF00396446 /* DetailContactVC.swift */; };
 		CC018FE81FB42FEF00396446 /* DetailContactVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC018FE61FB42FEF00396446 /* DetailContactVC.xib */; };
-		CC018FEB1FB4314D00396446 /* LeaveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FE91FB4314D00396446 /* LeaveCell.swift */; };
-		CC018FEC1FB4314D00396446 /* LeaveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC018FEA1FB4314D00396446 /* LeaveCell.xib */; };
 		CC018FF11FB43FCB00396446 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FF01FB43FCB00396446 /* ContactModel.swift */; };
 		CC018FF31FB4461E00396446 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FF21FB4461E00396446 /* ContactListViewModel.swift */; };
 		CC018FF71FB4481600396446 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC018FF51FB4481600396446 /* ContactCell.swift */; };
@@ -27,8 +23,6 @@
 		CC0973CD1FB57996007F31C1 /* CreateGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */; };
 		CC0973D01FB57AC2007F31C1 /* CreateStrangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */; };
 		CC0973D11FB57AC2007F31C1 /* CreateStrangerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */; };
-		CC0973D41FB58A62007F31C1 /* SelectContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */; };
-		CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */; };
 		CC2356171FB76F720007EA37 /* BaseApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356161FB76F720007EA37 /* BaseApplication.swift */; };
 		CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356191FB8147F0007EA37 /* ChatManager.swift */; };
 		CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23561C1FB82D930007EA37 /* SettingVC.swift */; };
@@ -37,13 +31,13 @@
 		CC23562A1FB861060007EA37 /* ParticipantCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356281FB861060007EA37 /* ParticipantCollCell.swift */; };
 		CC23562B1FB861060007EA37 /* ParticipantCollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2356291FB861060007EA37 /* ParticipantCollCell.xib */; };
 		CC23562D1FB863EE0007EA37 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23562C1FB863EE0007EA37 /* CGFloat.swift */; };
+		CC31F6681FBFE440004875F8 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31F6671FBFE440004875F8 /* SettingViewModel.swift */; };
+		CC31F66A1FBFF6E5004875F8 /* ActionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31F6691FBFF6E5004875F8 /* ActionModel.swift */; };
 		CC7FDD541FBC1F7B00901594 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD531FBC1F7B00901594 /* String.swift */; };
 		CC7FDD561FBC1F9200901594 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD551FBC1F9200901594 /* Date.swift */; };
 		CC7FDD591FBC334A00901594 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD571FBC334A00901594 /* ActionCell.swift */; };
 		CC7FDD5A1FBC334A00901594 /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7FDD581FBC334A00901594 /* ActionCell.xib */; };
 		CC7FDD5C1FBC3FE600901594 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7FDD5B1FBC3FE600901594 /* UIView.swift */; };
-		CC80056C1FBF15750009AE35 /* SelectParticipantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80056A1FBF15750009AE35 /* SelectParticipantCell.swift */; };
-		CC80056D1FBF15750009AE35 /* SelectParticipantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC80056B1FBF15750009AE35 /* SelectParticipantCell.xib */; };
 		CC80056F1FBF18570009AE35 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80056E1FBF18570009AE35 /* UIImage.swift */; };
 		CC8005721FBF27760009AE35 /* NewGroupInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8005701FBF27760009AE35 /* NewGroupInfoVC.swift */; };
 		CC8005731FBF27760009AE35 /* NewGroupInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8005711FBF27760009AE35 /* NewGroupInfoVC.xib */; };
@@ -52,6 +46,12 @@
 		CC8005791FBF30D00009AE35 /* GroupInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */; };
 		CC80057C1FBF33B50009AE35 /* SetGroupPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */; };
 		CC80057D1FBF33B50009AE35 /* SetGroupPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */; };
+		CC8786E81FC0348F00443E57 /* DetailGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8786E61FC0348F00443E57 /* DetailGroupVC.swift */; };
+		CC8786E91FC0348F00443E57 /* DetailGroupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8786E71FC0348F00443E57 /* DetailGroupVC.xib */; };
+		CC8786EB1FC034D200443E57 /* GroupDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8786EA1FC034D200443E57 /* GroupDetailViewModel.swift */; };
+		CC8786ED1FC034F900443E57 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8786EC1FC034F900443E57 /* GroupModel.swift */; };
+		CC8786F11FC036B400443E57 /* GroupPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8786EF1FC036B400443E57 /* GroupPictureCell.swift */; };
+		CC8786F21FC036B400443E57 /* GroupPictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8786F01FC036B400443E57 /* GroupPictureCell.xib */; };
 		CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCABBC711FB187D90039B34E /* AppDelegate.swift */; };
 		CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC781FB187D90039B34E /* Assets.xcassets */; };
 		CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */; };
@@ -63,17 +63,13 @@
 		CCB2B2311FBBFEF7002FBB2D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB2B22F1FBBFEF7002FBB2D /* LoginVC.swift */; };
 		CCB2B2321FBBFEF7002FBB2D /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCB2B2301FBBFEF7002FBB2D /* LoginVC.xib */; };
 		CCD689C91FB725B500235674 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689C81FB725B500235674 /* ChatListViewModel.swift */; };
-		CCD689D41FB73C4500235674 /* NewStrangerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689D21FB73C4500235674 /* NewStrangerVC.swift */; };
-		CCD689D51FB73C4500235674 /* NewStrangerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD689D31FB73C4500235674 /* NewStrangerVC.xib */; };
 		CCD689D91FB7480900235674 /* ContactPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689D71FB7480900235674 /* ContactPictureCell.swift */; };
 		CCD689DA1FB7480900235674 /* ContactPictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD689D81FB7480900235674 /* ContactPictureCell.xib */; };
-		CCD689DD1FB748BD00235674 /* ContactDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689DB1FB748BD00235674 /* ContactDetailCell.swift */; };
-		CCD689DE1FB748BD00235674 /* ContactDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCD689DC1FB748BD00235674 /* ContactDetailCell.xib */; };
 		CCD689E01FB74AD300235674 /* ContactDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689DF1FB74AD300235674 /* ContactDetailViewModel.swift */; };
 		CCD689E31FB763BB00235674 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689E21FB763BB00235674 /* Preference.swift */; };
 		CCD689E51FB764EC00235674 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD689E41FB764EC00235674 /* Utilities.swift */; };
-		CCDD6F421FB1AC7500D24921 /* ChatListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */; };
-		CCDD6F431FB1AC7500D24921 /* ChatListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */; };
+		CCDD6F421FB1AC7500D24921 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F401FB1AC7500D24921 /* ChatVC.swift */; };
+		CCDD6F431FB1AC7500D24921 /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F411FB1AC7500D24921 /* ChatVC.xib */; };
 		CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F471FB1B57800D24921 /* ChatCell.swift */; };
 		CCDD6F4A1FB1B57800D24921 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F481FB1B57800D24921 /* ChatCell.xib */; };
 		CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */; };
@@ -85,10 +81,7 @@
 		CCDD6F5C1FB2BC9200D24921 /* NewGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F5A1FB2BC9200D24921 /* NewGroupVC.swift */; };
 		CCDD6F5D1FB2BC9200D24921 /* NewGroupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F5B1FB2BC9200D24921 /* NewGroupVC.xib */; };
 		CCDD6F631FB2DA9700D24921 /* UILoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */; };
-		CCDD6F6B1FB2E02000D24921 /* DetailChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F691FB2E02000D24921 /* DetailChatVC.swift */; };
-		CCDD6F6C1FB2E02000D24921 /* DetailChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F6A1FB2E02000D24921 /* DetailChatVC.xib */; };
 		CCDD6F981FB2ED4900D24921 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F971FB2ED4900D24921 /* ChatModel.swift */; };
-		CCDD6F9B1FB2EF6E00D24921 /* ChatDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F9A1FB2EF6E00D24921 /* ChatDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,49 +109,49 @@
 		6A9F4572E5904F60DA64843B /* Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig"; sourceTree = "<group>"; };
 		C49238FC68A650056EE04BDF /* Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests.release.xcconfig"; sourceTree = "<group>"; };
-		CC018FDA1FB3469000396446 /* NamePictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamePictureCell.swift; sourceTree = "<group>"; };
-		CC018FDB1FB3469000396446 /* NamePictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NamePictureCell.xib; sourceTree = "<group>"; };
-		CC018FE01FB347C700396446 /* ParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCell.swift; sourceTree = "<group>"; };
-		CC018FE11FB347C700396446 /* ParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipantCell.xib; sourceTree = "<group>"; };
+		CC018FE01FB347C700396446 /* ParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParticipantCell.swift; path = ../Views/ParticipantCell.swift; sourceTree = "<group>"; };
+		CC018FE11FB347C700396446 /* ParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ParticipantCell.xib; path = ../Views/ParticipantCell.xib; sourceTree = "<group>"; };
 		CC018FE51FB42FEF00396446 /* DetailContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContactVC.swift; sourceTree = "<group>"; };
 		CC018FE61FB42FEF00396446 /* DetailContactVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailContactVC.xib; sourceTree = "<group>"; };
-		CC018FE91FB4314D00396446 /* LeaveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveCell.swift; sourceTree = "<group>"; };
-		CC018FEA1FB4314D00396446 /* LeaveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaveCell.xib; sourceTree = "<group>"; };
 		CC018FF01FB43FCB00396446 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		CC018FF21FB4461E00396446 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
-		CC018FF51FB4481600396446 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
-		CC018FF61FB4481600396446 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		CC018FF51FB4481600396446 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = ../Views/ContactCell.swift; sourceTree = "<group>"; };
+		CC018FF61FB4481600396446 /* ContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ContactCell.xib; path = ../Views/ContactCell.xib; sourceTree = "<group>"; };
 		CC0973C71FB5795C007F31C1 /* ChatNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNewViewModel.swift; sourceTree = "<group>"; };
-		CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupCell.swift; sourceTree = "<group>"; };
-		CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateGroupCell.xib; sourceTree = "<group>"; };
-		CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStrangerCell.swift; sourceTree = "<group>"; };
-		CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateStrangerCell.xib; sourceTree = "<group>"; };
-		CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectContactCell.swift; sourceTree = "<group>"; };
-		CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectContactCell.xib; sourceTree = "<group>"; };
+		CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGroupCell.swift; path = ../Views/CreateGroupCell.swift; sourceTree = "<group>"; };
+		CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateGroupCell.xib; path = ../Views/CreateGroupCell.xib; sourceTree = "<group>"; };
+		CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateStrangerCell.swift; path = ../Views/CreateStrangerCell.swift; sourceTree = "<group>"; };
+		CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateStrangerCell.xib; path = ../Views/CreateStrangerCell.xib; sourceTree = "<group>"; };
 		CC09DE361FBD7AA500BD4941 /* qiscus-sdk-ios-sample-v2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "qiscus-sdk-ios-sample-v2.entitlements"; sourceTree = "<group>"; };
 		CC2356161FB76F720007EA37 /* BaseApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApplication.swift; sourceTree = "<group>"; };
 		CC2356191FB8147F0007EA37 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CC23561C1FB82D930007EA37 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		CC23561D1FB82D930007EA37 /* SettingVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingVC.xib; sourceTree = "<group>"; };
 		CC2356211FB85EB20007EA37 /* GroupNewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupNewViewModel.swift; sourceTree = "<group>"; };
-		CC2356281FB861060007EA37 /* ParticipantCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCollCell.swift; sourceTree = "<group>"; };
-		CC2356291FB861060007EA37 /* ParticipantCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipantCollCell.xib; sourceTree = "<group>"; };
+		CC2356281FB861060007EA37 /* ParticipantCollCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParticipantCollCell.swift; path = ../Views/ParticipantCollCell.swift; sourceTree = "<group>"; };
+		CC2356291FB861060007EA37 /* ParticipantCollCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ParticipantCollCell.xib; path = ../Views/ParticipantCollCell.xib; sourceTree = "<group>"; };
 		CC23562C1FB863EE0007EA37 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
+		CC31F6671FBFE440004875F8 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		CC31F6691FBFF6E5004875F8 /* ActionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionModel.swift; sourceTree = "<group>"; };
 		CC7FDD531FBC1F7B00901594 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		CC7FDD551FBC1F9200901594 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		CC7FDD571FBC334A00901594 /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
-		CC7FDD581FBC334A00901594 /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
+		CC7FDD571FBC334A00901594 /* ActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActionCell.swift; path = ../Views/ActionCell.swift; sourceTree = "<group>"; };
+		CC7FDD581FBC334A00901594 /* ActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ActionCell.xib; path = ../Views/ActionCell.xib; sourceTree = "<group>"; };
 		CC7FDD5B1FBC3FE600901594 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		CC80056A1FBF15750009AE35 /* SelectParticipantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectParticipantCell.swift; sourceTree = "<group>"; };
-		CC80056B1FBF15750009AE35 /* SelectParticipantCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectParticipantCell.xib; sourceTree = "<group>"; };
 		CC80056E1FBF18570009AE35 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		CC8005701FBF27760009AE35 /* NewGroupInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupInfoVC.swift; sourceTree = "<group>"; };
 		CC8005711FBF27760009AE35 /* NewGroupInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewGroupInfoVC.xib; sourceTree = "<group>"; };
 		CC8005741FBF2D230009AE35 /* GroupInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoViewModel.swift; sourceTree = "<group>"; };
-		CC8005761FBF30D00009AE35 /* GroupInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupInfoCell.swift; sourceTree = "<group>"; };
-		CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupInfoCell.xib; sourceTree = "<group>"; };
-		CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGroupPhotoCell.swift; sourceTree = "<group>"; };
-		CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetGroupPhotoCell.xib; sourceTree = "<group>"; };
+		CC8005761FBF30D00009AE35 /* GroupInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupInfoCell.swift; path = ../Views/GroupInfoCell.swift; sourceTree = "<group>"; };
+		CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GroupInfoCell.xib; path = ../Views/GroupInfoCell.xib; sourceTree = "<group>"; };
+		CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetGroupPhotoCell.swift; path = ../Views/SetGroupPhotoCell.swift; sourceTree = "<group>"; };
+		CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SetGroupPhotoCell.xib; path = ../Views/SetGroupPhotoCell.xib; sourceTree = "<group>"; };
+		CC8786E61FC0348F00443E57 /* DetailGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupVC.swift; sourceTree = "<group>"; };
+		CC8786E71FC0348F00443E57 /* DetailGroupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGroupVC.xib; sourceTree = "<group>"; };
+		CC8786EA1FC034D200443E57 /* GroupDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewModel.swift; sourceTree = "<group>"; };
+		CC8786EC1FC034F900443E57 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
+		CC8786EF1FC036B400443E57 /* GroupPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupPictureCell.swift; path = ../Views/GroupPictureCell.swift; sourceTree = "<group>"; };
+		CC8786F01FC036B400443E57 /* GroupPictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GroupPictureCell.xib; path = ../Views/GroupPictureCell.xib; sourceTree = "<group>"; };
 		CCABBC6E1FB187D90039B34E /* qiscus-sdk-ios-sample-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "qiscus-sdk-ios-sample-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCABBC711FB187D90039B34E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCABBC781FB187D90039B34E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,19 +169,15 @@
 		CCB2B22F1FBBFEF7002FBB2D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CCB2B2301FBBFEF7002FBB2D /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		CCD689C81FB725B500235674 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
-		CCD689D21FB73C4500235674 /* NewStrangerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStrangerVC.swift; sourceTree = "<group>"; };
-		CCD689D31FB73C4500235674 /* NewStrangerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewStrangerVC.xib; sourceTree = "<group>"; };
-		CCD689D71FB7480900235674 /* ContactPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPictureCell.swift; sourceTree = "<group>"; };
-		CCD689D81FB7480900235674 /* ContactPictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactPictureCell.xib; sourceTree = "<group>"; };
-		CCD689DB1FB748BD00235674 /* ContactDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailCell.swift; sourceTree = "<group>"; };
-		CCD689DC1FB748BD00235674 /* ContactDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactDetailCell.xib; sourceTree = "<group>"; };
+		CCD689D71FB7480900235674 /* ContactPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactPictureCell.swift; path = ../Views/ContactPictureCell.swift; sourceTree = "<group>"; };
+		CCD689D81FB7480900235674 /* ContactPictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ContactPictureCell.xib; path = ../Views/ContactPictureCell.xib; sourceTree = "<group>"; };
 		CCD689DF1FB74AD300235674 /* ContactDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModel.swift; sourceTree = "<group>"; };
 		CCD689E21FB763BB00235674 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		CCD689E41FB764EC00235674 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatListVC.swift; path = "qiscus-sdk-ios-sample-v2/Controllers/ChatList/ChatListVC.swift"; sourceTree = SOURCE_ROOT; };
-		CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChatListVC.xib; path = "qiscus-sdk-ios-sample-v2/Controllers/ChatList/ChatListVC.xib"; sourceTree = SOURCE_ROOT; };
-		CCDD6F471FB1B57800D24921 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		CCDD6F481FB1B57800D24921 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		CCDD6F401FB1AC7500D24921 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatVC.swift; path = "qiscus-sdk-ios-sample-v2/Controllers/Chat/ChatVC.swift"; sourceTree = SOURCE_ROOT; };
+		CCDD6F411FB1AC7500D24921 /* ChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChatVC.xib; path = "qiscus-sdk-ios-sample-v2/Controllers/Chat/ChatVC.xib"; sourceTree = SOURCE_ROOT; };
+		CCDD6F471FB1B57800D24921 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatCell.swift; path = ../Views/ChatCell.swift; sourceTree = "<group>"; };
+		CCDD6F481FB1B57800D24921 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ChatCell.xib; path = ../Views/ChatCell.xib; sourceTree = "<group>"; };
 		CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		CCDD6F4D1FB2ADFF00D24921 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		CCDD6F501FB2B67500D24921 /* ContactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactVC.swift; sourceTree = "<group>"; };
@@ -198,10 +187,7 @@
 		CCDD6F5A1FB2BC9200D24921 /* NewGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupVC.swift; sourceTree = "<group>"; };
 		CCDD6F5B1FB2BC9200D24921 /* NewGroupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewGroupVC.xib; sourceTree = "<group>"; };
 		CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadingView.swift; sourceTree = "<group>"; };
-		CCDD6F691FB2E02000D24921 /* DetailChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailChatVC.swift; sourceTree = "<group>"; };
-		CCDD6F6A1FB2E02000D24921 /* DetailChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailChatVC.xib; sourceTree = "<group>"; };
 		CCDD6F971FB2ED4900D24921 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
-		CCDD6F9A1FB2EF6E00D24921 /* ChatDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailViewModel.swift; sourceTree = "<group>"; };
 		EEAD325F62959857D2D3ED19 /* Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,23 +243,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CC018FD91FB3466A00396446 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CC018FDA1FB3469000396446 /* NamePictureCell.swift */,
-				CC018FDB1FB3469000396446 /* NamePictureCell.xib */,
-				CC018FE01FB347C700396446 /* ParticipantCell.swift */,
-				CC018FE11FB347C700396446 /* ParticipantCell.xib */,
-				CC018FE91FB4314D00396446 /* LeaveCell.swift */,
-				CC018FEA1FB4314D00396446 /* LeaveCell.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		CC018FE41FB42FC200396446 /* DetailContact */ = {
 			isa = PBXGroup;
 			children = (
-				CCD689D61FB747E400235674 /* Views */,
 				CC018FE51FB42FEF00396446 /* DetailContactVC.swift */,
 				CC018FE61FB42FEF00396446 /* DetailContactVC.xib */,
 			);
@@ -288,21 +260,6 @@
 				CCD689DF1FB74AD300235674 /* ContactDetailViewModel.swift */,
 			);
 			path = Contact;
-			sourceTree = "<group>";
-		};
-		CC0973C91FB5797A007F31C1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */,
-				CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */,
-				CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */,
-				CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */,
-				CC0973D21FB58A62007F31C1 /* SelectContactCell.swift */,
-				CC0973D31FB58A62007F31C1 /* SelectContactCell.xib */,
-				CC7FDD571FBC334A00901594 /* ActionCell.swift */,
-				CC7FDD581FBC334A00901594 /* ActionCell.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		CC2356181FB76FB00007EA37 /* Application */ = {
@@ -325,43 +282,21 @@
 		CC2356201FB85E990007EA37 /* Group */ = {
 			isa = PBXGroup;
 			children = (
-				CC2356211FB85EB20007EA37 /* GroupNewViewModel.swift */,
+				CC8786EA1FC034D200443E57 /* GroupDetailViewModel.swift */,
 				CC8005741FBF2D230009AE35 /* GroupInfoViewModel.swift */,
+				CC8786EC1FC034F900443E57 /* GroupModel.swift */,
+				CC2356211FB85EB20007EA37 /* GroupNewViewModel.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
 		};
-		CC2356231FB860940007EA37 /* Views */ = {
+		CC8786E51FC0345600443E57 /* DetailGroup */ = {
 			isa = PBXGroup;
 			children = (
-				CC2356281FB861060007EA37 /* ParticipantCollCell.swift */,
-				CC2356291FB861060007EA37 /* ParticipantCollCell.xib */,
-				CC80056A1FBF15750009AE35 /* SelectParticipantCell.swift */,
-				CC80056B1FBF15750009AE35 /* SelectParticipantCell.xib */,
-				CC8005761FBF30D00009AE35 /* GroupInfoCell.swift */,
-				CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */,
-				CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */,
-				CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */,
+				CC8786E61FC0348F00443E57 /* DetailGroupVC.swift */,
+				CC8786E71FC0348F00443E57 /* DetailGroupVC.xib */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CC6150B51FB8B7E100543F45 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CCDD6F471FB1B57800D24921 /* ChatCell.swift */,
-				CCDD6F481FB1B57800D24921 /* ChatCell.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CC6150B61FB8B7EE00543F45 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CC018FF51FB4481600396446 /* ContactCell.swift */,
-				CC018FF61FB4481600396446 /* ContactCell.xib */,
-			);
-			path = Views;
+			path = DetailGroup;
 			sourceTree = "<group>";
 		};
 		CCABBC651FB187D90039B34E = {
@@ -394,6 +329,7 @@
 				CCDD6F441FB1B1FF00D24921 /* Entities */,
 				CCABBCAC1FB19FB40039B34E /* Extensions */,
 				CCABBCA21FB1885C0039B34E /* Utilities */,
+				CCE8F5511FC0540100512686 /* Views */,
 				CCABBC9F1FB1881F0039B34E /* Controllers */,
 				CCABBC711FB187D90039B34E /* AppDelegate.swift */,
 				CCABBC781FB187D90039B34E /* Assets.xcassets */,
@@ -424,15 +360,14 @@
 		CCABBC9F1FB1881F0039B34E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CCB2B22E1FBBFECD002FBB2D /* Login */,
-				CC23561B1FB82D7B0007EA37 /* Setting */,
+				CCDD6F3F1FB1AC5A00D24921 /* Chat */,
+				CCDD6F4F1FB2B63D00D24921 /* Contact */,
 				CC018FE41FB42FC200396446 /* DetailContact */,
-				CCDD6F641FB2DC0D00D24921 /* DetailChat */,
-				CCD689D11FB73C2900235674 /* NewStranger */,
-				CCDD6F591FB2BC7F00D24921 /* NewGroup */,
+				CC8786E51FC0345600443E57 /* DetailGroup */,
+				CCB2B22E1FBBFECD002FBB2D /* Login */,
 				CCDD6F541FB2BABB00D24921 /* NewChat */,
-				CCDD6F4F1FB2B63D00D24921 /* ContactList */,
-				CCDD6F3F1FB1AC5A00D24921 /* ChatList */,
+				CCDD6F591FB2BC7F00D24921 /* NewGroup */,
+				CC23561B1FB82D7B0007EA37 /* Setting */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -440,10 +375,10 @@
 		CCABBCA21FB1885C0039B34E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				CC2356191FB8147F0007EA37 /* ChatManager.swift */,
 				CCABBCA81FB188BE0039B34E /* Helpers.swift */,
 				CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */,
 				CCD689E41FB764EC00235674 /* Utilities.swift */,
-				CC2356191FB8147F0007EA37 /* ChatManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -451,15 +386,15 @@
 		CCABBCAC1FB19FB40039B34E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CCABBCAD1FB19FC70039B34E /* UIViewController.swift */,
 				CC23562C1FB863EE0007EA37 /* CGFloat.swift */,
+				CC7FDD551FBC1F9200901594 /* Date.swift */,
+				CC7FDD531FBC1F7B00901594 /* String.swift */,
 				CCDD6F4B1FB1BC5C00D24921 /* UIColor.swift */,
+				CC80056E1FBF18570009AE35 /* UIImage.swift */,
 				CCDD6F4D1FB2ADFF00D24921 /* UIImageView.swift */,
 				CCB2B22C1FBBF561002FBB2D /* UITextField.swift */,
-				CC7FDD531FBC1F7B00901594 /* String.swift */,
-				CC7FDD551FBC1F9200901594 /* Date.swift */,
 				CC7FDD5B1FBC3FE600901594 /* UIView.swift */,
-				CC80056E1FBF18570009AE35 /* UIImage.swift */,
+				CCABBCAD1FB19FC70039B34E /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,69 +408,48 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		CCD689D11FB73C2900235674 /* NewStranger */ = {
+		CCD689E11FB7639C00235674 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				CCD689D21FB73C4500235674 /* NewStrangerVC.swift */,
-				CCD689D31FB73C4500235674 /* NewStrangerVC.xib */,
-			);
-			path = NewStranger;
-			sourceTree = "<group>";
-		};
-		CCD689D61FB747E400235674 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				CCD689D71FB7480900235674 /* ContactPictureCell.swift */,
-				CCD689D81FB7480900235674 /* ContactPictureCell.xib */,
-				CCD689DB1FB748BD00235674 /* ContactDetailCell.swift */,
-				CCD689DC1FB748BD00235674 /* ContactDetailCell.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		CCD689E11FB7639C00235674 /* Preference */ = {
-			isa = PBXGroup;
-			children = (
+				CC31F6691FBFF6E5004875F8 /* ActionModel.swift */,
 				CCD689E21FB763BB00235674 /* Preference.swift */,
+				CC31F6671FBFE440004875F8 /* SettingViewModel.swift */,
 			);
-			path = Preference;
+			path = Setting;
 			sourceTree = "<group>";
 		};
-		CCDD6F3F1FB1AC5A00D24921 /* ChatList */ = {
+		CCDD6F3F1FB1AC5A00D24921 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				CC6150B51FB8B7E100543F45 /* Views */,
-				CCDD6F401FB1AC7500D24921 /* ChatListVC.swift */,
-				CCDD6F411FB1AC7500D24921 /* ChatListVC.xib */,
+				CCDD6F401FB1AC7500D24921 /* ChatVC.swift */,
+				CCDD6F411FB1AC7500D24921 /* ChatVC.xib */,
 			);
-			path = ChatList;
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		CCDD6F441FB1B1FF00D24921 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				CC2356201FB85E990007EA37 /* Group */,
-				CCD689E11FB7639C00235674 /* Preference */,
-				CC018FED1FB43EE100396446 /* Contact */,
 				CCDD6F991FB2EF5400D24921 /* Chat */,
+				CC018FED1FB43EE100396446 /* Contact */,
+				CC2356201FB85E990007EA37 /* Group */,
+				CCD689E11FB7639C00235674 /* Setting */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		CCDD6F4F1FB2B63D00D24921 /* ContactList */ = {
+		CCDD6F4F1FB2B63D00D24921 /* Contact */ = {
 			isa = PBXGroup;
 			children = (
-				CC6150B61FB8B7EE00543F45 /* Views */,
 				CCDD6F501FB2B67500D24921 /* ContactVC.swift */,
 				CCDD6F511FB2B67500D24921 /* ContactVC.xib */,
 			);
-			path = ContactList;
+			path = Contact;
 			sourceTree = "<group>";
 		};
 		CCDD6F541FB2BABB00D24921 /* NewChat */ = {
 			isa = PBXGroup;
 			children = (
-				CC0973C91FB5797A007F31C1 /* Views */,
 				CCDD6F551FB2BAD600D24921 /* NewChatVC.swift */,
 				CCDD6F561FB2BAD600D24921 /* NewChatVC.xib */,
 			);
@@ -545,7 +459,6 @@
 		CCDD6F591FB2BC7F00D24921 /* NewGroup */ = {
 			isa = PBXGroup;
 			children = (
-				CC2356231FB860940007EA37 /* Views */,
 				CCDD6F5A1FB2BC9200D24921 /* NewGroupVC.swift */,
 				CCDD6F5B1FB2BC9200D24921 /* NewGroupVC.xib */,
 				CC8005701FBF27760009AE35 /* NewGroupInfoVC.swift */,
@@ -554,25 +467,43 @@
 			path = NewGroup;
 			sourceTree = "<group>";
 		};
-		CCDD6F641FB2DC0D00D24921 /* DetailChat */ = {
-			isa = PBXGroup;
-			children = (
-				CC018FD91FB3466A00396446 /* Views */,
-				CCDD6F691FB2E02000D24921 /* DetailChatVC.swift */,
-				CCDD6F6A1FB2E02000D24921 /* DetailChatVC.xib */,
-			);
-			path = DetailChat;
-			sourceTree = "<group>";
-		};
 		CCDD6F991FB2EF5400D24921 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
 				CCDD6F971FB2ED4900D24921 /* ChatModel.swift */,
-				CCDD6F9A1FB2EF6E00D24921 /* ChatDetailViewModel.swift */,
 				CC0973C71FB5795C007F31C1 /* ChatNewViewModel.swift */,
 				CCD689C81FB725B500235674 /* ChatListViewModel.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		CCE8F5511FC0540100512686 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC7FDD571FBC334A00901594 /* ActionCell.swift */,
+				CC7FDD581FBC334A00901594 /* ActionCell.xib */,
+				CCDD6F471FB1B57800D24921 /* ChatCell.swift */,
+				CCDD6F481FB1B57800D24921 /* ChatCell.xib */,
+				CC018FF51FB4481600396446 /* ContactCell.swift */,
+				CC018FF61FB4481600396446 /* ContactCell.xib */,
+				CCD689D71FB7480900235674 /* ContactPictureCell.swift */,
+				CCD689D81FB7480900235674 /* ContactPictureCell.xib */,
+				CC0973CA1FB57996007F31C1 /* CreateGroupCell.swift */,
+				CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */,
+				CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */,
+				CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */,
+				CC8005761FBF30D00009AE35 /* GroupInfoCell.swift */,
+				CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */,
+				CC8786EF1FC036B400443E57 /* GroupPictureCell.swift */,
+				CC8786F01FC036B400443E57 /* GroupPictureCell.xib */,
+				CC018FE01FB347C700396446 /* ParticipantCell.swift */,
+				CC018FE11FB347C700396446 /* ParticipantCell.xib */,
+				CC2356281FB861060007EA37 /* ParticipantCollCell.swift */,
+				CC2356291FB861060007EA37 /* ParticipantCollCell.xib */,
+				CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */,
+				CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -696,33 +627,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCDD6F431FB1AC7500D24921 /* ChatListVC.xib in Resources */,
+				CCDD6F431FB1AC7500D24921 /* ChatVC.xib in Resources */,
 				CC23562B1FB861060007EA37 /* ParticipantCollCell.xib in Resources */,
-				CCD689D51FB73C4500235674 /* NewStrangerVC.xib in Resources */,
 				CCDD6F4A1FB1B57800D24921 /* ChatCell.xib in Resources */,
-				CCDD6F6C1FB2E02000D24921 /* DetailChatVC.xib in Resources */,
 				CC80057D1FBF33B50009AE35 /* SetGroupPhotoCell.xib in Resources */,
 				CCB2B2321FBBFEF7002FBB2D /* LoginVC.xib in Resources */,
 				CCDD6F531FB2B67500D24921 /* ContactVC.xib in Resources */,
 				CC8005731FBF27760009AE35 /* NewGroupInfoVC.xib in Resources */,
+				CC8786F21FC036B400443E57 /* GroupPictureCell.xib in Resources */,
 				CC018FE81FB42FEF00396446 /* DetailContactVC.xib in Resources */,
-				CC80056D1FBF15750009AE35 /* SelectParticipantCell.xib in Resources */,
 				CC0973CD1FB57996007F31C1 /* CreateGroupCell.xib in Resources */,
 				CCABBC7C1FB187D90039B34E /* LaunchScreen.storyboard in Resources */,
-				CC018FEC1FB4314D00396446 /* LeaveCell.xib in Resources */,
-				CCD689DE1FB748BD00235674 /* ContactDetailCell.xib in Resources */,
+				CC8786E91FC0348F00443E57 /* DetailGroupVC.xib in Resources */,
 				CCABBC791FB187D90039B34E /* Assets.xcassets in Resources */,
 				CCDD6F581FB2BAD600D24921 /* NewChatVC.xib in Resources */,
 				CCDD6F5D1FB2BC9200D24921 /* NewGroupVC.xib in Resources */,
 				CC0973D11FB57AC2007F31C1 /* CreateStrangerCell.xib in Resources */,
 				CC018FF81FB4481600396446 /* ContactCell.xib in Resources */,
 				CC018FE31FB347C700396446 /* ParticipantCell.xib in Resources */,
-				CC0973D51FB58A62007F31C1 /* SelectContactCell.xib in Resources */,
 				CC23561F1FB82D930007EA37 /* SettingVC.xib in Resources */,
 				CC7FDD5A1FBC334A00901594 /* ActionCell.xib in Resources */,
 				CCD689DA1FB7480900235674 /* ContactPictureCell.xib in Resources */,
 				CC8005791FBF30D00009AE35 /* GroupInfoCell.xib in Resources */,
-				CC018FDD1FB3469000396446 /* NamePictureCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -888,27 +814,27 @@
 				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
 				CCB2B2311FBBFEF7002FBB2D /* LoginVC.swift in Sources */,
 				CCDD6F571FB2BAD600D24921 /* NewChatVC.swift in Sources */,
+				CC31F66A1FBFF6E5004875F8 /* ActionModel.swift in Sources */,
+				CC8786E81FC0348F00443E57 /* DetailGroupVC.swift in Sources */,
 				CC80056F1FBF18570009AE35 /* UIImage.swift in Sources */,
 				CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */,
 				CC8005751FBF2D230009AE35 /* GroupInfoViewModel.swift in Sources */,
 				CC7FDD591FBC334A00901594 /* ActionCell.swift in Sources */,
 				CCB2B22D1FBBF561002FBB2D /* UITextField.swift in Sources */,
+				CC8786F11FC036B400443E57 /* GroupPictureCell.swift in Sources */,
 				CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */,
-				CCDD6F9B1FB2EF6E00D24921 /* ChatDetailViewModel.swift in Sources */,
-				CC80056C1FBF15750009AE35 /* SelectParticipantCell.swift in Sources */,
+				CC8786ED1FC034F900443E57 /* GroupModel.swift in Sources */,
 				CCDD6F491FB1B57800D24921 /* ChatCell.swift in Sources */,
 				CCDD6F521FB2B67500D24921 /* ContactVC.swift in Sources */,
 				CC23562D1FB863EE0007EA37 /* CGFloat.swift in Sources */,
 				CC018FE71FB42FEF00396446 /* DetailContactVC.swift in Sources */,
 				CCABBCA91FB188BE0039B34E /* Helpers.swift in Sources */,
 				CC018FF71FB4481600396446 /* ContactCell.swift in Sources */,
-				CCDD6F6B1FB2E02000D24921 /* DetailChatVC.swift in Sources */,
 				CCD689E31FB763BB00235674 /* Preference.swift in Sources */,
 				CC0973D01FB57AC2007F31C1 /* CreateStrangerCell.swift in Sources */,
 				CC0973CC1FB57996007F31C1 /* CreateGroupCell.swift in Sources */,
 				CC7FDD561FBC1F9200901594 /* Date.swift in Sources */,
 				CC7FDD541FBC1F7B00901594 /* String.swift in Sources */,
-				CCD689D41FB73C4500235674 /* NewStrangerVC.swift in Sources */,
 				CC80057C1FBF33B50009AE35 /* SetGroupPhotoCell.swift in Sources */,
 				CCD689C91FB725B500235674 /* ChatListViewModel.swift in Sources */,
 				CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */,
@@ -917,24 +843,22 @@
 				CC7FDD5C1FBC3FE600901594 /* UIView.swift in Sources */,
 				CC018FF31FB4461E00396446 /* ContactListViewModel.swift in Sources */,
 				CCDD6F4E1FB2ADFF00D24921 /* UIImageView.swift in Sources */,
-				CC018FDC1FB3469000396446 /* NamePictureCell.swift in Sources */,
 				CC0973C81FB5795C007F31C1 /* ChatNewViewModel.swift in Sources */,
 				CCD689E51FB764EC00235674 /* Utilities.swift in Sources */,
 				CC018FF11FB43FCB00396446 /* ContactModel.swift in Sources */,
-				CCDD6F421FB1AC7500D24921 /* ChatListVC.swift in Sources */,
+				CCDD6F421FB1AC7500D24921 /* ChatVC.swift in Sources */,
 				CCD689D91FB7480900235674 /* ContactPictureCell.swift in Sources */,
 				CC23562A1FB861060007EA37 /* ParticipantCollCell.swift in Sources */,
-				CCD689DD1FB748BD00235674 /* ContactDetailCell.swift in Sources */,
+				CC31F6681FBFE440004875F8 /* SettingViewModel.swift in Sources */,
 				CCDD6F5C1FB2BC9200D24921 /* NewGroupVC.swift in Sources */,
 				CCABBCAE1FB19FC70039B34E /* UIViewController.swift in Sources */,
 				CCDD6F631FB2DA9700D24921 /* UILoadingView.swift in Sources */,
-				CC018FEB1FB4314D00396446 /* LeaveCell.swift in Sources */,
 				CC2356221FB85EB30007EA37 /* GroupNewViewModel.swift in Sources */,
-				CC0973D41FB58A62007F31C1 /* SelectContactCell.swift in Sources */,
 				CCD689E01FB74AD300235674 /* ContactDetailViewModel.swift in Sources */,
 				CC8005781FBF30D00009AE35 /* GroupInfoCell.swift in Sources */,
 				CCDD6F981FB2ED4900D24921 /* ChatModel.swift in Sources */,
 				CC2356171FB76F720007EA37 /* BaseApplication.swift in Sources */,
+				CC8786EB1FC034D200443E57 /* GroupDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

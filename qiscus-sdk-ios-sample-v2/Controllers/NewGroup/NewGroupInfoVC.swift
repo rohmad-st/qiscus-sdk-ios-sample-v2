@@ -47,6 +47,7 @@ extension NewGroupInfoVC {
         viewModel.loadData()
         
         // MARK: - Register table & cell
+        tableView.backgroundColor       = UIColor.baseBgTableView
         tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel
         tableView.estimatedRowHeight    = 100
@@ -55,14 +56,15 @@ extension NewGroupInfoVC {
                            forCellReuseIdentifier: GroupInfoCell.identifier)
         tableView.register(SetGroupPhotoCell.nib,
                            forCellReuseIdentifier: SetGroupPhotoCell.identifier)
-        tableView.register(SelectParticipantCell.nib,
-                           forCellReuseIdentifier: SelectParticipantCell.identifier)
+        tableView.register(ContactCell.nib,
+                           forCellReuseIdentifier: ContactCell.identifier)
         
         let rightButton = UIBarButtonItem(barButtonSystemItem: .done,
                                           target: self,
                                           action: #selector(done(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
         self.isEnableButton(false)
+        self.setBackTitle()
     }
     
     @objc func done(_ sender: Any) {

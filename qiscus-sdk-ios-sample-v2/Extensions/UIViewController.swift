@@ -19,4 +19,15 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - Custom back button icon without title
+    func setBackIcon(_ image: UIImage = UIImage(named: "ic_back")!) {
+        self.navigationController?.navigationBar.backIndicatorImage = image
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = image
+        self.setBackTitle()
+    }
+    
+    // MARK: - Custom back button without title
+    func setBackTitle(_ title: String = "") {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: nil, action: nil)
+    }
 }

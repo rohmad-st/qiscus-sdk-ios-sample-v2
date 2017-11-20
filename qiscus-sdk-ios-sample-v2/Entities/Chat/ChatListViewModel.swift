@@ -49,35 +49,14 @@ class ChatListViewModel: NSObject {
 }
 
 extension ChatListViewModel: UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if self.items.count > 0 {
-            tableView.backgroundView?.isHidden  = true
-            tableView.separatorStyle            = .singleLine
-            return 1
-            
-        } else {
-            tableView.backgroundView = UIView.backgroundView(UIImage(named: "ic_empty_room")!,
-                                                             title: "You don’t have any room",
-                                                             description: "Start 1 on 1 chat with stranger or group chat with your friend.",
-                                                             titleButton: "New Chat",
-                                                             iconButton: UIImage(named: "ic_new_chat")!,
-                                                             target: self,
-                                                             action: #selector(newChat(_:)),
-                                                             btnWidth: 172)
-            tableView.separatorStyle            = .none
-            tableView.backgroundView?.isHidden  = false
-            return 0
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chat            = self.items[indexPath.row]
         guard let roomId    = chat.roomId else { return }
         guard let isGroup   = chat.isGroup else { return }
         
         // get email of target user from participants
-        let myEmail = Preference.instance.getEmail()
-        guard let filterParticipant = chat.participants.filter({ $0.email != myEmail }).first else {
+        let email = Preference.instance.getEmail()
+        guard let filterParticipant = chat.participants.filter({ $0.email != email }).first else {
             chatWithRoomId(roomId, isGroup: isGroup)
             return
         }
@@ -88,6 +67,30 @@ extension ChatListViewModel: UITableViewDelegate {
 }
 
 extension ChatListViewModel: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if self.items.count > 0 {
+            tableView.backgroundView?.isHidden  = true
+            tableView.separatorStyle            = .singleLine
+            
+            return 1
+            
+        } else {
+            let bgView = UIView.backgroundView(UIImage(named: "ic_empty_room")!,
+                                               title: "You don’t have any room",
+                                               description: "Start 1 on 1 chat with stranger or group chat with your friend.",
+                                               titleButton: "New Chat",
+                                               iconButton: UIImage(named: "ic_new_chat")!,
+                                               target: self,
+                                               action: #selector(newChat(_:)),
+                                               btnWidth: 172)
+            tableView.backgroundView = bgView
+            tableView.separatorStyle            = .none
+            tableView.backgroundView?.isHidden  = false
+            
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }

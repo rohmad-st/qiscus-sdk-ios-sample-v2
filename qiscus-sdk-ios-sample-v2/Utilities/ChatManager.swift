@@ -14,7 +14,7 @@ public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, email: String? =
     
     if isGroup {
         chatView.titleAction = {
-            let targetVC                        = DetailChatVC()
+            let targetVC                        = DetailGroupVC() //DetailChatVC()
             targetVC.id                         = roomId
             targetVC.hidesBottomBarWhenPushed   = true
             chatView.navigationController?.pushViewController(targetVC, animated: true)
@@ -83,7 +83,7 @@ public func createGroupChat(_ users: [String], title: String) {
     let chatView = Qiscus.createChatView(withUsers: users, title: title)
 
     chatView.titleAction = {
-        let targetVC                        = DetailChatVC()
+        let targetVC                        = DetailGroupVC()
         targetVC.id                         = chatView.chatRoom?.id
         targetVC.hidesBottomBarWhenPushed   = true
         chatView.navigationController?.pushViewController(targetVC, animated: true)

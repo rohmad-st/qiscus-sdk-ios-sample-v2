@@ -31,6 +31,7 @@ extension NewChatVC {
     func setupUI() -> Void {
         self.title = "Create New Chat"
         
+        tableView.backgroundColor       = UIColor.baseBgTableView
         tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel
         tableView.estimatedRowHeight    = 65
@@ -39,7 +40,9 @@ extension NewChatVC {
                            forCellReuseIdentifier: CreateGroupCell.identifier)
         tableView.register(CreateStrangerCell.nib,
                            forCellReuseIdentifier: CreateStrangerCell.identifier)
-        tableView.register(SelectContactCell.nib,
-                           forCellReuseIdentifier: SelectContactCell.identifier)
+        tableView.register(ContactCell.nib,
+                           forCellReuseIdentifier: ContactCell.identifier)
+        
+        self.setBackTitle()
     }
 }

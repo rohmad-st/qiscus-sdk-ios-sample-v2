@@ -37,4 +37,12 @@ class Contact {
         self.phoneNumber = data.email
         self.email = data.email
     }
+    
+    init?(id: Int, name: String, avatarURL: String, email: String) {
+        self.id = id
+        self.name = name
+        self.avatarURL = avatarURL
+        self.phoneNumber = email
+        self.email = email
+    }
 }

@@ -1,17 +1,19 @@
 //
-//  SettingVC.swift
+//  DetailGroupVC.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/12/17.
+//  Created by Rohmad Sasmito on 11/18/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import UIKit
 
-class SettingVC: UIViewController {
+class DetailGroupVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    fileprivate var viewModel = SettingViewModel()
+    
+    var id: Int?
+    fileprivate var viewModel = GroupDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,20 +26,26 @@ class SettingVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
 }
 
-extension SettingVC {
+
+extension DetailGroupVC {
     func setupUI() -> Void {
-        self.title = "Setting"
+        self.title = "Group Info"
         
+        // MARK: - Register table & cell
+        guard let roomId = self.id else { return }
+        
+        viewModel.id                    = roomId
         tableView.backgroundColor       = UIColor.baseBgTableView
         tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel
-        tableView.estimatedRowHeight    = 100
-        tableView.rowHeight             = UITableViewAutomaticDimension
-        tableView.register(ContactPictureCell.nib,
-                           forCellReuseIdentifier: ContactPictureCell.identifier)
-        tableView.register(ActionCell.nib,
-                           forCellReuseIdentifier: ActionCell.identifier)
+        tableView.register(GroupPictureCell.nib,
+                           forCellReuseIdentifier: GroupPictureCell.identifier)
+        tableView.register(ParticipantCell.nib,
+                           forCellReuseIdentifier: ParticipantCell.identifier)
+        
+        self.setBackIcon()
     }
 }

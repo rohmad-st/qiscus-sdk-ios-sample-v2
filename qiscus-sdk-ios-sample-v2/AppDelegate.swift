@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
     func setupTabBar() {
         // Set up the first View Controller
         let nav1 = UINavigationController()
-        let vc1 = ChatListVC()
+        let vc1 = ChatVC()
         vc1.tabBarItem.title = "Room List"
         vc1.tabBarItem.image = UIImage(named: "ic_room_list")
         nav1.setViewControllers([vc1], animated: true)

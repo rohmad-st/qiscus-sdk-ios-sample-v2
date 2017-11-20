@@ -1,61 +1,50 @@
 //
-//  ContactDetailViewModel.swift
+//  SettingViewModel.swift
 //  qiscus-sdk-ios-sample-v2
 //
-//  Created by Rohmad Sasmito on 11/11/17.
+//  Created by Rohmad Sasmito on 11/18/17.
 //  Copyright © 2017 Qiscus Technology. All rights reserved.
 //
 
 import Foundation
-import Qiscus
+import UIKit
 
-enum ContactDetailViewModelItemType {
-    case infoContact
-    case actions
-}
-
-protocol ContactDetailViewModelItem {
-    var type: ContactDetailViewModelItemType { get }
-    var sectionTitle: String { get }
-    var rowCount: Int { get }
-}
-
-class ContactDetailViewModel: NSObject {
+class SettingViewModel: NSObject {
     var items = [ContactDetailViewModelItem]()
     
-    // this email variable must be set from caller class
-    var email: String? {
-        didSet {
-            self.setup()
-        }
-    }
-    
-    func setup() {
-        guard let email = self.email else { return }
-        guard let data = QUser.user(withEmail: email) else { return }
-        guard let contact = Contact(data: data) else { return }
+    override init() {
+        let data = Preference.instance.getLocal()
+        guard let name = data.username else { return }
+        guard let avatarURL = data.avatarURL else { return }
+        guard let email = data.email else { return }
+        guard let contact = Contact(id: 0, name: name, avatarURL: avatarURL, email: email) else { return }
         
         // info contact section
         let infoContactItem = ContactDetailViewModelInfoItem(contact: contact)
         items.append(infoContactItem)
         
         // actions section
-        let action: Action = Action(title: "Start Chat", icon: UIImage(named: "ic_room_list")!, type: .chat)
+        let action: Action = Action(title: "Logout", icon: UIImage(named: "ic_logout")!, type: .logout)
         let chatActionItem = ContactDetailViewModelActionItem(action: action)
         items.append(chatActionItem)
     }
 }
 
-extension ContactDetailViewModel: UITableViewDelegate {
+extension SettingViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = items[indexPath.section]
         if item.type == .actions {
             if let action = item as? ContactDetailViewModelActionItem {
                 guard let type = action.action.type else { return }
-                guard let email = self.email else { return }
                 
-                if type == .chat {
-                    chatWithUser(email)
+                if type == .logout {
+                    Preference.instance.clearAll()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+                        // start authenticate user
+                        let app = UIApplication.shared.delegate as! AppDelegate
+                        app.getBaseApp().validateUser()
+                    })
                 }
             }
         }
@@ -90,7 +79,7 @@ extension ContactDetailViewModel: UITableViewDelegate {
     }
 }
 
-extension ContactDetailViewModel: UITableViewDataSource {
+extension SettingViewModel: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
@@ -122,46 +111,5 @@ extension ContactDetailViewModel: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return items[section].sectionTitle
-    }
-}
-
-// MARK: - Handle response of each cell
-class ContactDetailViewModelInfoItem: ContactDetailViewModelItem {
-    var type: ContactDetailViewModelItemType {
-        return .infoContact
-    }
-    
-    var sectionTitle: String {
-        return ""
-    }
-    
-    var rowCount: Int {
-        return 1
-    }
-    
-    var contact: Contact
-    
-    init(contact: Contact) {
-        self.contact = contact
-    }
-}
-
-class ContactDetailViewModelActionItem: ContactDetailViewModelItem {
-    var type: ContactDetailViewModelItemType {
-        return .actions
-    }
-    
-    var sectionTitle: String {
-        return ""
-    }
-    
-    var rowCount: Int {
-        return 1
-    }
-    
-    var action: Action
-    
-    init(action: Action) {
-        self.action = action
     }
 }

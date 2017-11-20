@@ -146,37 +146,6 @@ extension UIColor {
             return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
         }
     }
-    
-    class var chatWelcomeIconColor: UIColor {
-        get {
-            return UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1)
-        }
-    }
-    class var chatLeftTextColor: UIColor {
-        get {
-            return UIColor.black
-        }
-    }
-    class var chatLeftBaloonColor: UIColor {
-        get {
-            return UIColor(red: 208/255, green: 208/255, blue: 208/255, alpha: 1)
-        }
-    }
-    class var chatLeftBaloonLinkColor: UIColor {
-        get {
-            return UIColor(red: 109/255, green: 106/255, blue: 106/255, alpha: 1)
-        }
-    }
-    class var chatRightBaloonColor: UIColor {
-        get {
-            return UIColor(red: 178/255, green: 223/255, blue: 219/255, alpha: 1)
-        }
-    }
-    class var chatRightTextColor: UIColor {
-        get {
-            return UIColor.black
-        }
-    }
     class var validationTextColor: UIColor {
         get {
             return UIColor.white
@@ -200,6 +169,53 @@ extension UIColor {
     class var baseBorderIconUncheck: UIColor {
         get {
             return UIColor(red: 196/255, green: 196/255, blue: 196/255, alpha: 1)
+        }
+    }
+    class var baseArrow: UIColor {
+        get {
+            return UIColor(red: 199/255, green: 199/255, blue: 204/255, alpha: 1)
+        }
+    }
+    class var baseLogout: UIColor {
+        get {
+            return UIColor(red: 255/255, green: 122/255, blue: 122/255, alpha: 1)
+        }
+    }
+    class var baseBgTableView: UIColor {
+        get {
+            return UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
+        }
+    }
+    
+    // MARK: - Color of chat
+    class var chatWelcomeIconColor: UIColor {
+        get {
+            return UIColor(red: 46/255, green: 204/255, blue: 113/255, alpha: 1)
+        }
+    }
+    class var chatLeftTextColor: UIColor {
+        get {
+            return UIColor.black
+        }
+    }
+    class var chatLeftBaloonColor: UIColor {
+        get {
+            return UIColor(red: 255/255, green: 232/255, blue: 163/255, alpha: 1)
+        }
+    }
+    class var chatLeftBaloonLinkColor: UIColor {
+        get {
+            return UIColor(red: 109/255, green: 106/255, blue: 106/255, alpha: 1)
+        }
+    }
+    class var chatRightBaloonColor: UIColor {
+        get {
+            return UIColor(red: 42/255, green: 203/255, blue: 110/255, alpha: 1)
+        }
+    }
+    class var chatRightTextColor: UIColor {
+        get {
+            return UIColor.white
         }
     }
 }

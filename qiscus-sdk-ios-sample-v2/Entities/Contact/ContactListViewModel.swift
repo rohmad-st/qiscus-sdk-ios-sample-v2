@@ -37,12 +37,12 @@ class ContactListViewModel: NSObject {
         self.delegate?.didFinishUpdated()
     }
     
-    func showDialog(_ email: String, title: String) -> Void {
-        let alertController = UIAlertController(title: title,
-                                                message: "What would you like to do?",
+    func showDialog(_ email: String) -> Void {
+        let alertController = UIAlertController(title: nil,
+                                                message: nil,
                                                 preferredStyle: .actionSheet)
         
-        let detailButton = UIAlertAction(title: "Detail",
+        let detailButton = UIAlertAction(title: "Contact Detail",
                                        style: .default,
                                        handler: { (action) -> Void in
                                         let targetVC = DetailContactVC()
@@ -50,7 +50,7 @@ class ContactListViewModel: NSObject {
                                         targetVC.hidesBottomBarWhenPushed = true
                                         openViewController(targetVC)
         })
-        let chatButton = UIAlertAction(title: "Chat",
+        let chatButton = UIAlertAction(title: "Send Message",
                                        style: .default,
                                        handler: { (action) -> Void in
                                         chatWithUser(email)
@@ -105,8 +105,7 @@ class ContactListViewModel: NSObject {
 extension ContactListViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let email = self.items[indexPath.row].email else { return }
-        guard let name = self.items[indexPath.row].name else { return }
-        self.showDialog(email, title: name)
+        self.showDialog(email)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -114,18 +113,21 @@ extension ContactListViewModel: UITableViewDelegate {
 extension ContactListViewModel: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         if items.count > 0 {
-            tableView.backgroundView?.isHidden = true
+            tableView.backgroundView?.isHidden  = true
+            tableView.separatorStyle            = .singleLine
+            
             return 1
             
         } else {
-            tableView.backgroundView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
-                                                             title: "Contact is Empty",
-                                                             description: "If you chat with stranger, it’ll automaticaly added to here",
-                                                             titleButton: "Chat With Stranger",
-                                                             iconButton: UIImage(named: "ic_stranger")!,
-                                                             target: self,
-                                                             action: #selector(chatWithStranger(_:)),
-                                                             btnWidth: 244)
+            let bgView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
+                                               title: "Contact is Empty",
+                                               description: "If you chat with stranger, it’ll automaticaly added to here",
+                                               titleButton: "Chat With Stranger",
+                                               iconButton: UIImage(named: "ic_stranger")!,
+                                               target: self,
+                                               action: #selector(chatWithStranger(_:)),
+                                               btnWidth: 244)
+            tableView.backgroundView = bgView
             tableView.separatorStyle            = .none
             tableView.backgroundView?.isHidden  = false
             

@@ -31,15 +31,16 @@ class DetailContactVC: UIViewController {
 
 extension DetailContactVC {
     func setupUI() -> Void {
-        self.title = "Detail Contact"
+        self.title = "Contact Detail"
         
+        tableView.backgroundColor       = UIColor.baseBgTableView
+        tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel
         tableView.estimatedRowHeight    = 100
         tableView.rowHeight             = UITableViewAutomaticDimension
         tableView.register(ContactPictureCell.nib,
                            forCellReuseIdentifier: ContactPictureCell.identifier)
-        tableView.register(ContactDetailCell.nib,
-                           forCellReuseIdentifier: ContactDetailCell.identifier)
-        
+        tableView.register(ActionCell.nib,
+                           forCellReuseIdentifier: ActionCell.identifier)
     }
 }

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="KGk-i7-Jjw" customClass="ChatCell" customModule="qiscus_sdk_ios_sample_v2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="75.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="xLP-2N-8QM">
+                        <rect key="frame" x="16" y="15.5" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="iaM-Mf-U4A"/>
+                            <constraint firstAttribute="height" constant="45" id="rGD-Q9-VVy"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJ8-w7-HeE">
+                        <rect key="frame" x="77" y="10.5" width="139" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text message" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyV-dB-qps">
+                        <rect key="frame" x="77" y="33.5" width="196" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="BQN-hC-Khl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/11/2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3m-5p-eZ7">
+                        <rect key="frame" x="221" y="10.5" width="75" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="75" id="CVl-aO-hAE"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_keyboard_arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="HcR-f3-VD0">
+                        <rect key="frame" x="296" y="7" width="24" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="kxg-Ld-Hay"/>
+                            <constraint firstAttribute="width" constant="24" id="zdO-mD-yWp"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxX-tw-k1u" customClass="BadgeSwift" customModule="BadgeSwift">
+                        <rect key="frame" x="278" y="31.5" width="32" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="QuN-vv-htY"/>
+                            <constraint firstAttribute="width" constant="32" id="wSm-mP-Dkf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="badgeColor">
+                                <color key="value" red="0.99607843137254903" green="0.85882352941176465" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="insets">
+                                <size key="value" width="3" height="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="NxX-tw-k1u" firstAttribute="leading" secondItem="HyV-dB-qps" secondAttribute="trailing" constant="5" id="2RX-30-Uby"/>
+                    <constraint firstItem="HcR-f3-VD0" firstAttribute="leading" secondItem="D3m-5p-eZ7" secondAttribute="trailing" id="Aaw-DS-f8g"/>
+                    <constraint firstItem="NxX-tw-k1u" firstAttribute="top" secondItem="D3m-5p-eZ7" secondAttribute="bottom" constant="3" id="IGp-G2-N3e"/>
+                    <constraint firstAttribute="trailing" secondItem="HcR-f3-VD0" secondAttribute="trailing" id="M1G-3n-h8n"/>
+                    <constraint firstItem="D3m-5p-eZ7" firstAttribute="leading" secondItem="sJ8-w7-HeE" secondAttribute="trailing" constant="5" id="OIW-WQ-LnV"/>
+                    <constraint firstItem="sJ8-w7-HeE" firstAttribute="centerY" secondItem="D3m-5p-eZ7" secondAttribute="centerY" id="Pyt-He-i6Z"/>
+                    <constraint firstItem="xLP-2N-8QM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="a1T-KO-IF7"/>
+                    <constraint firstAttribute="trailing" secondItem="NxX-tw-k1u" secondAttribute="trailing" constant="10" id="gnB-YE-DP4"/>
+                    <constraint firstItem="HcR-f3-VD0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="jfM-4S-lCn"/>
+                    <constraint firstItem="xLP-2N-8QM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="pFG-ch-uQp"/>
+                    <constraint firstItem="HyV-dB-qps" firstAttribute="leading" secondItem="sJ8-w7-HeE" secondAttribute="leading" id="phx-gW-LW6"/>
+                    <constraint firstItem="D3m-5p-eZ7" firstAttribute="centerY" secondItem="HcR-f3-VD0" secondAttribute="centerY" id="uJi-Rp-4AH"/>
+                    <constraint firstItem="sJ8-w7-HeE" firstAttribute="leading" secondItem="xLP-2N-8QM" secondAttribute="trailing" constant="16" id="uVf-Ep-n9N"/>
+                    <constraint firstItem="HyV-dB-qps" firstAttribute="top" secondItem="sJ8-w7-HeE" secondAttribute="bottom" constant="5" id="xuj-ac-qeF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="arrowRightImageView" destination="HcR-f3-VD0" id="3Wu-nw-iva"/>
+                <outlet property="avatarImageView" destination="xLP-2N-8QM" id="PDt-or-n44"/>
+                <outlet property="badgeLabel" destination="NxX-tw-k1u" id="Iyl-9W-EFf"/>
+                <outlet property="chatNameLabel" destination="sJ8-w7-HeE" id="9s0-yJ-RYz"/>
+                <outlet property="lastMessageLabel" destination="HyV-dB-qps" id="wT4-dn-gcu"/>
+                <outlet property="timestampLabel" destination="D3m-5p-eZ7" id="YgO-Ud-8GY"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="53.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_default_avatar" width="45" height="45"/>
+        <image name="ic_keyboard_arrow_right" width="24" height="24"/>
+    </resources>
+</document>

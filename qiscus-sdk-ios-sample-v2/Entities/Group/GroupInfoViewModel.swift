@@ -134,13 +134,6 @@ extension GroupInfoViewModel: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-}
-
-extension GroupInfoViewModel: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.items.count
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let title   = items[section].sectionTitle
         let view    = UIView.headerInTableView(title)
@@ -182,6 +175,13 @@ extension GroupInfoViewModel: UITableViewDataSource {
         }
     }
     
+}
+
+extension GroupInfoViewModel: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.items.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items[section].rowCount
     }
@@ -205,7 +205,7 @@ extension GroupInfoViewModel: UITableViewDataSource {
             }
             
         case .participants:
-            if let item = item as? GroupInfoViewModelParticipantsItem, let cell = tableView.dequeueReusableCell(withIdentifier: SelectParticipantCell.identifier, for: indexPath) as? SelectParticipantCell {
+            if let item = item as? GroupInfoViewModelParticipantsItem, let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell {
                 let contact = item.participants[indexPath.row]
                 cell.item   = contact
                 
@@ -274,18 +274,6 @@ class GroupInfoViewModelParticipantsItem: GroupInfoViewModelItem {
     var participants: [Contact]
     
     init(participants: [Contact]) {
-        self.participants = participants
-    }
-}
-
-class Group {
-    var name: String?
-    var avatarURL: String?
-    var participants = [Contact]()
-    
-    init?(name: String, avatarURL: String, participants: [Contact]) {
-        self.name = name
-        self.avatarURL = avatarURL
         self.participants = participants
     }
 }
