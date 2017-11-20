@@ -59,8 +59,8 @@ class BaseApplication {
         qiscusColor.rightBaloonTextColor = UIColor.chatRightTextColor
         Qiscus.setNavigationColor(UIColor.baseNavigateColor, tintColor: UIColor.baseNavigateTextColor)
         
-        // activate qiscus iCloud
-        Qiscus.iCloudUploadActive(true)
+        //// activate qiscus iCloud
+        // Qiscus.iCloudUploadActive(true)
     }
 }
 
