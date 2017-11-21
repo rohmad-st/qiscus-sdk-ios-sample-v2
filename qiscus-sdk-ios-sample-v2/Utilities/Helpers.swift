@@ -25,12 +25,12 @@ class Helper: NSObject {
     }
     static var URL_CONTACTS: String {
         get {
-            return "https://dashboard-sample.herokuapp.com/rest/contacts"
+            return "https://dashboard-sample.herokuapp.com/api/contacts"
         }
     }
     
     static func urlContacts(of page: Int, limit: Int = 10) -> String {
-        return "https://dashboard-sample.herokuapp.com/rest/contacts?page=\(page)&limit=\(limit)"
+        return "https://dashboard-sample.herokuapp.com/api/contacts?page=\(page)&limit=\(limit)"
     }
     
     static func getLocalization() -> String{
