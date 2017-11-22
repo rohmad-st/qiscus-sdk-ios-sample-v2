@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
@@ -72,6 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
     
     // MARK: - Setup tab bar
     func setupTabBar() {
+        // unactivated IQKeyboardManager
+        self.enableIQKeyboard(false)
+        
         // Set up the first View Controller
         let nav1 = UINavigationController()
         let vc1 = ChatVC()
@@ -113,6 +117,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
     }
     
     func needLoggedIn(_ message: String) {
+        // activated IQKeyboardManager
+        self.enableIQKeyboard(true)
+        
         let targetVC                    = LoginVC() 
         targetVC.withMessage            = message
         
@@ -130,5 +137,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BaseAppDelegate {
         let tabBar = UITabBar.appearance()
         tabBar.barTintColor = barTintColor
         tabBar.tintColor = tintColor
+    }
+    
+    func enableIQKeyboard(_ enable: Bool) -> Void {
+        IQKeyboardManager.sharedManager().enable = enable
     }
 }
