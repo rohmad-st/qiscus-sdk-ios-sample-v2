@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Group {
     var name: String?
@@ -14,6 +15,18 @@ class Group {
     var participants = [Contact]()
     
     init?(name: String, avatarURL: String, participants: [Contact]) {
+        self.name = name
+        self.avatarURL = avatarURL
+        self.participants = participants
+    }
+}
+
+class GroupInfo {
+    var name: String?
+    var avatarURL: UIImage?
+    var participants = [Contact]()
+    
+    init?(name: String, avatarURL: UIImage, participants: [Contact]) {
         self.name = name
         self.avatarURL = avatarURL
         self.participants = participants

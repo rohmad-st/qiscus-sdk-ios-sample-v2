@@ -86,6 +86,11 @@ extension NewGroupInfoVC {
 }
 
 extension NewGroupInfoVC: GroupInfoViewDelegate {
+    func groupAvatarDidChanged() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
     func groupNameDidChanged(_ name: String) {
         groupName = name
     }

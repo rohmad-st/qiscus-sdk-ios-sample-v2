@@ -20,16 +20,14 @@ class GroupInfoCell: UITableViewCell {
 
     var delegate: GroupInfoCellViewDelegate?
     
-    var item: Group? {
+    var item: GroupInfo? {
         didSet {
             guard let item = item else {
                 return
             }
             
             nameField.text = item.name
-            avatarImageView.loadAsync(item.avatarURL!,
-                                      placeholderImage: UIImage(named: "ic_default_group"),
-                                      header: Helper.headers)
+            avatarImageView.image = item.avatarURL
         }
     }
     
@@ -51,7 +49,7 @@ class GroupInfoCell: UITableViewCell {
         nameField.setBottomBorder()
         avatarImageView.layer.cornerRadius  = (avatarImageView.frame.height / 2)
         avatarImageView?.clipsToBounds      = true
-        avatarImageView?.contentMode        = .scaleAspectFit
+        avatarImageView?.contentMode        = .scaleAspectFill
         avatarImageView?.backgroundColor    = UIColor.lightGray
     }
     

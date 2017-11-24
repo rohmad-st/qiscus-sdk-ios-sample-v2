@@ -23,6 +23,7 @@
 		CC0973CD1FB57996007F31C1 /* CreateGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973CB1FB57996007F31C1 /* CreateGroupCell.xib */; };
 		CC0973D01FB57AC2007F31C1 /* CreateStrangerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */; };
 		CC0973D11FB57AC2007F31C1 /* CreateStrangerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */; };
+		CC1CD2C71FC802590029522D /* UIImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1CD2C61FC802590029522D /* UIImagePickerView.swift */; };
 		CC2356171FB76F720007EA37 /* BaseApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356161FB76F720007EA37 /* BaseApplication.swift */; };
 		CC23561A1FB8147F0007EA37 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC2356191FB8147F0007EA37 /* ChatManager.swift */; };
 		CC23561E1FB82D930007EA37 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC23561C1FB82D930007EA37 /* SettingVC.swift */; };
@@ -123,6 +124,7 @@
 		CC0973CE1FB57AC2007F31C1 /* CreateStrangerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateStrangerCell.swift; path = ../Views/CreateStrangerCell.swift; sourceTree = "<group>"; };
 		CC0973CF1FB57AC2007F31C1 /* CreateStrangerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CreateStrangerCell.xib; path = ../Views/CreateStrangerCell.xib; sourceTree = "<group>"; };
 		CC09DE361FBD7AA500BD4941 /* qiscus-sdk-ios-sample-v2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "qiscus-sdk-ios-sample-v2.entitlements"; sourceTree = "<group>"; };
+		CC1CD2C61FC802590029522D /* UIImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImagePickerView.swift; sourceTree = "<group>"; };
 		CC2356161FB76F720007EA37 /* BaseApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApplication.swift; sourceTree = "<group>"; };
 		CC2356191FB8147F0007EA37 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
 		CC23561C1FB82D930007EA37 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				CCABBCA81FB188BE0039B34E /* Helpers.swift */,
 				CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */,
 				CCD689E41FB764EC00235674 /* Utilities.swift */,
+				CC1CD2C61FC802590029522D /* UIImagePickerView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -586,7 +589,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -813,6 +816,7 @@
 			files = (
 				CCABBC721FB187D90039B34E /* AppDelegate.swift in Sources */,
 				CCB2B2311FBBFEF7002FBB2D /* LoginVC.swift in Sources */,
+				CC1CD2C71FC802590029522D /* UIImagePickerView.swift in Sources */,
 				CCDD6F571FB2BAD600D24921 /* NewChatVC.swift in Sources */,
 				CC31F66A1FBFF6E5004875F8 /* ActionModel.swift in Sources */,
 				CC8786E81FC0348F00443E57 /* DetailGroupVC.swift in Sources */,
@@ -1017,6 +1021,7 @@
 			baseConfigurationReference = 7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/qiscus-sdk-ios-sample-v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";
@@ -1034,6 +1039,7 @@
 			baseConfigurationReference = EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/qiscus-sdk-ios-sample-v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
 				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";

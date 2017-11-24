@@ -11,6 +11,7 @@ import UIKit
 
 protocol GroupInfoViewDelegate {
     func groupNameDidChanged(_ name: String)
+    func groupAvatarDidChanged()
     func participantDidChanged(_ participants: [Contact])
     func participantDidUpdated()
 }
@@ -36,8 +37,15 @@ class GroupInfoViewModel: NSObject {
         }
     }
     var groupName: String = ""
+    var avatarURL: UIImage? {
+        didSet {
+            delegate?.groupAvatarDidChanged()
+        }
+    }
+    fileprivate var pickerView = UIImagePickerView()
     
     func loadData() {
+        pickerView.delegate = self
         items.removeAll()
         
         // info group
@@ -88,14 +96,16 @@ class GroupInfoViewModel: NSObject {
                                                 preferredStyle: .actionSheet)
         
         let takeButton = UIAlertAction(title: "Take Photo",
-                                         style: .default,
-                                         handler: { (action) -> Void in
-                                            print("take photo...")
-        })
-        let chooseButton = UIAlertAction(title: "Choose Photo",
                                        style: .default,
                                        handler: { (action) -> Void in
-                                        print("choose photo...")
+                                        print("take photo...")
+                                        self.pickerView.openImagePicker(.camera)
+        })
+        let chooseButton = UIAlertAction(title: "Choose Photo",
+                                         style: .default,
+                                         handler: { (action) -> Void in
+                                            print("choose photo...")
+                                            self.pickerView.openImagePicker(.photoLibrary)
         })
         
         let cancelButton = UIAlertAction(title: "Cancel",
@@ -121,6 +131,7 @@ extension GroupInfoViewModel: UITableViewDelegate {
             
         case .buttonSetImage:
             self.pickImage()
+            // self.delegate?.imagePickerDidTap()
             
         case .participants:
             if self.itemSelecteds.count > 2 {
@@ -192,7 +203,12 @@ extension GroupInfoViewModel: UITableViewDataSource {
         case .infoGroup:
             if let cell = tableView.dequeueReusableCell(withIdentifier: GroupInfoCell.identifier, for: indexPath) as? GroupInfoCell {
                 cell.delegate = self
-                cell.item = Group(name: self.groupName, avatarURL: "", participants: self.itemSelecteds)
+                guard let avatarURL = self.avatarURL else {
+                    cell.item = GroupInfo(name: self.groupName, avatarURL: UIImage(named: "ic_default_avatar")!, participants: self.itemSelecteds)
+                    return cell
+                }
+                
+                cell.item = GroupInfo(name: self.groupName, avatarURL: avatarURL, participants: self.itemSelecteds)
                 return cell
             }
             
@@ -227,6 +243,12 @@ extension GroupInfoViewModel: GroupInfoCellViewDelegate {
             self.groupName = text
             delegate?.groupNameDidChanged(text)
         }
+    }
+}
+
+extension GroupInfoViewModel: UIImagePickerViewDelegate {
+    func didFinishPickImage(of image: UIImage) {
+        self.avatarURL = image
     }
 }
 
@@ -277,3 +299,4 @@ class GroupInfoViewModelParticipantsItem: GroupInfoViewModelItem {
         self.participants = participants
     }
 }
+
