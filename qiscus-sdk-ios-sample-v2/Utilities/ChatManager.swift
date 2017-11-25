@@ -9,7 +9,7 @@
 import Foundation
 import Qiscus
 
-public func chatWithRoomId(_ roomId: Int, isGroup: Bool = true, contact: Contact? = nil) -> Void {
+public func chatWithRoomId(_ roomId: String, isGroup: Bool = true, contact: Contact? = nil) -> Void {
     let chatView = Qiscus.chatView(withRoomId: roomId)
     
     if isGroup {
@@ -86,22 +86,28 @@ public func chatWithUniqueId(_ uniqueId: String) {
     openViewController(chatView)
 }
 
-public func createGroupChat(_ users: [String], title: String) {
-    let chatView = Qiscus.createChatView(withUsers: users, title: title)
-
-    chatView.titleAction = {
-        let targetVC                        = DetailGroupVC()
-        targetVC.id                         = chatView.chatRoom?.id
-        targetVC.hidesBottomBarWhenPushed   = true
-        chatView.navigationController?.pushViewController(targetVC, animated: true)
-    }
-    
-    chatView.setBackButton(withAction: {
-        chatView.tabBarController?.selectedIndex = 0
-        _ = chatView.navigationController?.popToRootViewController(animated: true)
+public func createGroupChat(_ users: [String], title: String, avatarURL: String = "") {
+    Qiscus.newRoom(withUsers: users, roomName: title, avatarURL: avatarURL, onSuccess: { (room) in
+                    
+        let chatView = Qiscus.chatView(withRoomId: room.id)
+        
+        chatView.titleAction = {
+            let targetVC                        = DetailGroupVC()
+            targetVC.id                         = chatView.chatRoom?.id
+            targetVC.hidesBottomBarWhenPushed   = true
+            chatView.navigationController?.pushViewController(targetVC, animated: true)
+        }
+        
+        chatView.setBackButton(withAction: {
+            chatView.tabBarController?.selectedIndex = 0
+            _ = chatView.navigationController?.popToRootViewController(animated: true)
+        })
+        
+        chatView.hidesBottomBarWhenPushed = true
+        chatView.setBackTitle()
+        openViewController(chatView)
+        
+    }, onError: { (error) in
+        print("new room failed: \(error)")
     })
-    
-    chatView.hidesBottomBarWhenPushed = true
-    chatView.setBackTitle()
-    openViewController(chatView)
 }

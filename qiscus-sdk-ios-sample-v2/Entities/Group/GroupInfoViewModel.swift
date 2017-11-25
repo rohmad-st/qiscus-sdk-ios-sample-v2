@@ -11,7 +11,7 @@ import UIKit
 
 protocol GroupInfoViewDelegate {
     func groupNameDidChanged(_ name: String)
-    func groupAvatarDidChanged()
+    func groupAvatarDidChanged(_ image: UIImage?)
     func participantDidChanged(_ participants: [Contact])
     func participantDidUpdated()
 }
@@ -39,7 +39,7 @@ class GroupInfoViewModel: NSObject {
     var groupName: String = ""
     var avatarURL: UIImage? {
         didSet {
-            delegate?.groupAvatarDidChanged()
+            delegate?.groupAvatarDidChanged(avatarURL)
         }
     }
     fileprivate var pickerView = UIImagePickerView()

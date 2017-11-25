@@ -23,7 +23,7 @@ protocol GroupDetailViewModelItem {
 
 class GroupDetailViewModel: NSObject {
     var items = [GroupDetailViewModelItem]()
-    var id: Int? {
+    var id: String? {
         didSet {
             self.setup()
         }

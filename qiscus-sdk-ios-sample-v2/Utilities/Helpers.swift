@@ -23,6 +23,7 @@ class Helper: NSObject {
             ]
         }
     }
+    
     static var URL_CONTACTS: String {
         get {
             return "https://dashboard-sample.herokuapp.com/api/contacts"
@@ -31,6 +32,12 @@ class Helper: NSObject {
     
     static func urlContacts(of page: Int, limit: Int = 10) -> String {
         return "https://dashboard-sample.herokuapp.com/api/contacts?page=\(page)&limit=\(limit)"
+    }
+    
+    static var URL_UPLOAD: String {
+        get {
+            return "https://\(APP_ID).qiscus.com/api/v2/sdk/upload"
+        }
     }
     
     static func getLocalization() -> String{

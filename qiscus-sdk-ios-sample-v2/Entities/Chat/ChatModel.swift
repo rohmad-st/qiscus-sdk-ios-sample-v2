@@ -24,7 +24,7 @@ class Chat {
     var name: String?
     var avatarURL: String?
     var typingUser: String?
-    var roomId: Int?
+    var roomId: String?
     var isGroup: Bool?
     var unreadCount: Int?
     var lastCommentText: String?

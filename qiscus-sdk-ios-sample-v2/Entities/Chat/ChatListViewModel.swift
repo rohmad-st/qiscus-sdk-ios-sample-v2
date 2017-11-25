@@ -25,9 +25,9 @@ class ChatListViewModel: NSObject {
                 DispatchQueue.main.async {
                     rooms = QRoom.all()
                 }
-            }) { (error) in
+            }, onFailed: { (error) in
                 print("Failed load list rooms \(error)")
-            }
+            })
         }
         
         guard let chat = ChatList(data: rooms) else { return }

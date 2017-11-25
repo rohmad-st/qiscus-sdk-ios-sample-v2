@@ -25,6 +25,7 @@ class NewGroupInfoVC: UIViewController {
             }
         }
     }
+    var avatarURL: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +72,8 @@ extension NewGroupInfoVC {
         guard let title = self.groupName else { return }
         let emails = self.selectedContacts.flatMap({ $0.email })
         
-        print("create group :\(title) with participants: \(emails)")
-        createGroupChat(emails, title: title)
+        print("create group :\(title) with participants: \(emails) avatar: \(self.avatarURL)")
+        createGroupChat(emails, title: title, avatarURL: self.avatarURL)
     }
     
     func isEnable() -> Bool {
@@ -83,10 +84,38 @@ extension NewGroupInfoVC {
     func isEnableButton(_ enable: Bool) {
         self.navigationItem.rightBarButtonItem?.isEnabled = enable
     }
+    
+    // MARK: - Upload image to server
+    func uploadImage(of image: UIImage) {
+        let imagePath = UIImage.uploadImagePreparation(pickedImage: image)
+        self.isEnableButton(false)
+        
+        Api.uploadImage(Helper.URL_UPLOAD, headers: Helper.headers, image: imagePath, completion: { result in
+            switch(result) {
+            case .succeed(let value):
+                if let val = value as? ImageFile {
+                    self.avatarURL = val.url
+                    print("change avatar is success. Value: \(val.name) - \(val.url)")
+                }
+                
+                self.isEnableButton(true)
+                break
+            case .failed(value: let m):
+                print("change avatar is failure. Error: \(m)")
+                self.isEnableButton(true)
+                break
+            case .onProgress(progress: let p):
+                print("change avatar is progress. Progress: \(p)")
+            }
+        })
+    }
 }
 
 extension NewGroupInfoVC: GroupInfoViewDelegate {
-    func groupAvatarDidChanged() {
+    func groupAvatarDidChanged(_ image: UIImage?) {
+        guard let image = image else { return }
+        self.uploadImage(of: image)
+        
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }

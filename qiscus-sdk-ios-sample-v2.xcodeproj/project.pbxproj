@@ -47,6 +47,8 @@
 		CC8005791FBF30D00009AE35 /* GroupInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */; };
 		CC80057C1FBF33B50009AE35 /* SetGroupPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */; };
 		CC80057D1FBF33B50009AE35 /* SetGroupPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */; };
+		CC813CC11FC93F7A00911140 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC813CC01FC93F7A00911140 /* Api.swift */; };
+		CC813CC31FC93FA600911140 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC813CC21FC93FA600911140 /* ApiResponse.swift */; };
 		CC8786E81FC0348F00443E57 /* DetailGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8786E61FC0348F00443E57 /* DetailGroupVC.swift */; };
 		CC8786E91FC0348F00443E57 /* DetailGroupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8786E71FC0348F00443E57 /* DetailGroupVC.xib */; };
 		CC8786EB1FC034D200443E57 /* GroupDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8786EA1FC034D200443E57 /* GroupDetailViewModel.swift */; };
@@ -148,6 +150,8 @@
 		CC8005771FBF30D00009AE35 /* GroupInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GroupInfoCell.xib; path = ../Views/GroupInfoCell.xib; sourceTree = "<group>"; };
 		CC80057A1FBF33B50009AE35 /* SetGroupPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetGroupPhotoCell.swift; path = ../Views/SetGroupPhotoCell.swift; sourceTree = "<group>"; };
 		CC80057B1FBF33B50009AE35 /* SetGroupPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SetGroupPhotoCell.xib; path = ../Views/SetGroupPhotoCell.xib; sourceTree = "<group>"; };
+		CC813CC01FC93F7A00911140 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		CC813CC21FC93FA600911140 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		CC8786E61FC0348F00443E57 /* DetailGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGroupVC.swift; sourceTree = "<group>"; };
 		CC8786E71FC0348F00443E57 /* DetailGroupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGroupVC.xib; sourceTree = "<group>"; };
 		CC8786EA1FC034D200443E57 /* GroupDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewModel.swift; sourceTree = "<group>"; };
@@ -292,6 +296,26 @@
 			path = Group;
 			sourceTree = "<group>";
 		};
+		CC813CBF1FC93F5700911140 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CC813CC01FC93F7A00911140 /* Api.swift */,
+				CC813CC21FC93FA600911140 /* ApiResponse.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CC813CC41FC9416000911140 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */,
+				CC09DE361FBD7AA500BD4941 /* qiscus-sdk-ios-sample-v2.entitlements */,
+				CCABBC7D1FB187D90039B34E /* Info.plist */,
+				CCABBC781FB187D90039B34E /* Assets.xcassets */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
 		CC8786E51FC0345600443E57 /* DetailGroup */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,17 +350,15 @@
 		CCABBC701FB187D90039B34E /* qiscus-sdk-ios-sample-v2 */ = {
 			isa = PBXGroup;
 			children = (
-				CC09DE361FBD7AA500BD4941 /* qiscus-sdk-ios-sample-v2.entitlements */,
+				CC813CC41FC9416000911140 /* Support Files */,
 				CC2356181FB76FB00007EA37 /* Application */,
+				CCABBC9F1FB1881F0039B34E /* Controllers */,
 				CCDD6F441FB1B1FF00D24921 /* Entities */,
 				CCABBCAC1FB19FB40039B34E /* Extensions */,
+				CC813CBF1FC93F5700911140 /* Services */,
 				CCABBCA21FB1885C0039B34E /* Utilities */,
 				CCE8F5511FC0540100512686 /* Views */,
-				CCABBC9F1FB1881F0039B34E /* Controllers */,
 				CCABBC711FB187D90039B34E /* AppDelegate.swift */,
-				CCABBC781FB187D90039B34E /* Assets.xcassets */,
-				CCABBC7A1FB187D90039B34E /* LaunchScreen.storyboard */,
-				CCABBC7D1FB187D90039B34E /* Info.plist */,
 			);
 			path = "qiscus-sdk-ios-sample-v2";
 			sourceTree = "<group>";
@@ -841,6 +863,7 @@
 				CC7FDD541FBC1F7B00901594 /* String.swift in Sources */,
 				CC80057C1FBF33B50009AE35 /* SetGroupPhotoCell.swift in Sources */,
 				CCD689C91FB725B500235674 /* ChatListViewModel.swift in Sources */,
+				CC813CC31FC93FA600911140 /* ApiResponse.swift in Sources */,
 				CCDD6F4C1FB1BC5C00D24921 /* UIColor.swift in Sources */,
 				CC018FE21FB347C700396446 /* ParticipantCell.swift in Sources */,
 				CC8005721FBF27760009AE35 /* NewGroupInfoVC.swift in Sources */,
@@ -852,6 +875,7 @@
 				CC018FF11FB43FCB00396446 /* ContactModel.swift in Sources */,
 				CCDD6F421FB1AC7500D24921 /* ChatVC.swift in Sources */,
 				CCD689D91FB7480900235674 /* ContactPictureCell.swift in Sources */,
+				CC813CC11FC93F7A00911140 /* Api.swift in Sources */,
 				CC23562A1FB861060007EA37 /* ParticipantCollCell.swift in Sources */,
 				CC31F6681FBFE440004875F8 /* SettingViewModel.swift in Sources */,
 				CCDD6F5C1FB2BC9200D24921 /* NewGroupVC.swift in Sources */,
@@ -1021,10 +1045,10 @@
 			baseConfigurationReference = 7EB630677B4708E36BCD769B /* Pods-qiscus-sdk-ios-sample-v2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/qiscus-sdk-ios-sample-v2.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/Support Files/qiscus-sdk-ios-sample-v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
-				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/qiscus-sdk-ios-sample-v2/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.sdk;
@@ -1039,10 +1063,10 @@
 			baseConfigurationReference = EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/qiscus-sdk-ios-sample-v2.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "qiscus-sdk-ios-sample-v2/Support Files/qiscus-sdk-ios-sample-v2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG8KA4P8TE;
-				INFOPLIST_FILE = "qiscus-sdk-ios-sample-v2/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/qiscus-sdk-ios-sample-v2/Support Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.sdk;

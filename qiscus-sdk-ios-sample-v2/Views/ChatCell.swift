@@ -52,7 +52,7 @@ class ChatCell: UITableViewCell {
         arrowRightImageView.tintColor(.baseArrow)
         avatarImageView.layer.cornerRadius  = (avatarImageView.frame.height / 2)
         avatarImageView?.clipsToBounds      = true
-        avatarImageView?.contentMode        = .scaleAspectFit
+        avatarImageView?.contentMode        = .scaleAspectFill
         avatarImageView?.backgroundColor    = UIColor.lightGray
     }
     

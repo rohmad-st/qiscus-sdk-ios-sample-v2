@@ -12,7 +12,7 @@ class DetailGroupVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var id: Int?
+    var id: String?
     fileprivate var viewModel = GroupDetailViewModel()
     
     override func viewDidLoad() {
