@@ -131,7 +131,6 @@ extension GroupInfoViewModel: UITableViewDelegate {
             
         case .buttonSetImage:
             self.pickImage()
-            // self.delegate?.imagePickerDidTap()
             
         case .participants:
             if self.itemSelecteds.count > 2 {

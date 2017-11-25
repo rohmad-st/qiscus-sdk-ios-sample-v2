@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewGroupInfoVC: UIViewController {
+class NewGroupInfoVC: UIViewController, UILoadingView {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel = GroupInfoViewModel()
@@ -25,7 +25,11 @@ class NewGroupInfoVC: UIViewController {
             }
         }
     }
-    var avatarURL: String = ""
+    var avatarURL: String = "" {
+        didSet {
+            self.isEnableButton(isEnable())
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,25 +91,35 @@ extension NewGroupInfoVC {
     
     // MARK: - Upload image to server
     func uploadImage(of image: UIImage) {
+        // show indicator while is uploading
+        self.showNetworkActivityIndicator()
+        
+        // picked image as avatar temporary
         let imagePath = UIImage.uploadImagePreparation(pickedImage: image)
         self.isEnableButton(false)
         
         Api.uploadImage(Helper.URL_UPLOAD, headers: Helper.headers, image: imagePath, completion: { result in
             switch(result) {
             case .succeed(let value):
+                self.dismissNetworkActivityIndicator()
+                
                 if let val = value as? ImageFile {
                     self.avatarURL = val.url
-                    print("change avatar is success. Value: \(val.name) - \(val.url)")
                 }
+                break
                 
-                self.isEnableButton(true)
-                break
             case .failed(value: let m):
-                print("change avatar is failure. Error: \(m)")
-                self.isEnableButton(true)
+                self.dismissNetworkActivityIndicator()
+                self.isEnableButton(self.isEnable())
+                self.showError(message: m)
+                
+                // reset avatar to default
+                self.viewModel.avatarURL = nil
                 break
+                
             case .onProgress(progress: let p):
                 print("change avatar is progress. Progress: \(p)")
+                break
             }
         })
     }
@@ -113,11 +127,11 @@ extension NewGroupInfoVC {
 
 extension NewGroupInfoVC: GroupInfoViewDelegate {
     func groupAvatarDidChanged(_ image: UIImage?) {
-        guard let image = image else { return }
-        self.uploadImage(of: image)
-        
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+        guard let image = image else { return }
+        self.uploadImage(of: image)
     }
     
     func groupNameDidChanged(_ name: String) {
