@@ -1,6 +1,15 @@
 # qiscus-sdk-ios-sample-v2
 
 Qiscus SDK iOS Sample v2
+
+To get the newest code and more features please switch to [Develop Branch](/tree/develop)
+
+## Info
+In this projects, there are some branch:
+- **Master** contain of Qiscus SDK in Production Version
+- **Develop** contain of Qiscus SDK in Development Version, extras feature and newest code source. Which may not available in Master Branch
+- **push-notification** give you a sample how to implement Push Notification feature in our SDK
+
 Other sample app you can see at here: [Qiscus SDK iOS](https://github.com/qiscus/qiscus-sdk-ios-sample) 
 
 ## Build Setup
