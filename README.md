@@ -1,6 +1,7 @@
 # qiscus-sdk-ios-sample-v2
 
 Qiscus SDK iOS Sample v2
+
 Other sample app you can see at here: [Qiscus SDK iOS](https://github.com/qiscus/qiscus-sdk-ios-sample) 
 
 ## Build Setup
@@ -31,11 +32,7 @@ Some features that available:
 ## Screen Shots
 You can see some available features in this project like below:
 
-![login](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-login.png)
-![list room](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181164/ios-sample-app/ss-list-room.png)
-![new chat](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-create-new-chat.png)
-![select participant](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181165/ios-sample-app/ss-select-participants.png)
-![add grup info](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-add-group-info.png)
-![room chat](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181164/ios-sample-app/ss-room-chat.png)
-![group info](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181165/ios-sample-app/ss-group-info.png)
-![contact info](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-contact-info.png)
+![create_group](http://res.cloudinary.com/rohmadst/image/upload/v1511709876/ios-sample-app/chat-sdk/create-group.gif)
+![group_info](http://res.cloudinary.com/rohmadst/image/upload/v1511709883/ios-sample-app/chat-sdk/group-info.gif)
+![chat_with_stranger](http://res.cloudinary.com/rohmadst/image/upload/v1511709886/ios-sample-app/chat-sdk/chat-with-stranger.gif)
+![contact_info](http://res.cloudinary.com/rohmadst/image/upload/v1511709877/ios-sample-app/chat-sdk/contact-info.gif)
