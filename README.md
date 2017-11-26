@@ -40,7 +40,7 @@ Create New Chat → Create Group → Select participants → Input group name �
 
 
 #### Group Info
-Open group chat -> Click header chat
+Open group chat → Click header chat
 
 ![group_info](http://res.cloudinary.com/rohmadst/image/upload/q_43/v1511709883/ios-sample-app/chat-sdk/group-info.gif)
 
@@ -52,6 +52,6 @@ Create New Chat → Chat With Stranger → Input Unique Id of target user (e.g.:
 
 
 #### Contact Info
-Open single (1-on-1) chat -> Click header chat
+Open Contact → Click Contact → Contact Detail
 
 ![contact_info](http://res.cloudinary.com/rohmadst/image/upload/v1511709877/ios-sample-app/chat-sdk/contact-info.gif)
