@@ -43,7 +43,7 @@ You can see some available features in this project like below:
 ![login](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-login.png)
 ![list room](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181164/ios-sample-app/ss-list-room.png)
 ![new chat](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-create-new-chat.png)
-![select participant](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181165/ios-sample-app/ss-select-participants.png)
+![select participant](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511754989/ios-sample-app/ss-select-participants.png)
 ![add grup info](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181163/ios-sample-app/ss-add-group-info.png)
 ![room chat](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181164/ios-sample-app/ss-room-chat.png)
 ![group info](http://res.cloudinary.com/rohmadst/image/upload/c_scale,w_210/v1511181165/ios-sample-app/ss-group-info.png)
