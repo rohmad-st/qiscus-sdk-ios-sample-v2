@@ -32,7 +32,7 @@ class ImageFile {
 }
 
 class Response {
-    class func getImageFile(data:Any) -> ImageFile {
+    class func getImageFile(data: Any) -> ImageFile {
         let dataJSON = JSON(data)
         let name = dataJSON["results"]["file"]["name"].stringValue
         let url = dataJSON["results"]["file"]["url"].stringValue
@@ -43,5 +43,15 @@ class Response {
         }
         
         return imageFile
+    }
+    
+    class func getContacts(data: Any) -> [Contact] {
+        let dataJSON = JSON(data)
+        let dataUsers = dataJSON["results"]["users"].arrayValue
+        
+        let users = dataUsers.map { Contact(withJSON: $0) }
+        ContactLocal.instance.setData(users)
+        
+        return users
     }
 }

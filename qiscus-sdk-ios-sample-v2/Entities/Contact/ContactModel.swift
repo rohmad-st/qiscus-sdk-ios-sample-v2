@@ -8,6 +8,7 @@
 
 import Foundation
 import Qiscus
+import SwiftyJSON
 
 class ContactLocal {
     var contacts = [Contact]()
@@ -18,50 +19,17 @@ class ContactLocal {
     }
 }
 
-class ContactList {
-    var contacts = [Contact]()
-    
-    // in this app we always init data contacts in here
-    // to catch our data in rest api
-    // but actually you can also use QUser.all() to catch all data users
-    init?(data: Data) {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any], let body = json["results"] as? [String: Any] {
-                if let users = body["users"] as? [[String: Any]] {
-                    let userList = users.map { Contact(json: $0) }
-                    contacts = userList
-                    ContactLocal.instance.setData(userList)
-                }
-            }
-            
-        } catch {
-            print("Error deserializing JSON: \(error)")
-            return nil
-        }
-    }
-    
-    init?(users: [QUser]) {
-        for user in users {
-            if let contact = Contact(user: user) {
-                if !(contact.email == Preference.instance.getEmail()) {
-                    contacts.append(contact)
-                }
-            }
-        }
-    }
-}
-
 public class Contact {
     var id: Int?
     var name: String?
     var avatarURL: String?
     var email: String?
     
-    init(json: [String: Any]) {
-        self.id = json["id"] as? Int
-        self.name = json["name"] as? String
-        self.avatarURL = json["avatar_url"] as? String
-        self.email = json["email"] as? String
+    init(withJSON data: JSON) {        
+        self.id = data["id"].intValue
+        self.name = data["name"].stringValue
+        self.avatarURL = data["avatar_url"].stringValue
+        self.email = data["email"].stringValue
     }
     
     init?(user: QUser) {

@@ -11,7 +11,22 @@ import Alamofire
 import AlamofireImage
 
 class Api {
-    static func uploadImage(_ url: String, headers:[String:String], image path: String, completion: @escaping (ApiResponse) -> ()) {
+    static func loadContacts(url: String, headers: [String:String], completion: @escaping (ApiResponse)->()){
+        Alamofire.request(url, method: .get, headers: headers).responseJSON { (response) in
+            if let value = response.result.value {
+                if (response.response?.statusCode)! >= 300 {
+                    completion(ApiResponse.failed(value: "Failed load contacts."))
+                } else {
+                    completion(ApiResponse.succeed(value: Response.getContacts(data: value)))
+                }
+                
+            } else {
+                completion(ApiResponse.failed(value: response.result.error!.localizedDescription))
+            }
+        }
+    }
+    
+    static func uploadImage(_ url: String, headers: [String:String], image path: String, completion: @escaping (ApiResponse) -> ()) {
         
         Alamofire.upload(multipartFormData: { formData in
             let fileUrl = URL(fileURLWithPath: path)

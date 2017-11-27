@@ -28,9 +28,19 @@ class ChatNewViewModel: NSObject {
     override init() {
         var contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
-            guard let data = dataFromURL(of: Helper.URL_CONTACTS) else { return }
-            guard let contactList = ContactList(data: data) else { return }
-            contacts = contactList.contacts
+            Api.loadContacts(url: Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
+                switch(response){
+                case .failed(_):
+                    break
+                case .succeed(value: let data):
+                    if let data = data as? [Contact] {
+                        contacts = data
+                    }
+                    break
+                default:
+                    break
+                }
+            })
         }
         
         // create group

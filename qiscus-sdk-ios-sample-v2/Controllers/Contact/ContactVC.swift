@@ -60,15 +60,18 @@ extension ContactVC {
 
 extension ContactVC: ContactListViewDelegate {
     func showLoading(_ message: String) {
+        self.showNetworkActivityIndicator()
         self.showWaiting(message: message)
     }
     
     func didFailedUpdated(_ message: String) {
+        self.dismissNetworkActivityIndicator()
         self.isEnableButton(true)
         self.showError(message: message)
     }
     
     func didFinishUpdated() {
+        self.dismissNetworkActivityIndicator()
         self.isEnableButton(false)
         self.dismissLoading()
         tableView.reloadData()

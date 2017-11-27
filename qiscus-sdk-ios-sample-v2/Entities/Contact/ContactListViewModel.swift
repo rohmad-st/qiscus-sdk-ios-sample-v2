@@ -21,18 +21,31 @@ class ContactListViewModel: NSObject {
     var items = [Contact]()
     
     func loadData() {
-        delegate?.showLoading("Please wait...")
+        self.delegate?.showLoading("Please wait...")
         self.items.removeAll()
         
-        var contacts = ContactLocal.instance.contacts
+        let contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
-            guard let data = dataFromURL(of: Helper.URL_CONTACTS) else {
-                delegate?.didFailedUpdated("Failed load contact.")
-                return
-            }
-            
-            guard let contactList = ContactList(data: data) else { return }
-            contacts = contactList.contacts
+            Api.loadContacts(url: Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
+                switch(response){
+                case .failed(value: let message):
+                    self.delegate?.didFailedUpdated(message)
+                    break
+                    
+                case .succeed(value: let data):
+                    let email = Preference.instance.getEmail()
+                    if let data = data as? [Contact] {
+                        // append data except his own data
+                        let contactsData = data.filter({ $0.email != email })
+                        self.items.append(contentsOf: contactsData)
+                        self.delegate?.didFinishUpdated()
+                    }
+                    break
+                    
+                default:
+                    break
+                }
+            })
         }
         
         self.items.append(contentsOf: contacts)
