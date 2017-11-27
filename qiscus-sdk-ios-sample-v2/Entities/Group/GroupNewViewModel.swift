@@ -33,25 +33,27 @@ class GroupNewViewModel: NSObject {
     }
 
     func setup() {
-        var contacts = ContactLocal.instance.contacts
+        let contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
-            Api.loadContacts(url: Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
+            Api.loadContacts(Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
                 switch(response){
                 case .failed(_):
                     break
                 case .succeed(value: let data):
                     if let data = data as? [Contact] {
-                        contacts = data
+                        self.items.append(contentsOf: data)
+                        self.filteredData.append(contentsOf: data)
                     }
                     break
                 default:
                     break
                 }
             })
+            
+        } else {
+            self.items.append(contentsOf: contacts)
+            self.filteredData.append(contentsOf: contacts)
         }
-        
-        self.items          = contacts
-        self.filteredData   = contacts
     }
 }
 

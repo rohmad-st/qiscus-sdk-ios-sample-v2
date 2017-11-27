@@ -26,7 +26,7 @@ class ContactListViewModel: NSObject {
         
         let contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
-            Api.loadContacts(url: Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
+            Api.loadContacts(Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
                 switch(response){
                 case .failed(value: let message):
                     self.delegate?.didFailedUpdated(message)

@@ -11,7 +11,8 @@ import Alamofire
 import AlamofireImage
 
 class Api {
-    static func loadContacts(url: String, headers: [String:String], completion: @escaping (ApiResponse)->()){
+    // MARK: - load data api using GET method
+    static func loadContacts(_ url: String, headers: [String:String], completion: @escaping (ApiResponse)->()){
         Alamofire.request(url, method: .get, headers: headers).responseJSON { (response) in
             if let value = response.result.value {
                 if (response.response?.statusCode)! >= 300 {
@@ -26,6 +27,7 @@ class Api {
         }
     }
     
+    // MARK: - Upload image using multipart form data & POST method
     static func uploadImage(_ url: String, headers: [String:String], image path: String, completion: @escaping (ApiResponse) -> ()) {
         
         Alamofire.upload(multipartFormData: { formData in

@@ -16,6 +16,11 @@ enum ChatNewViewModelItemType {
     case contacts
 }
 
+protocol ChatNewViewDelegate {
+    func didFinishUpdated()
+    func needLoadData()
+}
+
 protocol ChatNewViewModelItem {
     var type: ChatNewViewModelItemType { get }
     var sectionTitle: String { get }
@@ -24,18 +29,19 @@ protocol ChatNewViewModelItem {
 
 class ChatNewViewModel: NSObject {
     var items = [ChatNewViewModelItem]()
+    var delegate: ChatNewViewDelegate?
     
-    override init() {
-        var contacts = ContactLocal.instance.contacts
+    func loadData() {
+        self.items.removeAll()
+        
+        let contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
-            Api.loadContacts(url: Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
+            Api.loadContacts(Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
                 switch(response){
                 case .failed(_):
                     break
-                case .succeed(value: let data):
-                    if let data = data as? [Contact] {
-                        contacts = data
-                    }
+                case .succeed(value: _):
+                    self.delegate?.needLoadData()
                     break
                 default:
                     break
@@ -43,10 +49,9 @@ class ChatNewViewModel: NSObject {
             })
         }
         
-        // create group
         let createGroupItem = ChatNewViewModelCreateGroupItem()
         items.append(createGroupItem)
-
+        
         // create stranger
         let createStrangerItem = ChatNewViewModelCreateStrangerItem()
         items.append(createStrangerItem)
@@ -54,11 +59,13 @@ class ChatNewViewModel: NSObject {
         // list contacts
         let contactItem = ChatNewViewModelContactsItem(contacts: contacts)
         items.append(contactItem)
+        
+        self.delegate?.didFinishUpdated()
     }
     
     func chatWithStranger() {
         let alertController = UIAlertController(title: "Chat With Stranger",
-                                                message: "Enter the unique id for your chat target ex: johnny@appleseed.com.",
+                                                message: "Enter the unique id for your chat target ex: \"demo@qiscus.com\".",
                                                 preferredStyle: .alert)
         
         alertController.addTextField { (textField) in

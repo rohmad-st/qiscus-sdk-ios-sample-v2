@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewChatVC: UIViewController {
+class NewChatVC: UIViewController, UILoadingView {
 
     @IBOutlet weak var tableView: UITableView!
     fileprivate var viewModel = ChatNewViewModel()
@@ -31,6 +31,9 @@ extension NewChatVC {
     func setupUI() -> Void {
         self.title = "Create New Chat"
         
+        self.viewModel.delegate = self
+        self.viewModel.loadData()
+        
         tableView.backgroundColor       = UIColor.baseBgTableView
         tableView.delegate              = self.viewModel
         tableView.dataSource            = self.viewModel
@@ -44,5 +47,19 @@ extension NewChatVC {
                            forCellReuseIdentifier: ContactCell.identifier)
         
         self.setBackTitle()
+    }
+}
+
+extension NewChatVC: ChatNewViewDelegate {
+    func needLoadData() {
+        self.showNetworkActivityIndicator()
+        self.showWaiting(message: "Plase wait...")
+        self.viewModel.loadData()
+    }
+    
+    func didFinishUpdated() {
+        self.dismissNetworkActivityIndicator()
+        self.dismissLoading()
+        self.tableView.reloadData()
     }
 }
