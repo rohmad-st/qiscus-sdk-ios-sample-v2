@@ -50,8 +50,12 @@ class Response {
         let dataUsers = dataJSON["results"]["users"].arrayValue
         
         let users = dataUsers.map { Contact(withJSON: $0) }
-        ContactLocal.instance.setData(users)
         
-        return users
+        // append data except his own data
+        let email = Preference.instance.getEmail()
+        let usersData = users.filter({ $0.email != email })
+        ContactLocal.instance.setData(usersData)
+        
+        return usersData
     }
 }

@@ -33,11 +33,8 @@ class ContactListViewModel: NSObject {
                     break
                     
                 case .succeed(value: let data):
-                    let email = Preference.instance.getEmail()
                     if let data = data as? [Contact] {
-                        // append data except his own data
-                        let contactsData = data.filter({ $0.email != email })
-                        self.items.append(contentsOf: contactsData)
+                        self.items.append(contentsOf: data)
                         self.delegate?.didFinishUpdated()
                     }
                     break
