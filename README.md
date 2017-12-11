@@ -55,3 +55,20 @@ Create New Chat → Chat With Stranger → Input Unique Id of target user (e.g.:
 Open Contact → Click Contact → Contact Detail
 
 ![contact_info](http://res.cloudinary.com/rohmadst/image/upload/v1511709877/ios-sample-app/chat-sdk/contact-info.gif)
+
+## Try Qiscus IOS Sample App
+If you simply want to try the IOS sample app, you can direct to our [github repository](https://github.com/qiscus/qiscus-sdk-web-sample) to clone our sample app. You can explore features of Qiscus Chat SDK.
+
+If you are willing to change your own App ID, you can change it in **Helper.swift** file. Here is how it will look like:
+```swift
+...
+
+class Helper: NSObject {
+    static var APP_ID: String {
+        get {
+            return "YOUR_APP_ID"
+        }
+    }
+    
+    ...
+```
