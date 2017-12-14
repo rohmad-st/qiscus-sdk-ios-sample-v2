@@ -36,7 +36,9 @@ class ChatVC: UIViewController {
     }
 
     @objc func gotNewComment(_ sender: Notification) {
-        self.viewModel.loadData()
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.viewModel.loadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
