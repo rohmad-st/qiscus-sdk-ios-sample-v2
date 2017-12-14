@@ -11,6 +11,7 @@ import UIKit
 class ContactVC: UIViewController, UILoadingView {
 
     @IBOutlet weak var tableView: UITableView!
+    let searchController = UISearchController(searchResultsController: nil)
     fileprivate var viewModel = ContactListViewModel()
     
     override func viewDidLoad() {
@@ -33,6 +34,14 @@ extension ContactVC {
     func setupUI() {
         self.title = "Contact"
         
+        // MARK: - Register search controller
+        searchController.searchResultsUpdater = self.viewModel
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+        
+        // MARK: - Register table & cell
         tableView.delegate = self.viewModel
         tableView.dataSource = self.viewModel
         tableView.register(ContactCell.nib,
@@ -74,6 +83,10 @@ extension ContactVC: ContactListViewDelegate {
         self.dismissNetworkActivityIndicator()
         self.isEnableButton(false)
         self.dismissLoading()
+        tableView.reloadData()
+    }
+    
+    func filterSearchDidChanged() {
         tableView.reloadData()
     }
     
