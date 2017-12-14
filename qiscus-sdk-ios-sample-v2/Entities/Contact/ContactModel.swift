@@ -15,7 +15,7 @@ class ContactLocal {
     static let instance = ContactLocal()
     
     func setData(_ contacts: [Contact]) {
-        self.contacts = contacts
+        self.contacts.append(contentsOf: contacts)
     }
 }
 
