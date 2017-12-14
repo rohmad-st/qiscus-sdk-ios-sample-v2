@@ -59,7 +59,7 @@ Open Contact → Click Contact → Contact Detail
 ## Try Qiscus IOS Sample App
 If you simply want to try the IOS sample app, you can direct to our [github repository](https://github.com/qiscus/qiscus-sdk-web-sample) to clone our sample app. You can explore features of Qiscus Chat SDK.
 
-If you are willing to change your own App ID, you can change it in **Helper.swift** file. Here is how it will look like:
+If you are willing to change your own App ID, Contacts URL, or other else. You can change it in **Helper.swift** file. Here is how it will look like:
 ```swift
 ...
 
@@ -69,6 +69,11 @@ class Helper: NSObject {
             return "YOUR_APP_ID"
         }
     }
-    
+
+    static var URL_CONTACTS: String {
+        get {
+            return "https://dashboard-sample.herokuapp.com/api/contacts"
+        }
+    }
     ...
 ```
