@@ -11,6 +11,8 @@ import UIKit
 import Qiscus
 
 protocol ChatListViewDelegate {
+    func showLoading(_ message: String)
+    func didFailedUpdated(_ message: String)
     func didFinishUpdated()
 }
 
@@ -19,26 +21,39 @@ class ChatListViewModel: NSObject {
     var items = [Chat]()
     
     func loadData() {
-        var rooms = QRoom.all()
+        self.delegate?.showLoading("Please wait...")
+        let rooms = QRoom.all()
         if rooms.isEmpty {
             QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
                 DispatchQueue.main.async {
-                    rooms = QRoom.all()
+                    let dataRooms = QRoom.all()
+                    guard let chat = ChatList(data: dataRooms) else { return }
+                    self.items.removeAll()
+                    
+                    let chats = chat.chats
+                    if !chats.isEmpty {
+                        self.items.append(contentsOf: chats)
+                    }
+                    
+                    self.delegate?.didFinishUpdated()
                 }
+                
             }, onFailed: { (error) in
                 print("Failed load list rooms \(error)")
+                self.delegate?.didFailedUpdated(error)
             })
+            
+        } else {
+            guard let chat = ChatList(data: rooms) else { return }
+            self.items.removeAll()
+            
+            let chats = chat.chats
+            if !chats.isEmpty {
+                self.items.append(contentsOf: chats)
+            }
+            
+            self.delegate?.didFinishUpdated()
         }
-        
-        guard let chat = ChatList(data: rooms) else { return }
-        self.items.removeAll()
-        
-        let chats = chat.chats
-        if !chats.isEmpty {
-            self.items.append(contentsOf: chats)
-        }
-        
-        self.delegate?.didFinishUpdated()
     }
     
     @objc func newChat(_ sender: Any) {

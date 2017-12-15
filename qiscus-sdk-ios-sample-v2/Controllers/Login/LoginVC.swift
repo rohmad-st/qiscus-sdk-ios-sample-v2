@@ -44,11 +44,29 @@ class LoginVC: UIViewController, UILoadingView {
     @IBAction func loginButtonDidTouchUpInside(_ sender: Any) {
         self.login()
     }
+    
+}
+
+extension LoginVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.actionOfReturnKey(textField.tag)
+        return true
+    }
 }
 
 extension LoginVC {
     func setupUI() -> Void {
         self.title = "Login"
+        
+        // MARK: - Delegation text field
+        self.emailField.returnKeyType = .continue
+        self.usernameField.returnKeyType = .continue
+        self.passwordField.returnKeyType = .done
+        
+        self.emailField.delegate = self
+        self.usernameField.delegate = self
+        self.passwordField.delegate = self
+        
         
         // MARK: - Custom view & components
         let cornerRadius: CGFloat = 10.0
@@ -62,8 +80,24 @@ extension LoginVC {
         self.hideKeyboardWhenTappedAround()
     }
     
+    func actionOfReturnKey(_ tag: Int) {
+        switch tag {
+        case 0:
+            self.usernameField.becomeFirstResponder()
+            break
+        case 1:
+            self.passwordField.becomeFirstResponder()
+            break
+        case 2:
+            self.login()
+            break
+        default:
+            break
+        }
+    }
+    
     func login() {
-        self.showWaiting(message: "Logged in...")
+        self.dismissKeyboard()
         guard let email = self.emailField.text else { return }
         guard let username = self.usernameField.text else { return }
         guard let password = self.passwordField.text else { return }
@@ -72,6 +106,8 @@ extension LoginVC {
             self.showError(message: "Please input valid email!")
             return
         }
+        
+        self.showWaiting(message: "Logged in...")
         
         // save data in local storage
         if let data = PrefData(appId: Helper.APP_ID,

@@ -100,6 +100,7 @@ extension AppDelegate {
     
     func enableIQKeyboard(_ enable: Bool) -> Void {
         IQKeyboardManager.sharedManager().enable = enable
+        IQKeyboardManager.sharedManager().enableAutoToolbar = enable
     }
 }
 

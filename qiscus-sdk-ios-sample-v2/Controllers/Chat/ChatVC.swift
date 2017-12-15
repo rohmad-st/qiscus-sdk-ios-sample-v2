@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatVC: UIViewController {
+class ChatVC: UIViewController, UILoadingView {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -77,7 +77,22 @@ extension ChatVC {
 }
 
 extension ChatVC: ChatListViewDelegate {
+    func showLoading(_ message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.showLoading(message)
+        }
+    }
+    
+    func didFailedUpdated(_ message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.showError(message: message)
+        }
+    }
+    
     func didFinishUpdated() {
-        self.tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.tableView.reloadData()
+            self.dismissLoading()
+        }
     }
 }
