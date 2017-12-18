@@ -40,7 +40,7 @@ class Chat {
         self.roomId = body.id
         self.isGroup = (body.type == QRoomType.group)
         self.unreadCount = body.unreadCount
-        self.lastCommentText = body.lastComment?.text
+        self.lastCommentText = self.getLastMessage(body.lastComment?.text, type: body.lastComment?.type)
         self.date = body.lastComment?.date
         self.time = body.lastComment?.time
         
@@ -50,6 +50,17 @@ class Chat {
                 guard let contact = Contact(user: user) else { return }
                 self.participants.append(contact)
             }
+        }
+    }
+    
+    private func getLastMessage(_ text: String?, type: QCommentType?) -> String {
+        guard let type = type else { return "" }
+        
+        switch type {
+        case .text:
+            return text!
+        default:
+            return "Sending attachment"
         }
     }
 }
