@@ -29,6 +29,7 @@ class ContactListViewModel: NSObject {
     
     func loadData() {
         self.delegate?.showLoading("Please wait...")
+        self.isBusy = true
         self.items.removeAll()
         self.filteredData.removeAll()
         
@@ -37,6 +38,7 @@ class ContactListViewModel: NSObject {
             Api.loadContacts(Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
                 switch(response){
                 case .failed(value: let message):
+                    self.isBusy = false
                     self.delegate?.didFailedUpdated(message)
                     break
                     
@@ -44,16 +46,19 @@ class ContactListViewModel: NSObject {
                     if let data = data as? [Contact] {
                         self.items.append(contentsOf: data)
                         self.filteredData.append(contentsOf: data)
+                        self.isBusy = false
                         self.delegate?.didFinishUpdated()
                     }
                     break
                     
                 default:
+                    self.isBusy = false
                     break
                 }
             })
             
         } else {
+            self.isBusy = false
             self.items.append(contentsOf: contacts)
             self.filteredData.append(contentsOf: contacts)
             self.delegate?.didFinishUpdated()
@@ -153,6 +158,19 @@ class ContactListViewModel: NSObject {
         
         presentViewController(alertController)
     }
+    
+    func backgroundView() -> UIView {
+        let bgView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
+                                           title: "Contact is Empty",
+                                           description: "If you chat with stranger, it’ll automaticaly added to here",
+                                           titleButton: "Chat With Stranger",
+                                           iconButton: UIImage(named: "ic_stranger")!,
+                                           target: self,
+                                           action: #selector(chatWithStranger(_:)),
+                                           btnWidth: 244)
+        
+        return bgView
+    }
 }
 
 extension ContactListViewModel: UITableViewDelegate {
@@ -184,17 +202,9 @@ extension ContactListViewModel: UITableViewDataSource {
             return 1
             
         } else {
-            let bgView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
-                                               title: "Contact is Empty",
-                                               description: "If you chat with stranger, it’ll automaticaly added to here",
-                                               titleButton: "Chat With Stranger",
-                                               iconButton: UIImage(named: "ic_stranger")!,
-                                               target: self,
-                                               action: #selector(chatWithStranger(_:)),
-                                               btnWidth: 244)
-            tableView.backgroundView = bgView
+            tableView.backgroundView            = self.backgroundView()
             tableView.separatorStyle            = .none
-            tableView.backgroundView?.isHidden  = false
+            tableView.backgroundView?.isHidden  = self.isBusy
             
             return 0
         }
