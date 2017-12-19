@@ -68,15 +68,6 @@ extension ContactVC {
 }
 
 extension ContactVC: ContactListViewDelegate {
-    func fetchingData() {
-        self.showNetworkActivityIndicator()
-    }
-    
-    func fetchingDataDidFinished() {
-        tableView.reloadData()
-        self.dismissNetworkActivityIndicator()
-    }
-    
     func showLoading(_ message: String) {
         self.showNetworkActivityIndicator()
         self.showWaiting(message: message)

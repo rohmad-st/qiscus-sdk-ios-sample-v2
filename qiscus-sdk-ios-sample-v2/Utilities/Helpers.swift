@@ -26,7 +26,7 @@ class Helper: NSObject {
     
     static var URL_CONTACTS: String {
         get {
-            return "https://dashboard-sample.herokuapp.com/api/contacts"
+            return "https://dashboard-sample.herokuapp.com/api/contacts?show_all=true"
         }
     }
     
