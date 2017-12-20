@@ -15,16 +15,12 @@ protocol ContactListViewDelegate {
     func didFailedUpdated(_ message: String)
     func didFinishUpdated()
     func filterSearchDidChanged()
-    func fetchingData()
-    func fetchingDataDidFinished()
 }
 
 class ContactListViewModel: NSObject {
     var delegate: ContactListViewDelegate?
     var items = [Contact]()
     var filteredData = [Contact]()
-    var pageNumber: Int = 1
-    var isLastPage: Bool = false
     var isBusy: Bool = false
     
     func loadData() {
@@ -63,36 +59,6 @@ class ContactListViewModel: NSObject {
             self.filteredData.append(contentsOf: contacts)
             self.delegate?.didFinishUpdated()
         }
-    }
-    
-    func fetchData() {
-        guard !self.isLastPage else { return }
-        
-        print("fetch data is on page : \(self.pageNumber)")
-        self.isBusy = true
-        self.delegate?.fetchingData()
-        Api.loadContacts(Helper.urlContacts(of: pageNumber), headers: Helper.headers, completion: { response in
-            switch(response){
-            case .failed(value: _):
-                self.isBusy = false
-                self.delegate?.fetchingDataDidFinished()
-                break
-                
-            case .succeed(value: let data):
-                if let data = data as? [Contact] {
-                    if data.count == 0 { self.isLastPage = true }
-                    self.isBusy = false
-                    self.items.append(contentsOf: data)
-                    self.filteredData.append(contentsOf: data)
-                    self.delegate?.fetchingDataDidFinished()
-                }
-                break
-                
-            default:
-                self.isBusy = false
-                break
-            }
-        })
     }
     
     func showDialog(_ contact: Contact) -> Void {
@@ -177,19 +143,6 @@ extension ContactListViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.showDialog(self.filteredData[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard !self.isBusy && !self.isLastPage else { return }
-        
-        // calculates where the user is in the y-axis
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.size.height {
-            self.pageNumber += 1
-            self.fetchData()
-        }
     }
 }
 

@@ -79,6 +79,19 @@ extension BaseApplication: QiscusConfigDelegate {
         print("Failed connect. Error: \(withMessage)")
         self.delegate?.needLoggedIn(withMessage)
     }
+    
+    func qiscus(didRegisterPushNotification success: Bool, deviceToken: String, error: String?) {
+        guard let error = error else { return }
+        print("AppDelegate callback didRegisterPushNotification error: \(error)")
+    }
+    
+    func qiscus(didUnregisterPushNotification success: Bool, error: String?) {
+        guard let error = error else { return }
+        print("AppDelegate callback didUnregisterPushNotification error: \(error)")
+    }
+    func qiscus(didTapLocalNotification comment: QComment, userInfo: [AnyHashable : Any]?) {
+        print("AppDelegate callback didTapLocalNotification comment: \(comment.roomName) - \(comment.senderEmail)")
+    }
 }
 
 extension BaseApplication: QiscusRoomDelegate {

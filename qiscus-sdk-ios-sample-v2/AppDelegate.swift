@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Qiscus
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -108,6 +109,9 @@ extension AppDelegate: BaseAppDelegate {
     func alreadyLoggedIn() {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
             self.setupTabBar()
+            
+            // registering push notification after success connect qiscus sdk
+            Qiscus.registerNotification()
         })
     }
     
@@ -126,5 +130,26 @@ extension AppDelegate: BaseAppDelegate {
         self.window!.rootViewController     = root
         self.window!.backgroundColor        = UIColor.white
         self.window!.makeKeyAndVisible()
+    }
+}
+
+
+// MARK: - Push Notification Configuration
+extension AppDelegate {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print("AppDelegate. didRegisterForRemoteNotificationsWithDeviceToken: \(deviceToken)")
+        Qiscus.didRegisterUserNotification(withToken: deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        print("AppDelegate. didReceive: \(notification)")
+        Qiscus.didReceiveNotification(notification: notification)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print("AppDelegate. didReceiveRemoteNotification: \(userInfo)")
+        // NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_RECEIVE_NOTIFICATION"),
+        //                                 object: userInfo)
+        Qiscus.didReceive(RemoteNotification: userInfo)
     }
 }
