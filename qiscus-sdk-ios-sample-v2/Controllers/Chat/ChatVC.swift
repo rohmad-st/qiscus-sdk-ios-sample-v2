@@ -1,5 +1,5 @@
 //
-//  c.swift
+//  ChatVC.swift
 //  qiscus-sdk-ios-sample-v2
 //
 //  Created by Rohmad Sasmito on 11/7/17.
@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Qiscus
 
 class ChatVC: UIViewController, UILoadingView {
     
@@ -23,23 +24,16 @@ class ChatVC: UIViewController, UILoadingView {
         self.viewModel.delegate = self
         self.viewModel.loadData()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
-                                               name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
-                                               object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
-                                               name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"),
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(roomListChange(_:)), name: QiscusNotification.ROOM_ORDER_MAY_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(roomListChange(_:)), name: QiscusNotification.ROOM_DELETED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(roomListChange(_:)), name: QiscusNotification.GOT_NEW_ROOM, object: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.viewModel.loadData()
-    }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func gotNewComment(_ sender: Notification) {
+    @objc func roomListChange(_ sender: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
             self.viewModel.loadData()
         }

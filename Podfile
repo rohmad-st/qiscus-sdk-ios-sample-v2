@@ -9,8 +9,8 @@ target 'qiscus-sdk-ios-sample-v2' do
   use_frameworks!
 
   # Pods for qiscus-sdk-ios-sample-v2
-  pod 'Qiscus'
-  # pod 'Qiscus', :git => 'https://github.com/qiscus/qiscus-sdk-ios.git', :branch => 'develop'
+  # pod 'Qiscus'
+  pod 'Qiscus', :git => 'https://github.com/qiscus/qiscus-sdk-ios.git', :branch => 'refactorView'
   pod 'PKHUD', '~> 4.0'
   pod 'BadgeSwift', '~> 4.0'
   pod 'IQKeyboardManagerSwift'

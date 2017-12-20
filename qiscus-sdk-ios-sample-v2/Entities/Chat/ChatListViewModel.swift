@@ -18,23 +18,16 @@ protocol ChatListViewDelegate {
 
 class ChatListViewModel: NSObject {
     var delegate: ChatListViewDelegate?
-    var items = [Chat]()
+    var items = [QRoom]()
     
     func loadData() {
         self.delegate?.showLoading("Please wait...")
-        let rooms = QRoom.all()
-        if rooms.isEmpty {
+        self.items = QRoom.all()
+        if self.items.isEmpty {
             QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
                 DispatchQueue.main.async {
-                    let dataRooms = QRoom.all()
-                    guard let chat = ChatList(data: dataRooms) else { return }
-                    self.items.removeAll()
-                    
-                    let chats = chat.chats
-                    if !chats.isEmpty {
-                        self.items.append(contentsOf: chats)
-                    }
-                    
+                    self.items = QRoom.all()
+                    print(self.items.count)
                     self.delegate?.didFinishUpdated()
                 }
                 
@@ -44,14 +37,6 @@ class ChatListViewModel: NSObject {
             })
             
         } else {
-            guard let chat = ChatList(data: rooms) else { return }
-            self.items.removeAll()
-            
-            let chats = chat.chats
-            if !chats.isEmpty {
-                self.items.append(contentsOf: chats)
-            }
-            
             self.delegate?.didFinishUpdated()
         }
     }
@@ -65,18 +50,19 @@ class ChatListViewModel: NSObject {
 
 extension ChatListViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chat            = self.items[indexPath.row]
-        guard let roomId    = chat.roomId else { return }
-        guard let isGroup   = chat.isGroup else { return }
+        let chat    = self.items[indexPath.row]
+        let roomId  = chat.id
+        var contact: Contact?
         
-        // get email of target user from participants
-        let myEmail = Preference.instance.getEmail()
-        guard let filterParticipant = chat.participants.filter({ $0.email != myEmail }).first else {
-            chatWithRoomId(roomId, isGroup: isGroup)
-            return
+        if chat.type == .single {
+            if let participant = chat.participants.filter("email != '\(Preference.instance.getEmail())'").first{
+                if let user = participant.user{
+                    contact = Contact(user: user)
+                }
+            }
         }
         
-        chatWithRoomId(roomId, isGroup: isGroup, contact: filterParticipant)
+        chatWithRoomId(roomId, contact: contact)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -113,8 +99,8 @@ extension ChatListViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ChatCell.identifier, for: indexPath) as? ChatCell {
             let chat = self.items[indexPath.row]
-            cell.item = chat
-        
+            cell.room = chat
+            
             tableView.tableFooterView = UIView()
             
             return cell
@@ -123,3 +109,4 @@ extension ChatListViewModel: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
