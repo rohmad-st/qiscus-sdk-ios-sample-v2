@@ -31,6 +31,10 @@ class ChatVC: UIViewController, UILoadingView {
                                                object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewModel.loadData()
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
