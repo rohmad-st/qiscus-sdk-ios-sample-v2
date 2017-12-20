@@ -73,7 +73,7 @@ extension ChatListViewModel: UITableViewDelegate {
             }
         }
         
-        chatWithRoomId(roomId, contact: contact)
+        ChatManager.chatWithRoomId(roomId, contact: contact)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

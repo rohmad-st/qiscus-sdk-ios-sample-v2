@@ -77,7 +77,7 @@ class ContactListViewModel: NSObject {
         let chatButton = UIAlertAction(title: "Send Message",
                                        style: .default,
                                        handler: { (action) -> Void in
-                                        chatWithUser(contact)
+                                        ChatManager.chatWithUser(contact)
         })
         
         let cancelButton = UIAlertAction(title: "Cancel",
@@ -107,7 +107,7 @@ class ContactListViewModel: NSObject {
             guard let textField = alertController.textFields![0] as UITextField! else { return }
             if let field = textField.text {
                 if !(field.isEmpty) {
-                    chatWithUniqueId(field)
+                    ChatManager.chatWithUniqueId(field)
                 }
             }
         })

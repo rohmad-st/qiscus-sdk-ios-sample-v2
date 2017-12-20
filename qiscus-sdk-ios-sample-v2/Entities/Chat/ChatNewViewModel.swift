@@ -80,7 +80,7 @@ class ChatNewViewModel: NSObject {
             guard let textField = alertController.textFields![0] as UITextField! else { return }
             if let field = textField.text {
                 if !(field.isEmpty) {
-                    chatWithUniqueId(field)
+                    ChatManager.chatWithUniqueId(field)
                 }
             }
         })
@@ -115,7 +115,7 @@ extension ChatNewViewModel: UITableViewDelegate {
                 let contact = item.contacts[indexPath.row]
                 guard let email = contact.email else { return }
                 print("Creating 1-to-1 chat with: \(email)")
-                chatWithUser(contact)
+                ChatManager.chatWithUser(contact)
             }
         }
         
