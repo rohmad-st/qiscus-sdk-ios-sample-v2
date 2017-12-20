@@ -18,7 +18,11 @@ protocol ChatListViewDelegate {
 
 class ChatListViewModel: NSObject {
     var delegate: ChatListViewDelegate?
-    var items = [QRoom]()
+    var items = [QRoom]() {
+        didSet {
+            self.delegate?.didFinishUpdated()
+        }
+    }
     
     func loadData() {
         self.delegate?.showLoading("Please wait...")
@@ -27,17 +31,12 @@ class ChatListViewModel: NSObject {
             QChatService.roomList(withLimit: 100, page: 1, onSuccess: { (allRooms, totalRoom, currentPage, limit) in
                 DispatchQueue.main.async {
                     self.items = QRoom.all()
-                    print(self.items.count)
-                    self.delegate?.didFinishUpdated()
                 }
                 
             }, onFailed: { (error) in
                 print("Failed load list rooms \(error)")
                 self.delegate?.didFailedUpdated(error)
             })
-            
-        } else {
-            self.delegate?.didFinishUpdated()
         }
     }
     
@@ -45,6 +44,17 @@ class ChatListViewModel: NSObject {
         let targetVC = NewChatVC()
         targetVC.hidesBottomBarWhenPushed = true
         openViewController(targetVC)
+    }
+    
+    func backgroundView() -> UIView {
+        return UIView.backgroundView(UIImage(named: "ic_empty_room")!,
+                                     title: "You don’t have any room",
+                                     description: "Start 1 on 1 chat with stranger or group chat with your friend.",
+                                     titleButton: "New Chat",
+                                     iconButton: UIImage(named: "ic_new_chat")!,
+                                     target: self,
+                                     action: #selector(newChat(_:)),
+                                     btnWidth: 172)
     }
 }
 
@@ -55,8 +65,9 @@ extension ChatListViewModel: UITableViewDelegate {
         var contact: Contact?
         
         if chat.type == .single {
-            if let participant = chat.participants.filter("email != '\(Preference.instance.getEmail())'").first{
-                if let user = participant.user{
+            let email = Preference.instance.getEmail()
+            if let participant = chat.participants.filter("email != '\(email)'").first {
+                if let user = participant.user {
                     contact = Contact(user: user)
                 }
             }
@@ -72,22 +83,14 @@ extension ChatListViewModel: UITableViewDataSource {
         if self.items.count > 0 {
             tableView.backgroundView?.isHidden  = true
             tableView.separatorStyle            = .singleLine
-            
+
             return 1
-            
+
         } else {
-            let bgView = UIView.backgroundView(UIImage(named: "ic_empty_room")!,
-                                               title: "You don’t have any room",
-                                               description: "Start 1 on 1 chat with stranger or group chat with your friend.",
-                                               titleButton: "New Chat",
-                                               iconButton: UIImage(named: "ic_new_chat")!,
-                                               target: self,
-                                               action: #selector(newChat(_:)),
-                                               btnWidth: 172)
-            tableView.backgroundView = bgView
+            tableView.backgroundView            = self.backgroundView()
             tableView.separatorStyle            = .none
             tableView.backgroundView?.isHidden  = false
-            
+
             return 0
         }
     }
