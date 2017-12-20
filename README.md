@@ -70,9 +70,9 @@ class Helper: NSObject {
         }
     }
 
-    static var URL_CONTACTS: String {
+    static var BASE_URL: String {
         get {
-            return "https://dashboard-sample.herokuapp.com/api/contacts"
+            return "https://dashboard-sample.herokuapp.com" // CHANGE THIS WITH YOUR OWN URL
         }
     }
     ...

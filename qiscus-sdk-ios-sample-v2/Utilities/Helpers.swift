@@ -17,7 +17,7 @@ class Helper: NSObject {
     
     static var BASE_URL: String {
         get {
-            return "https://dashboard-sample.herokuapp.com"
+            return "https://dashboard-sample.herokuapp.com" // CHANGE THIS WITH YOUR OWN URL
         }
     }
     
