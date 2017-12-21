@@ -14,7 +14,7 @@ public class ChatManager: NSObject {
     
     override private init() {}
     
-    public class func chatWithRoomId(_ roomId: String, isGroup: Bool? = nil, contact: Contact? = nil) -> Void {
+    public class func chatWithRoomId(_ roomId: String, contact: Contact? = nil) -> Void {
         let chatView = Qiscus.chatView(withRoomId: roomId)
         chatView.delegate = ChatManager.shared
         chatView.data = contact
@@ -99,7 +99,6 @@ extension ChatManager: QiscusChatVCDelegate {
                 let targetVC                        = DetailContactVC()
                 targetVC.enableChatButton           = false
                 targetVC.contact                    = contact
-                
                 targetVC.hidesBottomBarWhenPushed   = true
                 viewController.navigationController?.pushViewController(targetVC, animated: true)
             }
