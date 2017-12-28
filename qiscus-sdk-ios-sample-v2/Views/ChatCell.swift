@@ -78,22 +78,6 @@ class ChatCell: QRoomListCell {
     override func roomDataChange() {}
     
     // MARK: - Custom methods from ChatCell class
-    private func getLastMessage(of message: QComment?) -> String {
-        guard let message = message else { return "" }
-        
-        switch message.type {
-        case .text:
-            return message.text
-        default:
-            return "Sending attachment"
-        }
-    }
-    
-    private func getTimestamp(of message: QComment?) -> String {
-        guard let message = message else { return "" }
-        return message.date.timestampFormat(of: message.time)
-    }
-    
     private func setName() -> Void {
         guard let r = room else { return }
         chatNameLabel.text = r.name
@@ -102,8 +86,10 @@ class ChatCell: QRoomListCell {
     private func setMessageTime() -> Void {
         guard let message = room?.lastComment else { return }
         
-        lastMessageLabel.text   = self.getLastMessage(of: message)
-        timestampLabel.text     = self.getTimestamp(of: message)
+        let messageText: String     = (message.type == .text) ? message.text : "Sending attachment"
+        let timestampText: String   = message.date.timestampFormat(of: message.time)
+        lastMessageLabel.text       = messageText
+        timestampLabel.text         = timestampText
     }
     
     private func setUnreadCount() -> Void {

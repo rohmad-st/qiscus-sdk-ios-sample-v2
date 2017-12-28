@@ -34,7 +34,6 @@ public class ChatManager: NSObject {
         chatView.delegate = ChatManager.shared
         chatView.data = contact
         
-        
         chatView.hidesBottomBarWhenPushed = true
         chatView.setBackTitle()
         openViewController(chatView)
@@ -86,23 +85,24 @@ extension ChatManager: QiscusChatVCDelegate {
     }
     
     public func chatVC(titleAction viewController:QiscusChatVC, room:QRoom?, data:Any?){
-        if let r = room {
-            if r.type == .group {
-                let targetVC                        = DetailGroupVC()
-                targetVC.id                         = r.id
-                targetVC.hidesBottomBarWhenPushed   = true
-                viewController.navigationController?.pushViewController(targetVC, animated: true)
-                
-            } else {
-                guard let contact = data as? Contact else { return }
-                
-                let targetVC                        = DetailContactVC()
-                targetVC.enableChatButton           = false
-                targetVC.contact                    = contact
-                targetVC.hidesBottomBarWhenPushed   = true
-                viewController.navigationController?.pushViewController(targetVC, animated: true)
-            }
+        guard let r = room else { return }
+        
+        if r.type == .group {
+            let targetVC                        = DetailGroupVC()
+            targetVC.id                         = r.id
+            targetVC.hidesBottomBarWhenPushed   = true
+            viewController.navigationController?.pushViewController(targetVC, animated: true)
+            
+        } else {
+            guard let contact = data as? Contact else { return }
+            
+            let targetVC                        = DetailContactVC()
+            targetVC.enableChatButton           = false
+            targetVC.contact                    = contact
+            targetVC.hidesBottomBarWhenPushed   = true
+            viewController.navigationController?.pushViewController(targetVC, animated: true)
         }
     }
     
 }
+
