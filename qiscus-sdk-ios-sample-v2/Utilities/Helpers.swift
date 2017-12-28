@@ -11,13 +11,13 @@ import Alamofire
 class Helper: NSObject {
     static var APP_ID: String {
         get {
-            return "qiscuscs-5xm3wgs5fc1p"
+            return "sampleapp-65ghcsaysse"
         }
     }
     
     static var BASE_URL: String {
         get {
-            return "https://qiscuscs-admin.herokuapp.com" // CHANGE THIS WITH YOUR OWN URL
+            return "https://dashboard-sample.herokuapp.com" // CHANGE THIS WITH YOUR OWN URL
         }
     }
     
