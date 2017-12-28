@@ -102,10 +102,10 @@ extension LoginVC {
         guard let username = self.usernameField.text else { return }
         guard let password = self.passwordField.text else { return }
         
-        if !(email.isValidEmail) {
-            self.showError(message: "Please input valid email!")
-            return
-        }
+//        if !(email.isValidEmail) {
+//            self.showError(message: "Please input valid email!")
+//            return
+//        }
         
         self.showWaiting(message: "Logged in...")
         
