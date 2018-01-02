@@ -84,12 +84,18 @@ class ChatCell: QRoomListCell {
     }
     
     private func setMessageTime() -> Void {
-        guard let message = room?.lastComment else { return }
+        guard let r = room else { return }
         
-        let messageText: String     = (message.type == .text) ? message.text : "Sending attachment"
-        let timestampText: String   = message.date.timestampFormat(of: message.time)
-        lastMessageLabel.text       = messageText
-        timestampLabel.text         = timestampText
+        if let message = r.lastComment {
+            let messageText: String     = (message.type == .text) ? message.text : "Sending attachment"
+            let timestampText: String   = message.date.timestampFormat(of: message.time)
+            lastMessageLabel.text       = messageText
+            timestampLabel.text         = timestampText
+            
+        } else {
+            lastMessageLabel.text   = ""
+            timestampLabel.text     = "-"
+        }
     }
     
     private func setUnreadCount() -> Void {
