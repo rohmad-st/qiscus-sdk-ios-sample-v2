@@ -32,15 +32,15 @@ class GroupDetailViewModel: NSObject {
     private func setup() {
         guard let id = self.id else { return }
         guard let room = QRoom.room(withId: id) else { return }
-        let participant = Chat(data: room)
-        guard let participants = participant?.participants else { return }
+        let participants = Array(room.participants).map { Contact(user: $0.user!) }
+        guard let contacts = participants as? [Contact] else { return }
         
         // info group
         let infoGroupItem = GroupDetailViewModelInfoItem(name: room.name, avatarURL: room.avatarURL)
         items.append(infoGroupItem)
         
         // participants
-        let participantItem = GroupDetailViewModelParticipantsItem(participants: participants)
+        let participantItem = GroupDetailViewModelParticipantsItem(participants: contacts)
         items.append(participantItem)
     }
 }

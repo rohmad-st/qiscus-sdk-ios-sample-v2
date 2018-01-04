@@ -84,7 +84,6 @@
 		CCDD6F5C1FB2BC9200D24921 /* NewGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F5A1FB2BC9200D24921 /* NewGroupVC.swift */; };
 		CCDD6F5D1FB2BC9200D24921 /* NewGroupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCDD6F5B1FB2BC9200D24921 /* NewGroupVC.xib */; };
 		CCDD6F631FB2DA9700D24921 /* UILoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */; };
-		CCDD6F981FB2ED4900D24921 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCDD6F971FB2ED4900D24921 /* ChatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,7 +192,6 @@
 		CCDD6F5A1FB2BC9200D24921 /* NewGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupVC.swift; sourceTree = "<group>"; };
 		CCDD6F5B1FB2BC9200D24921 /* NewGroupVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewGroupVC.xib; sourceTree = "<group>"; };
 		CCDD6F621FB2DA9700D24921 /* UILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadingView.swift; sourceTree = "<group>"; };
-		CCDD6F971FB2ED4900D24921 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		EEAD325F62959857D2D3ED19 /* Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EFF151F5ED4B3A7AF165DDCF /* Pods-qiscus-sdk-ios-sample-v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -495,7 +493,6 @@
 		CCDD6F991FB2EF5400D24921 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				CCDD6F971FB2ED4900D24921 /* ChatModel.swift */,
 				CC0973C71FB5795C007F31C1 /* ChatNewViewModel.swift */,
 				CCD689C81FB725B500235674 /* ChatListViewModel.swift */,
 			);
@@ -926,7 +923,6 @@
 				CC2356221FB85EB30007EA37 /* GroupNewViewModel.swift in Sources */,
 				CCD689E01FB74AD300235674 /* ContactDetailViewModel.swift in Sources */,
 				CC8005781FBF30D00009AE35 /* GroupInfoCell.swift in Sources */,
-				CCDD6F981FB2ED4900D24921 /* ChatModel.swift in Sources */,
 				CC2356171FB76F720007EA37 /* BaseApplication.swift in Sources */,
 				CC8786EB1FC034D200443E57 /* GroupDetailViewModel.swift in Sources */,
 			);
