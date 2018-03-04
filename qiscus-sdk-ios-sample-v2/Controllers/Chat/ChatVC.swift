@@ -1,5 +1,5 @@
 //
-//  c.swift
+//  ChatVC.swift
 //  qiscus-sdk-ios-sample-v2
 //
 //  Created by Rohmad Sasmito on 11/7/17.
@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Qiscus
 
-class ChatVC: UIViewController {
+class ChatVC: UIViewController, UILoadingView {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,20 +24,19 @@ class ChatVC: UIViewController {
         self.viewModel.delegate = self
         self.viewModel.loadData()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
-                                               name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
-                                               object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(gotNewComment(_:)),
-                                               name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"),
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(roomListChange(_:)), name: QiscusNotification.ROOM_ORDER_MAY_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(roomListChange(_:)), name: QiscusNotification.ROOM_DELETED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(roomListChange(_:)), name: QiscusNotification.GOT_NEW_ROOM, object: nil)
     }
-    
+
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func gotNewComment(_ sender: Notification) {
-        self.viewModel.loadData()
+    @objc func roomListChange(_ sender: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.viewModel.loadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +75,22 @@ extension ChatVC {
 }
 
 extension ChatVC: ChatListViewDelegate {
+    func showLoading(_ message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.showLoading(message)
+        }
+    }
+    
+    func didFailedUpdated(_ message: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.showError(message: message)
+        }
+    }
+    
     func didFinishUpdated() {
-        self.tableView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.tableView.reloadData()
+            self.dismissLoading()
+        }
     }
 }

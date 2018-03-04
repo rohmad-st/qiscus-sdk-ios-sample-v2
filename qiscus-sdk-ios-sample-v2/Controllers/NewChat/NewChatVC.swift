@@ -51,9 +51,17 @@ extension NewChatVC {
 }
 
 extension NewChatVC: ChatNewViewDelegate {
-    func needLoadData() {
+    func showLoading(_ message: String) {
         self.showNetworkActivityIndicator()
-        self.showWaiting(message: "Plase wait...")
+        self.showWaiting(message: message)
+    }
+    
+    func didFailedUpdated(_ message: String) {
+        self.dismissNetworkActivityIndicator()
+        self.showError(message: message)
+    }
+    
+    func needLoadData() {
         self.viewModel.loadData()
     }
     

@@ -19,8 +19,6 @@ class BaseApplication {
     
     init(delegate: BaseAppDelegate) {
         self.delegate = delegate
-        
-        QiscusCommentClient.sharedInstance.roomDelegate = self
     }
     
     func validateUser() {
@@ -79,30 +77,18 @@ extension BaseApplication: QiscusConfigDelegate {
         print("Failed connect. Error: \(withMessage)")
         self.delegate?.needLoggedIn(withMessage)
     }
-}
-
-extension BaseApplication: QiscusRoomDelegate {
-    func gotNewComment(_ comments: QComment) {
-        print("Got new comment: \(comments.text): \(comments)")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_NEW_COMMENT"),
-                                        object: comments)
+    
+    func qiscus(didRegisterPushNotification success: Bool, deviceToken: String, error: String?) {
+        guard let error = error else { return }
+        print("AppDelegate callback didRegisterPushNotification error: \(error)")
     }
     
-    func didFinishLoadRoom(onRoom room: QRoom) {
-        print("Already finish load room \(room.id): \(room)")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CHAT_FINISH_LOAD_ROOM"),
-                                        object: room)
+    func qiscus(didUnregisterPushNotification success: Bool, error: String?) {
+        guard let error = error else { return }
+        print("AppDelegate callback didUnregisterPushNotification error: \(error)")
     }
     
-    func didFailLoadRoom(withError error: String) {
-        print("Failed load room. Error: \(error)")
-    }
-    
-    func didFinishUpdateRoom(onRoom room: QRoom) {
-        print("Finish update room: \(room.name)")
-    }
-    
-    func didFailUpdateRoom(withError error: String) {
-        print("Failed update room. Error: \(error)")
+    func qiscus(didTapLocalNotification comment: QComment, userInfo: [AnyHashable : Any]?) {
+        print("AppDelegate callback didTapLocalNotification comment: \(comment.roomName) - \(comment.senderEmail)")
     }
 }

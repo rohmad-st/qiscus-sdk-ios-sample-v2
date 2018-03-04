@@ -14,39 +14,51 @@ protocol ContactListViewDelegate {
     func showLoading(_ message: String)
     func didFailedUpdated(_ message: String)
     func didFinishUpdated()
+    func filterSearchDidChanged()
 }
 
 class ContactListViewModel: NSObject {
     var delegate: ContactListViewDelegate?
     var items = [Contact]()
+    var filteredData = [Contact]()
+    var isBusy: Bool = false
     
     func loadData() {
         self.delegate?.showLoading("Please wait...")
+        self.isBusy = true
         self.items.removeAll()
+        self.filteredData.removeAll()
         
         let contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
             Api.loadContacts(Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
                 switch(response){
                 case .failed(value: let message):
+                    self.isBusy = false
                     self.delegate?.didFailedUpdated(message)
                     break
                     
                 case .succeed(value: let data):
                     if let data = data as? [Contact] {
                         self.items.append(contentsOf: data)
+                        self.filteredData.append(contentsOf: data)
+                        self.isBusy = false
                         self.delegate?.didFinishUpdated()
                     }
                     break
                     
                 default:
+                    self.isBusy = false
                     break
                 }
             })
+            
+        } else {
+            self.isBusy = false
+            self.items.append(contentsOf: contacts)
+            self.filteredData.append(contentsOf: contacts)
+            self.delegate?.didFinishUpdated()
         }
-        
-        self.items.append(contentsOf: contacts)
-        self.delegate?.didFinishUpdated()
     }
     
     func showDialog(_ contact: Contact) -> Void {
@@ -65,7 +77,7 @@ class ContactListViewModel: NSObject {
         let chatButton = UIAlertAction(title: "Send Message",
                                        style: .default,
                                        handler: { (action) -> Void in
-                                        chatWithUser(contact)
+                                        ChatManager.chatWithUser(contact)
         })
         
         let cancelButton = UIAlertAction(title: "Cancel",
@@ -95,7 +107,7 @@ class ContactListViewModel: NSObject {
             guard let textField = alertController.textFields![0] as UITextField! else { return }
             if let field = textField.text {
                 if !(field.isEmpty) {
-                    chatWithUniqueId(field)
+                    ChatManager.chatWithUniqueId(field)
                 }
             }
         })
@@ -112,11 +124,24 @@ class ContactListViewModel: NSObject {
         
         presentViewController(alertController)
     }
+    
+    func backgroundView() -> UIView {
+        let bgView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
+                                           title: "Contact is Empty",
+                                           description: "If you chat with stranger, it’ll automaticaly added to here",
+                                           titleButton: "Chat With Stranger",
+                                           iconButton: UIImage(named: "ic_stranger")!,
+                                           target: self,
+                                           action: #selector(chatWithStranger(_:)),
+                                           btnWidth: 244)
+        
+        return bgView
+    }
 }
 
 extension ContactListViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.showDialog(self.items[indexPath.row])
+        self.showDialog(self.filteredData[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -130,29 +155,21 @@ extension ContactListViewModel: UITableViewDataSource {
             return 1
             
         } else {
-            let bgView = UIView.backgroundView(UIImage(named: "ic_empty_contact")!,
-                                               title: "Contact is Empty",
-                                               description: "If you chat with stranger, it’ll automaticaly added to here",
-                                               titleButton: "Chat With Stranger",
-                                               iconButton: UIImage(named: "ic_stranger")!,
-                                               target: self,
-                                               action: #selector(chatWithStranger(_:)),
-                                               btnWidth: 244)
-            tableView.backgroundView = bgView
+            tableView.backgroundView            = self.backgroundView()
             tableView.separatorStyle            = .none
-            tableView.backgroundView?.isHidden  = false
+            tableView.backgroundView?.isHidden  = self.isBusy
             
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return filteredData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: ContactCell.identifier, for: indexPath) as? ContactCell {
-            cell.item = self.items[indexPath.row]
+            cell.item = self.filteredData[indexPath.row]
             
             tableView.tableFooterView = UIView()
             
@@ -162,3 +179,16 @@ extension ContactListViewModel: UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
+extension ContactListViewModel: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            filteredData = searchText.isEmpty ? items : items.filter({ (contact: Contact) -> Bool in
+                return contact.name!.lowercased().contains(searchText.lowercased())
+            })
+            
+            delegate?.filterSearchDidChanged()
+        }
+    }
+}
+

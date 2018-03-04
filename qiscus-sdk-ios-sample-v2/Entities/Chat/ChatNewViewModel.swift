@@ -17,6 +17,8 @@ enum ChatNewViewModelItemType {
 }
 
 protocol ChatNewViewDelegate {
+    func showLoading(_ message: String)
+    func didFailedUpdated(_ message: String)
     func didFinishUpdated()
     func needLoadData()
 }
@@ -36,9 +38,11 @@ class ChatNewViewModel: NSObject {
         
         let contacts = ContactLocal.instance.contacts
         if contacts.isEmpty {
+            self.delegate?.showLoading("Please wait...")
             Api.loadContacts(Helper.URL_CONTACTS, headers: Helper.headers, completion: { response in
                 switch(response){
-                case .failed(_):
+                case .failed(value: let message):
+                    self.delegate?.didFailedUpdated(message)
                     break
                 case .succeed(value: _):
                     self.delegate?.needLoadData()
@@ -47,20 +51,20 @@ class ChatNewViewModel: NSObject {
                     break
                 }
             })
+            
+        } else {
+            let createGroupItem = ChatNewViewModelCreateGroupItem()
+            items.append(createGroupItem)
+            
+            // create stranger
+            let createStrangerItem = ChatNewViewModelCreateStrangerItem()
+            items.append(createStrangerItem)
+            
+            // list contacts
+            let contactItem = ChatNewViewModelContactsItem(contacts: contacts)
+            items.append(contactItem)
+            self.delegate?.didFinishUpdated()
         }
-        
-        let createGroupItem = ChatNewViewModelCreateGroupItem()
-        items.append(createGroupItem)
-        
-        // create stranger
-        let createStrangerItem = ChatNewViewModelCreateStrangerItem()
-        items.append(createStrangerItem)
-        
-        // list contacts
-        let contactItem = ChatNewViewModelContactsItem(contacts: contacts)
-        items.append(contactItem)
-        
-        self.delegate?.didFinishUpdated()
     }
     
     func chatWithStranger() {
@@ -76,7 +80,7 @@ class ChatNewViewModel: NSObject {
             guard let textField = alertController.textFields![0] as UITextField! else { return }
             if let field = textField.text {
                 if !(field.isEmpty) {
-                    chatWithUniqueId(field)
+                    ChatManager.chatWithUniqueId(field)
                 }
             }
         })
@@ -111,7 +115,7 @@ extension ChatNewViewModel: UITableViewDelegate {
                 let contact = item.contacts[indexPath.row]
                 guard let email = contact.email else { return }
                 print("Creating 1-to-1 chat with: \(email)")
-                chatWithUser(contact)
+                ChatManager.chatWithUser(contact)
             }
         }
         

@@ -8,9 +8,10 @@
 
 import UIKit
 import BadgeSwift
+import Qiscus
 
-class ChatCell: UITableViewCell {
-
+class ChatCell: QRoomListCell {
+    
     @IBOutlet weak var chatNameLabel: UILabel!
     @IBOutlet weak var lastMessageLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
@@ -18,27 +19,7 @@ class ChatCell: UITableViewCell {
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var arrowRightImageView: UIImageView!
     
-    var item: Chat? {
-        didSet {
-            guard let item = item else { return }
-            let imageDefault = (item.isGroup!) ? UIImage(named: "ic_default_group") : UIImage(named: "ic_default_avatar")
-            avatarImageView.loadAsync(item.avatarURL!,
-                                      placeholderImage: imageDefault,
-                                      header: Helper.headers)
-            chatNameLabel.text      = item.name
-            lastMessageLabel.text   = item.lastCommentText
-            
-            if let date = item.date {
-                timestampLabel.text = date.timestampFormat(of: item.time)
-            }
-            if let unreadCount = item.unreadCount {
-                badgeLabel.text     = String(unreadCount)
-                badgeLabel.isHidden = (unreadCount == 0) ? true : false
-            }
-        }
-    }
-    
-    static var nib:UINib {
+    static var nib: UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
     
@@ -68,4 +49,71 @@ class ChatCell: UITableViewCell {
         avatarImageView?.image = nil
     }
     
+    // MARK: - Methods is coming from QRoomListCell
+    override func setupUI() {
+        self.setAvatar()
+        self.setName()
+        self.setMessageTime()
+        self.setUnreadCount()
+    }
+    
+    override func roomNameChange() {
+        self.setName()
+    }
+    
+    override func roomAvatarChange() {
+        self.setAvatar()
+    }
+    
+    override func roomParticipantChange() {}
+    
+    override func roomLastCommentChange() {
+        self.setMessageTime()
+    }
+    
+    override func roomUnreadCountChange() {
+        self.setUnreadCount()
+    }
+    
+    override func roomDataChange() {}
+    
+    // MARK: - Custom methods from ChatCell class
+    private func setName() -> Void {
+        guard let r = room else { return }
+        chatNameLabel.text = r.name
+    }
+    
+    private func setMessageTime() -> Void {
+        guard let r = room else { return }
+        
+        if let message = r.lastComment {
+            let messageText: String     = (message.type == .text) ? message.text : "Sending attachment"
+            let timestampText: String   = message.date.timestampFormat(of: message.time)
+            lastMessageLabel.text       = messageText
+            timestampLabel.text         = timestampText
+            
+        } else {
+            lastMessageLabel.text   = ""
+            timestampLabel.text     = "-"
+        }
+    }
+    
+    private func setUnreadCount() -> Void {
+        guard let r = room else { return }
+        let count: Int = r.unreadCount
+        
+        badgeLabel.text     = String(count)
+        badgeLabel.isHidden = (count == 0)
+    }
+    
+    private func setAvatar() -> Void {
+        guard let r = room else { return }
+        let imageDefault = (r.type == .group) ? UIImage(named: "ic_default_group") : UIImage(named: "ic_default_avatar")
+        
+        avatarImageView.loadAsync(r.avatarURL,
+                                  placeholderImage: imageDefault,
+                                  header: Helper.headers)
+    }
+    
 }
+

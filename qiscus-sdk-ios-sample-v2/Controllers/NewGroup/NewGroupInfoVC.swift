@@ -77,7 +77,7 @@ extension NewGroupInfoVC {
         let emails = self.selectedContacts.flatMap({ $0.email })
         
         print("create group :\(title) with participants: \(emails) avatar: \(self.avatarURL)")
-        createGroupChat(emails, title: title, avatarURL: self.avatarURL)
+        ChatManager.createGroupChat(emails, title: title, avatarURL: self.avatarURL)
     }
     
     func isEnable() -> Bool {

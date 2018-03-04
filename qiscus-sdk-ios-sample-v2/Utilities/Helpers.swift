@@ -15,6 +15,12 @@ class Helper: NSObject {
         }
     }
     
+    static var BASE_URL: String {
+        get {
+            return "https://dashboard-sample.herokuapp.com" // CHANGE THIS WITH YOUR OWN URL
+        }
+    }
+    
     static var headers : HTTPHeaders {
         get {
             return [
@@ -26,12 +32,12 @@ class Helper: NSObject {
     
     static var URL_CONTACTS: String {
         get {
-            return "https://dashboard-sample.herokuapp.com/api/contacts"
+            return "\(BASE_URL)/api/contacts?show_all=true"
         }
     }
     
     static func urlContacts(of page: Int, limit: Int = 10) -> String {
-        return "https://dashboard-sample.herokuapp.com/api/contacts?page=\(page)&limit=\(limit)"
+        return "\(BASE_URL)/api/contacts?page=\(page)&limit=\(limit)"
     }
     
     static var URL_UPLOAD: String {

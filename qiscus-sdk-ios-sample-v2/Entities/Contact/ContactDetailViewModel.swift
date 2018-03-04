@@ -56,7 +56,7 @@ extension ContactDetailViewModel: UITableViewDelegate {
                 guard type == .chat else { return }
                 
                 if enable {
-                    chatWithUser(contact)
+                    ChatManager.chatWithUser(contact)
                 } else {
                     popViewController()
                 }
