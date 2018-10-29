@@ -20,8 +20,8 @@ class UIImagePickerView: NSObject {
     
     func openImagePicker(_ sourceType: UIImagePickerControllerSourceType) {
         if sourceType == .camera {
-            let cameraMediaType = AVMediaTypeVideo
-            let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(forMediaType: cameraMediaType)
+            let cameraMediaType = AVMediaType.video
+            let cameraAuthorizationStatus = AVCaptureDevice.authorizationStatus(for: cameraMediaType)
             
             switch cameraAuthorizationStatus {
                 
@@ -68,7 +68,7 @@ class UIImagePickerView: NSObject {
             // Indicates that the user has not yet made a choice regarding whether the client can access the hardware.
             case .notDetermined:
                 // Prompting user for the permission to use the camera.
-                AVCaptureDevice.requestAccess(forMediaType: cameraMediaType) { granted in
+                AVCaptureDevice.requestAccess(for: cameraMediaType) { granted in
                     if granted {
                         let imagePicker = UIImagePickerController()
                         imagePicker.delegate = self
@@ -151,7 +151,7 @@ class UIImagePickerView: NSObject {
 
 extension UIImagePickerView: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        picker.dismiss(animated: true, completion: { _ in
+        picker.dismiss(animated: true, completion: { () in
             self.delegate?.didFinishPickImage(of: image)
         })
     }

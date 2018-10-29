@@ -48,7 +48,7 @@ extension AppDelegate {
         navigationBar.barStyle = .blackOpaque
         navigationBar.barTintColor = barTintColor
         navigationBar.tintColor = tintColor
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: tintColor]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor]
         navigationBar.isTranslucent = false
     }
     
@@ -100,8 +100,8 @@ extension AppDelegate {
     }
     
     func enableIQKeyboard(_ enable: Bool) -> Void {
-        IQKeyboardManager.sharedManager().enable = enable
-        IQKeyboardManager.sharedManager().enableAutoToolbar = enable
+        IQKeyboardManager.shared.enable = enable
+        IQKeyboardManager.shared.enableAutoToolbar = enable
     }
 }
 

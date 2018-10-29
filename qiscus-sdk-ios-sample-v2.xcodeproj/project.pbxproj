@@ -540,7 +540,6 @@
 				CCABBC6B1FB187D90039B34E /* Frameworks */,
 				CCABBC6C1FB187D90039B34E /* Resources */,
 				C6740B6674C50B215798C214 /* [CP] Embed Pods Frameworks */,
-				6398504DCC8C6FE3B7DAC1D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -559,8 +558,6 @@
 				CCABBC7E1FB187D90039B34E /* Sources */,
 				CCABBC7F1FB187D90039B34E /* Frameworks */,
 				CCABBC801FB187D90039B34E /* Resources */,
-				E693A52D245987ECE9CBA529 /* [CP] Embed Pods Frameworks */,
-				BB57D356281C7A26F0C66C51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -580,8 +577,6 @@
 				CCABBC891FB187D90039B34E /* Sources */,
 				CCABBC8A1FB187D90039B34E /* Frameworks */,
 				CCABBC8B1FB187D90039B34E /* Resources */,
-				55CCDA52C7275F1345F38DF0 /* [CP] Embed Pods Frameworks */,
-				B13AA2BFB601885DCB3F52DD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -715,66 +710,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		55CCDA52C7275F1345F38DF0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6398504DCC8C6FE3B7DAC1D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B13AA2BFB601885DCB3F52DD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2UITests/Pods-qiscus-sdk-ios-sample-v2UITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BB57D356281C7A26F0C66C51 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C6740B6674C50B215798C214 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -815,21 +750,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2/Pods-qiscus-sdk-ios-sample-v2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E693A52D245987ECE9CBA529 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-qiscus-sdk-ios-sample-v2Tests/Pods-qiscus-sdk-ios-sample-v2Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F1AB0BCAA2E1A4F044CC2333 /* [CP] Check Pods Manifest.lock */ = {
@@ -1091,7 +1011,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1109,7 +1029,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiscus.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
